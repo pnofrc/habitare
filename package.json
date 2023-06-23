@@ -3,7 +3,9 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "build-posts": "cd nova-components/Posts && npm run dev",
+        "build-posts-prod": "cd nova-components/Posts && npm run prod"
     },
     "devDependencies": {
         "axios": "^1.1.2",

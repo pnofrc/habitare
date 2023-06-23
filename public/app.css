@@ -70,7 +70,14 @@ html, body, #map {
     width: 100vw;
 }
 
+/* CATEGORIE */
 
+#categories{
+    position: absolute;
+    transform:scale(1.2);
+    bottom: 2rem;
+    left: 2rem;
+z-index: 2;}
 
 /* MAP */
 
@@ -133,6 +140,7 @@ html, body, #map {
     z-index: 10;
     width: 30%;
     line-height:1.2;
+    overflow-y: scroll;
 }
 
 .bottom span{
@@ -173,8 +181,13 @@ html, body, #map {
 .bottom, .top{
     flex-direction: column;
 }
+
+.bottom{
+    margin-bottom: 10%;
+}
 .text h2{
     text-align: center;
+    margin-bottom: 5rem;
 }
 
 .leaflet-div-icon{
@@ -226,6 +239,23 @@ html, body, #map {
     background-color: transparent;
 }
 
+.titlePost{
+    width: max-content;
+}
+
+.links{
+    display: flex;
+    justify-content: space-between;
+    margin: 4rem 0;
+}
+.text{
+    font-size: 1.7rem;
+    }
+
+    .text * {
+        -webkit-text-stroke-color: rgb(119, 103, 103);
+        -webkit-text-stroke-width: .7px;
+    }
 
 @media (max-width: 450px) {
 
@@ -249,6 +279,25 @@ html, body, #map {
         left: 0;
         height: 95%;
         margin-top: 4%;
+
+        overflow-y: scroll;
+        width: 100%;
+        margin: 0;
+        padding: 2rem;
+        background: white;
+        height: 100%;
+    }
+
+    .closeSidebar{
+        position: fixed;
+        bottom: 2%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .closeSidebar button{
+        width: 100px;
+        font-size: 1.1rem;
     }
 
     .flex {
@@ -258,11 +307,9 @@ html, body, #map {
         bottom: 0;
         }
 
-    #map,#changeMap, #scaleKm,.showSidebar{
-        opacity: .2;
-    }
+    
     .text{
-        font-size: .8rem;
+    font-size: 1.2rem;
     }
 
     .bottom span{
@@ -272,4 +319,3 @@ html, body, #map {
     
   }
 
-  

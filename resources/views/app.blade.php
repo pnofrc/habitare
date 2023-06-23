@@ -7,6 +7,12 @@
         <title>Habitare</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+       <!-- PWA  -->
+        <meta name="theme-color" content="green"/>
+        <link rel="apple-touch-icon" href="{{ asset('/assets/habitare/H.png') }}">
+        <link rel="manifest" href="{{ asset('/manifest.json') }}">
+
         <link rel="stylesheet" href="/app.css">
 
         <link
@@ -27,15 +33,15 @@
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
-        
     </head>
     <body>
         <h1>HABITARE</h1>
 
 
-        <button id="changeMap">🌍</button>
+        {{-- <button id="changeMap">🌍</button> --}}
     <button class="showSidebar">info</button>
 
+{{-- 
     <div id="scaleKm">
       <div id="upper">
         <div class="scale"></div>        <div class="scale"></div>        <div class="scale"></div>        <div class="scale"></div>        <div class="scale"></div>
@@ -43,7 +49,19 @@
       <div id="downer" >
         <div class="scale" id="km"></div>        <div class="scale"></div>        <div class="scale"></div>        <div class="scale"></div>        <div class="scale"></div>
       </div>
+    </div> --}}
+
+    <div id="categories">
+        @if ($categories ?? '')
+            
+            @foreach ($categories as $category)
+                <input checked type="checkbox" id="{{str_replace(' ', '_',$category)}}">{{$category}}<br>
+            @endforeach
+
+        @endif
     </div>
+
+
 
     <div class="flex sidebar">
       <div class="top">
@@ -54,8 +72,29 @@
         <div class="text">
           <h2>Nuove Prospettive Cult(r)urali</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-            Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat </p>
+            Il festival Habitare è un festival nomade che si muove adattandosi e abitando ogni weekend un borgo differente.
+            Le attività sono state concentrate dedicando un weekend specifico ad ognuno dei tre comuni coinvolti nel festival, che diventeranno ogni volta epicentro delle attività. In ognuno dei comuni potrete trovare un punto di ritrovo e info, sempre attivo per accogliervi.
+            
+            
+            Ogni giorno, dalle 10:00 fino alle 00:00 Il festival si diffonde nei tre comuni proponendo durante questi weekend, laboratori, concerti, performance, talks e tavoli rotondi, in vari luoghi disseminati lungo strade, parchi e sentieri. Il festival intende inserirsi nella dinamica culturale, sociale e produttiva di ognuno di questi borghi. Ci immaginiamo infatti il borgo come festival stesso, in cui siete invitati a muovervi liberamente in quanto abitanti.
+
+        </p>
+
+        <div class="links">
+            <a href="">OPEN CALL</a>
+            <BR>
+            <a href="/info">TUTTE LE INFO!</a>
+        </div>
+
+            <p>
+                Per navigare nei luoghi ed eventi del festival e del territorio, ti invitiamo ad utilizzare la Piattaforma Habitare: una mappa interattiva e condivisa, ma anche strumento di orientamento che permetterà di conoscere e scoprire i luoghi, gli eventi, e tutte le possibilità che circondano il festival.
+
+                ISTRUZIONI:
+                <ul>
+                    <li></li>
+                </ul>
+            </p>
+
         </div>  
     </div>  
 
@@ -82,6 +121,176 @@
 
     <div id="map"></div>
     <script src="/app.js" async defer></script>
+
+    <script async defer type="text/javascript">
+
+    // Dichiarazioni globali
+
+    var markers
+
+
+
+    // Toggle mappa geo / vuota
+
+    var toggle = 0
+
+    function toggleMap(bool) {
+        let markers = document.querySelectorAll(".leaflet-marker-icon.leaflet-interactive")
+        let lines = document.querySelectorAll(".leaflet-pane > svg path.leaflet-interactive")
+        if (bool === 0){
+            tiles.addTo(map);
+            
+            markers.forEach(marker => {
+                marker.style.display = 'none'
+            });
+
+
+            toggle = 1
+        } else {
+            tiles.removeFrom(map)
+            markers.forEach(marker => {
+                marker.style.display = 'flex'
+            });
+
+            lines.forEach(line => {
+                line.style.display = 'none'
+            });
+            
+            // QUI
+            toggle = 0
+        }
+    }
+
+
+    // evento per cambiare la mappa
+
+    // document.getElementById("changeMap").addEventListener("click", () => {
+    //     toggleMap(toggle)
+    // })
+
+
+    // In base alla dimensione dello schermo, centra in modo differente la mappa
+
+    var x = window.matchMedia("(max-width: 450px)")
+        
+    if (x.matches) {
+        var map = L.map('map',{
+            minZoom: 11,
+            maxZoom: 16,
+        }).fitWorld();
+            map.panTo(new L.LatLng( 44.022944686536185 , 11.773438401287423))
+        
+    } else {
+
+        var map = L.map('map',{ 
+            minZoom: 12,
+            maxZoom: 16,
+        }).fitWorld();
+            map.panTo(new L.LatLng(  44.03009912078176 , 11.828155517578125))
+    }
+
+
+
+
+    // Popola la mappa con tiles + copyright open street map
+
+    let tiles= L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributor',    
+    }).addTo(map);
+
+
+
+    // Dichiara due markers differenti da utilizzare per popolare la mappa
+
+    var dot = L.icon({
+            iconUrl: 'https://images.vexels.com/media/users/3/139158/isolated/preview/c862a3c9ef219140fb365301f9ebbd50-black-dot-by-vexels.png',
+            iconSize:     [25], // size of the icon
+        });
+    var dotSmall = L.icon({
+            iconUrl: 'https://images.vexels.com/media/users/3/139158/isolated/preview/c862a3c9ef219140fb365301f9ebbd50-black-dot-by-vexels.png',
+            iconSize:     [15,15], // size of the icon
+        });
+
+
+
+    // Opzioni per i popup
+
+    var popupOptions =
+        {  closeButton: false,
+            autoClose: false,
+            'maxWidth': '500',
+            'className' : 'another-popup' // classname for another popup
+        }
+
+
+    // Se esistono post..
+
+    @if ($posts ?? '')
+
+        // posta tutti i post
+
+        @foreach ($posts as $key => $post)
+
+            // crea l'icona per il marker
+
+            var myIcon = L.divIcon({html: "<img class='holder' style='width: 25px' src='http://2.bp.blogspot.com/-6PyHhH9ZUZQ/UN6oNGxkoII/AAAAAAAAAYA/j7YnZurZFXs/s1600/dot_black.png'>"+"<span class='titlePost'>{{$post['titolo'] }}</span>"});
+            
+
+            // Crea il marker
+
+            marker = L.marker([{{ $post['lat'] }}, {{ $post['lng'] }}], {radius: 7, icon: myIcon, className: 'boia'}).addTo(map).bindPopup('{!! $post["testo"] !!}',popupOptions);
+
+
+            // aggiungi categorie come classe (per filtraggio)
+
+            @foreach ($post['categories'] as $key => $category)
+                marker._icon.classList.add("{{$category}}".replaceAll(" ", "_"));
+            @endforeach
+            
+         @endforeach
+    @endif
+
+
+
+    // addEventListener per ogni categoria per filtrare
+    function filtering(){
+
+        let selectedCategories = []
+        document.querySelectorAll("#categories input").forEach(element => {
+            if (element.checked){
+                selectedCategories.push(element.id)
+            }
+        });
+        console.log(selectedCategories)
+
+        document.querySelectorAll(".leaflet-marker-icon").forEach(post => {
+            post.style.display = 'none'
+        });
+        selectedCategories.forEach(category => {
+            document.querySelectorAll(`.${category}`).forEach(post =>{
+                post.style.display = 'flex'
+            })
+        });
+    }
+
+    document.querySelectorAll("#categories input").forEach(element => {
+            element.addEventListener("click", ()=>{
+                filtering()
+            })
+        });
+    
+
+    </script>
+
+    <!-- PWA -->
+    <script src="{{ asset('/sw.js') }}"></script>
+    {{-- <script>
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+    </script> --}}
 
     </body>
 </html>
