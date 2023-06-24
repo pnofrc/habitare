@@ -14,15 +14,15 @@ class PostsController extends Controller
       
         // Take the categories to display on the interface
         $categories = Category::all();
-        // dd($categories);
 
         $categories_clean = array();
   
         foreach ($categories as $category) {
-            array_push($categories_clean, $category->title);
+            array_push($categories_clean, $category->getAttributes());
         }
 
         $props['categories'] = $categories_clean;
+
 
         // define array to store post-categories
         $posts_ok = array();
@@ -38,7 +38,7 @@ class PostsController extends Controller
                 // Check trough all the posts
                 foreach ($posts as $p => $post) {
                     $posts_ok[$post->id] = $post->getAttributes();
-                    // print_r($post->categories()->orderBy('title')->get());
+
                     // Check for the categories
                     $posts_analysis = $post->categories()->orderBy('title')->get();
                    
@@ -47,11 +47,11 @@ class PostsController extends Controller
                         $posts_ok[$post->id]['categories'][] = $post_analysed->title;
                     }
                   
-                
-                
                 }
 
-             
+
+               
+
               
                 // ... send to view
                 $props['posts'] = $posts_ok;
@@ -72,4 +72,9 @@ class PostsController extends Controller
 
         return view('info', $props);
     }
+
+    // public function map(){
+        
+    //     return view('map');
+    // }
 }

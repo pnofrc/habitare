@@ -72,13 +72,19 @@ html, body, #map {
 
 /* CATEGORIE */
 
-#categories{
+#calendario{
     position: absolute;
     transform:scale(1.2);
     bottom: 2rem;
     left: 2rem;
 z-index: 2;}
 
+#categories{
+    position: absolute;
+    transform:scale(1.2);
+    top: 10rem;
+    left: 2rem;
+z-index: 2;}
 /* MAP */
 
 
@@ -91,18 +97,11 @@ z-index: 2;}
     filter: blur(4px); */
 }
 
-
-#scaleKm{
-    position: fixed;
-    z-index: 2;
-    bottom: 20px;
-    left: 10px;
-}
-
-#km{
-    color: white;
-    display: flex;
-    align-items: center;
+.leaflet-marker-icon.leaflet-interactive{
+    justify-content: center !important;
+    align-items: center !important;
+    height: auto !important;
+    background: transparent  !important;
 }
 
 #changeMap{
@@ -240,7 +239,8 @@ z-index: 2;}
 }
 
 .titlePost{
-    width: max-content;
+    width: min-content;
+    text-align: center;
 }
 
 .links{
@@ -252,10 +252,12 @@ z-index: 2;}
     font-size: 1.7rem;
     }
 
-    .text * {
-        -webkit-text-stroke-color: rgb(119, 103, 103);
-        -webkit-text-stroke-width: .7px;
+    #calendario{
+        position: absolute;
+        z-index: 2;
     }
+
+
 
 @media (max-width: 450px) {
 

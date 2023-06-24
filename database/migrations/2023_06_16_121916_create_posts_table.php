@@ -15,9 +15,10 @@ return new class extends Migration
                 $table->increments('id');
                 $table->integer('made_by');
                 $table->string('titolo');
-                $table->string('lat');
-                $table->string('lng');
+                $table->string('coordinate');
                 $table->text('testo')->nullable();
+                $table->string('calendario');
+                $table->string('quando');
                 $table->timestamps();
         });
     }

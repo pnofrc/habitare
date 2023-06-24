@@ -9,11 +9,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
        <!-- PWA  -->
-        <meta name="theme-color" content="green"/>
+        <meta name="theme-color" content="white"/>
         <link rel="apple-touch-icon" href="{{ asset('/assets/habitare/H.png') }}">
         <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
         <link rel="stylesheet" href="/app.css">
+
+        {{-- <script src="/leaflet/leaflet-data-markers.js"></script> --}}
 
         <link
         rel="stylesheet"
@@ -32,35 +34,43 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css" integrity="sha512-ENrTWqddXrLJsQS2A86QmvA17PkJ0GVm1bqj5aTgpeMAfDKN2+SIOLpKG8R/6KkimnhTb+VW5qqUHB/r1zaRgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-
+<script src="https://unpkg.com/leaflet.markercluster.layersupport@2.0.1/dist/leaflet.markercluster.layersupport.js"></script>
     </head>
     <body>
-        <h1>HABITARE</h1>
 
 
-        {{-- <button id="changeMap">🌍</button> --}}
+        <button id="changeMap">🌍</button>
     <button class="showSidebar">info</button>
 
-{{-- 
-    <div id="scaleKm">
-      <div id="upper">
-        <div class="scale"></div>        <div class="scale"></div>        <div class="scale"></div>        <div class="scale"></div>        <div class="scale"></div>
-      </div>
-      <div id="downer" >
-        <div class="scale" id="km"></div>        <div class="scale"></div>        <div class="scale"></div>        <div class="scale"></div>        <div class="scale"></div>
-      </div>
-    </div> --}}
 
     <div id="categories">
         @if ($categories ?? '')
             
             @foreach ($categories as $category)
-                <input checked type="checkbox" id="{{str_replace(' ', '_',$category)}}">{{$category}}<br>
+                <li  style="color:{{$category['color']}}"  id="{{str_replace(' ', '_',$category['title'])}}">{{$category['title']}}
             @endforeach
 
         @endif
     </div>
 
+
+    <div id="calendario">
+        <input checked type="checkbox" name="14" onclick="toggleCluster(zero)">
+        <label for="14">14 Luglio | Tredozio</label><br>
+        <input checked type="checkbox" name="15" onclick="toggleCluster(uno)">
+        <label for="15">15 Luglio | Rocca</label><br>
+        <input checked type="checkbox" name="16" onclick="toggleCluster(due)">
+        <label for="16">16 Luglio | Rocca</label><br>
+        <input checked type="checkbox" name="22" onclick="toggleCluster(tre)">
+        <label for="22">22 Luglio | Tredozio</label><br>
+        <input checked type="checkbox" name="23" onclick="toggleCluster(quattro'">
+        <label for="23">23 Luglio | Tredozio</label><br>
+        <input checked type="checkbox" name="30" onclick="toggleCluster(cinque)">
+        <label for="30">30 Luglio | Portico San Benedetto</label><br>
+        <input checked type="checkbox" name="31" onclick="toggleCluster(sei)">
+        <label for="31">31 Luglio | Portico San Benedetto</label><br>
+
+    </div>
 
 
     <div class="flex sidebar">
@@ -132,7 +142,7 @@
 
     // Toggle mappa geo / vuota
 
-    var toggle = 0
+    var toggle = 1
 
     function toggleMap(bool) {
         let markers = document.querySelectorAll(".leaflet-marker-icon.leaflet-interactive")
@@ -140,21 +150,25 @@
         if (bool === 0){
             tiles.addTo(map);
             
-            markers.forEach(marker => {
-                marker.style.display = 'none'
-            });
+            // markers.forEach(marker => {
+            //     marker.style.display = 'none'
+            // });
+
+            // document.getElementById("categories").style.display = 'none'
 
 
             toggle = 1
         } else {
             tiles.removeFrom(map)
-            markers.forEach(marker => {
-                marker.style.display = 'flex'
-            });
+            // markers.forEach(marker => {
+            //     marker.style.display = 'flex'
+            // });
 
-            lines.forEach(line => {
-                line.style.display = 'none'
-            });
+            // lines.forEach(line => {
+            //     line.style.display = 'none'
+            // });
+
+            // document.getElementById("categories").style.display = 'block'
             
             // QUI
             toggle = 0
@@ -162,11 +176,12 @@
     }
 
 
-    // evento per cambiare la mappa
 
-    // document.getElementById("changeMap").addEventListener("click", () => {
-    //     toggleMap(toggle)
-    // })
+
+    // evento per cambiare la mappa
+    document.getElementById("changeMap").addEventListener("click", () => {
+        toggleMap(toggle)
+    })
 
 
     // In base alla dimensione dello schermo, centra in modo differente la mappa
@@ -176,7 +191,7 @@
     if (x.matches) {
         var map = L.map('map',{
             minZoom: 11,
-            maxZoom: 16,
+            maxZoom: 18,
         }).fitWorld();
             map.panTo(new L.LatLng( 44.022944686536185 , 11.773438401287423))
         
@@ -184,7 +199,7 @@
 
         var map = L.map('map',{ 
             minZoom: 12,
-            maxZoom: 16,
+            maxZoom: 18,
         }).fitWorld();
             map.panTo(new L.LatLng(  44.03009912078176 , 11.828155517578125))
     }
@@ -228,58 +243,182 @@
     @if ($posts ?? '')
 
         // posta tutti i post
+        let categoriesPost 
+        let categoriesPostArray
+        let colors
+        
+        var zero = L.markerClusterGroup();
+        var uno = L.markerClusterGroup();
+        var due = L.markerClusterGroup();
+        var tre = L.markerClusterGroup();
+        var quattro = L.markerClusterGroup();
+        var cinque = L.markerClusterGroup();
+        var sei = L.markerClusterGroup();
 
         @foreach ($posts as $key => $post)
+        
+           categoriesPost = ''
+           categoriesPostArray = []
+           colors = ''
+            // crea l'icona per il marker  
+            // e aggiungi categorie come classe (per filtraggio)
 
-            // crea l'icona per il marker
-
-            var myIcon = L.divIcon({html: "<img class='holder' style='width: 25px' src='http://2.bp.blogspot.com/-6PyHhH9ZUZQ/UN6oNGxkoII/AAAAAAAAAYA/j7YnZurZFXs/s1600/dot_black.png'>"+"<span class='titlePost'>{{$post['titolo'] }}</span>"});
+            console.log("{{$post['calendario']}}")
             
 
-            // Crea il marker
-
-            marker = L.marker([{{ $post['lat'] }}, {{ $post['lng'] }}], {radius: 7, icon: myIcon, className: 'boia'}).addTo(map).bindPopup('{!! $post["testo"] !!}',popupOptions);
-
-
-            // aggiungi categorie come classe (per filtraggio)
-
+            // Colora il marker in base alla categoria
             @foreach ($post['categories'] as $key => $category)
-                marker._icon.classList.add("{{$category}}".replaceAll(" ", "_"));
+                @foreach ($categories as $categoryListed)
+                    @if ($category == $categoryListed['title']) 
+                        categoriesPostArray.push("{{$categoryListed['color']}}")
+                    @endif
+
+                @endforeach
+
+   
+                if (categoriesPostArray.length == 1){
+                    colors = categoriesPostArray[0] 
+                } else if (categoriesPostArray.length == 2) {
+                    colors = "conic-gradient("+ categoriesPostArray[0] + " 0% 50%, " + categoriesPostArray[1] + " 50% 100%)"
+                } else if (categoriesPostArray.length == 3) {
+                    colors = "conic-gradient("+ categoriesPostArray[0] + " 0% 33%, " + categoriesPostArray[1] + " 33% 66%, "  + categoriesPostArray[2] + " 67% 100%)"
+                } else if  (categoriesPostArray.length == 4) {
+                    colors = "conic-gradient("+ categoriesPostArray[0] + " 0% 25%, " + categoriesPostArray[1] + " 25% 50%, "  + categoriesPostArray[2] + " 50% 75%, " + categoriesPostArray[3] + " 75% 100%)"
+                }
+
+                categoriesPost = categoriesPost + ' ' + "{{$category}}".replaceAll(" ", "_") 
             @endforeach
+            
+
+
+            var myIcon = L.divIcon({html: "<span>{{$post['quando']}}</span>"+`<div class='holder' style='width: 25px; height: 25px; border-radius: 20px; background:${colors};'></div>`+"<span class='titlePost'>{{$post['titolo'] }}</span>"});
+
+
+            // Crea il marker
+            marker = L.marker([{{ $post['coordinate'] }}], {radius: 7, icon: myIcon}).bindPopup('{!! $post["testo"] !!}',popupOptions);
+            
+            console.log()
+
+            // Controlla in che giorno è e mettilo nel cluster
+            if ("{{$post['calendario']}}" == 'zero') {
+                zero.addLayer(marker)
+            } else if ("{{$post['calendario']}}" == 'uno') {
+                uno.addLayer(marker)
+            } else if ("{{$post['calendario']}}" == 'due') {
+                due.addLayer(marker)
+            } else if ("{{$post['calendario']}}" == 'tre') {
+                tre.addLayer(marker)
+            } else if ("{{$post['calendario']}}" == 'quattro') {
+                quattro.addLayer(marker)
+            } else if ("{{$post['calendario']}}" == 'cinque') {
+                cinque.addLayer(marker)
+            } else  {
+                sei.addLayer(marker)
+            } 
+            
+
             
          @endforeach
     @endif
 
+    // aggiungi all mappa i clusters
+    map.addLayer(zero);
+    map.addLayer(uno);
+    map.addLayer(due);
+    map.addLayer(tre);
+    map.addLayer(quattro);
+    map.addLayer(cinque);
+    map.addLayer(sei);
 
-
-    // addEventListener per ogni categoria per filtrare
-    function filtering(){
-
-        let selectedCategories = []
-        document.querySelectorAll("#categories input").forEach(element => {
-            if (element.checked){
-                selectedCategories.push(element.id)
-            }
-        });
-        console.log(selectedCategories)
-
-        document.querySelectorAll(".leaflet-marker-icon").forEach(post => {
-            post.style.display = 'none'
-        });
-        selectedCategories.forEach(category => {
-            document.querySelectorAll(`.${category}`).forEach(post =>{
-                post.style.display = 'flex'
-            })
-        });
+    function toggleCluster(cluster){
+        if (map.hasLayer(cluster)){
+            map.removeLayer(cluster)
+        } else {
+        map.addLayer(cluster)
+        }
     }
 
-    document.querySelectorAll("#categories input").forEach(element => {
-            element.addEventListener("click", ()=>{
-                filtering()
-            })
-        });
-    
 
+
+    // // addEventListener per ogni categoria per filtrare
+    // function filtering(){
+
+    //     let selectedCategories = []
+    //     document.querySelectorAll("#categories input").forEach(element => {
+    //         if (element.checked){
+    //             selectedCategories.push(element.id)
+    //         }
+    //     });
+    //     // console.log(selectedCategories)
+
+    //     document.querySelectorAll(".leaflet-marker-icon").forEach(post => {
+    //         post.style.display = 'none'
+    //     });
+
+    //     selectedCategories.forEach(category => {
+    //         document.querySelectorAll(`.${category}`).forEach(post =>{
+    //             post.parentNode.style.display = 'flex'
+    //         })
+    //     });
+    // }
+
+
+
+    //     // quando una categoria viene selezionata/deselezionata, filtra
+
+    //     document.querySelectorAll("#categories input").forEach(element => {
+    //             element.addEventListener("click", ()=>{
+    //                 filtering()
+    //             })
+    //         });
+
+
+
+
+        // crea gruppi cluster per ogni weekend
+    
+        var cluster = L.markerClusterGroup({zoomToBoundsOnClick: false});
+        
+
+
+        // controlla quale mappa deve andare
+
+        // toggleMap(toggle)
+
+
+
+        // posta nuovi contenuti
+
+        // var lat, lng, postContent;
+
+        // let postPopup = `<div id="postDiv">
+        //                 <form  id="postData">
+        //                     <input checked id="postContent"  type="text">
+        //                     <button id="submit">Post</button>
+        //                 </form>
+        //                 </div>`
+
+        // map.addEventListener('dblclick', function(ev) {
+        //     lat = ev.latlng.lat;
+        //     lng = ev.latlng.lng;
+        //     console.log('"lat": ',lat,',', '"lng":',lng)
+        //     let newPost = L.circleMarker([lat,lng],{draggable:true,radius: 3}).addTo(map).bindPopup(postPopup).openPopup();
+
+        //     form = document.getElementById("submit")
+        //     form.addEventListener('click', function(event) {
+
+        //     var r = new XMLHttpRequest();
+        //     r.open("POST", "/post", true);
+
+        //     post2send = {}
+        //     post2send["lng"] = lng
+        //     post2send["lat"] = lat
+        //     post2send["post"] = document.getElementById("postContent").value
+
+        //     r.send(JSON.stringify(post2send));
+            
+        // }) 
+        // })
     </script>
 
     <!-- PWA -->

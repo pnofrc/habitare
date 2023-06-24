@@ -8,7 +8,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Hidden;
-use Laravel\Nova\Fields\Audio;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 
@@ -53,13 +53,27 @@ class Post extends Resource
             ->rules('required', 'max:255'),
 
 
-            Text::make('lat'),
-            Text::make('lng'),
+            Text::make('coordinate'),
+
 
             Trix::make('Testo')->withFiles('public'),
 
+            Select::make('Calendario')->options([
+                'zero' => ['label' => '14 Luglio', 'group' => 'Benvenuti - Tredozio'],
+                'uno' => ['label' => '15 Luglio', 'group' => 'Primo Weekend - Rocca'],
+                'due' => ['label' => '16 Luglio', 'group' => 'Primo Weekend - Rocca'],
+                'tre' => ['label' => '22 Luglio', 'group' => 'Secondo Weekend - Tredozio'],
+                'quattro' => ['label' => '23 Luglio', 'group' => 'Secondo Weekend - Tredozio'],
+                'cinque' => ['label' => '29 Luglio', 'group' => 'Terzo Weekend - Portico San Benedetto'],
+                'sei' => ['label' => '30 Luglio', 'group' => 'Terzo Weekend - Portico San Benedetto'],
+            ])->displayUsingLabels(),
+
+            Select::make('Quando')->options([
+                'Mattino' => 'Mattino',
+                'Pomeriggio' => 'Pomeriggio',
+                'Sera' => 'Sera',
+            ])->displayUsingLabels(),
             
-            // Audio::make('')
 
             BelongsToMany::make('Categoria', 'categories', Categories::class)->display('title'),
 

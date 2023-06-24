@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Post extends Model
 {
     use HasFactory;
@@ -19,8 +20,9 @@ class Post extends Model
     protected $fillable = [
         'made_by',
         'titolo',
-        'lat',
-        'lng',
+        'coordinate',
+        'calendario',
+        'quando',
         'testo',
     ];
 
