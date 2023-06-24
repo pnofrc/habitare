@@ -28,6 +28,8 @@ summary,
 [type=submit],
 [type=checkbox] {
     cursor: pointer;
+    padding: 3px;
+    margin: 2px 0;
 }
 
 menu,
@@ -109,6 +111,7 @@ z-index: 2;}
     top: 80px;
     left: 12px;
     z-index: 2;
+    font-size: 22px;
 }
 
 
@@ -261,13 +264,25 @@ z-index: 2;}
 
 @media (max-width: 450px) {
 
-    .showSidebar{
-        position: fixed;
+    .buttons{
+         position: fixed;
         z-index: 5;
         display: block;
         left: 12px;
-        top: 110px;  
-          width: 30px;
+        top: 125px;  
+        width: 43px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .buttons button{
+        width: fit-content;
+    }
+
+    .showSidebar{
+       
+       
         display: flex;
         align-items: center;
         justify-content: center;
@@ -317,6 +332,21 @@ z-index: 2;}
     .bottom span{
         font-size: .6rem;
         line-height: .5rem;
+    }
+
+
+
+    #calendario{
+        display: none;
+    }
+    #categories{
+        bottom: 1rem;
+        left: 1rem;
+        top: unset; 
+    display: none;     }
+
+    #categories li, #calendario input{
+        line-height: 17px;
     }
     
   }

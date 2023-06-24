@@ -38,10 +38,12 @@
     </head>
     <body>
 
-
+    <div class="buttons">
         <button id="changeMap">🌍</button>
-    <button class="showSidebar">info</button>
-
+        <button class="showSidebar">info</button>
+        <button id="categorieToggle">Categorie</button>
+        <button id="giornateToggle">Giornate</button>
+    </div>
 
     <div id="categories">
         @if ($categories ?? '')
@@ -55,19 +57,25 @@
 
 
     <div id="calendario">
-        <input checked type="checkbox" name="14" onclick="toggleCluster(zero)">
+
+        <button onclick="selects()">Seleziona tutto</button><br>
+        <button onclick="deSelect()">Deseleziona tutto</button>
+
+        <br>    
+
+        <input checked type="checkbox" name="chk" onclick="toggleCluster(zero)" >
         <label for="14">14 Luglio | Tredozio</label><br>
-        <input checked type="checkbox" name="15" onclick="toggleCluster(uno)">
+        <input checked type="checkbox" name="chk" onclick="toggleCluster(uno)">
         <label for="15">15 Luglio | Rocca</label><br>
-        <input checked type="checkbox" name="16" onclick="toggleCluster(due)">
+        <input checked type="checkbox" name="chk" onclick="toggleCluster(due)">
         <label for="16">16 Luglio | Rocca</label><br>
-        <input checked type="checkbox" name="22" onclick="toggleCluster(tre)">
+        <input checked type="checkbox" name="chk" onclick="toggleCluster(tre)">
         <label for="22">22 Luglio | Tredozio</label><br>
-        <input checked type="checkbox" name="23" onclick="toggleCluster(quattro'">
+        <input checked type="checkbox" name="chk" onclick="toggleCluster(quattro'">
         <label for="23">23 Luglio | Tredozio</label><br>
-        <input checked type="checkbox" name="30" onclick="toggleCluster(cinque)">
+        <input checked type="checkbox" name="chk" onclick="toggleCluster(cinque)">
         <label for="30">30 Luglio | Portico San Benedetto</label><br>
-        <input checked type="checkbox" name="31" onclick="toggleCluster(sei)">
+        <input checked type="checkbox" name="chk" onclick="toggleCluster(sei)">
         <label for="31">31 Luglio | Portico San Benedetto</label><br>
 
     </div>
@@ -75,7 +83,7 @@
 
     <div class="flex sidebar">
       <div class="top">
-        <div class="flex"><span>20-23</span><span>Luglio</span><span>2023</span></div>
+        <div class="flex"><span>14-15-16</span><span>20-23</span><span>29-30</span><span>Luglio</span><span>2023</span></div>
 
         <img id="title" src="/assets/title.png">
 
@@ -97,14 +105,24 @@
         </div>
 
             <p>
-                Per navigare nei luoghi ed eventi del festival e del territorio, ti invitiamo ad utilizzare la Piattaforma Habitare: una mappa interattiva e condivisa, ma anche strumento di orientamento che permetterà di conoscere e scoprire i luoghi, gli eventi, e tutte le possibilità che circondano il festival.
-
-                ISTRUZIONI:
-                <ul>
-                    <li></li>
-                </ul>
+                Per navigare nei luoghi ed eventi del festival e del territorio, ti invitiamo ad utilizzare questa piattaforma, la Piattaforma Habitare: una mappa interattiva e condivisa, ma anche strumento di orientamento che permetterà di conoscere e scoprire i luoghi, gli eventi, e tutte le possibilità che circondano il festival.                
             </p>
 
+            <h2>ISTRUZIONI:</h2>
+
+            <p>Ci sono due liste: 
+                <li>una colorata, dove ogni colore indica la categoria corrisposta sui pin dei singoli eventi</li>
+                <li>una interagibile dove puoi filtrare gli eventi per giornata</li>
+
+                <br>
+
+                Si può interagire con la mappa navigandola in diversi modi: "ingrandendo" lo schermo con il pollice e l'indice (se da cellulare!), cliccando sui pulsanti + e - in alto a sinistra, cliccando sui pin.
+
+                <br>
+                Avrai notato un bottone con un globo: puoi cambiare la mappa con una pura distesa bianca.
+            </p>
+
+            <p>
         </div>  
     </div>  
 
@@ -142,6 +160,7 @@
 
     // Toggle mappa geo / vuota
 
+
     var toggle = 1
 
     function toggleMap(bool) {
@@ -155,7 +174,6 @@
             // });
 
             // document.getElementById("categories").style.display = 'none'
-
 
             toggle = 1
         } else {
@@ -176,11 +194,57 @@
     }
 
 
+    var togCat = 0
+
+    function toggleCat(bool) {
+        let categories = document.querySelector("#categories")
+        if (bool === 0){
+          categories.style.display = 'block'
+            togCat = 1
+            toggleGior(1)
+        } else {
+           categories.style.display = 'none'
+            // QUI
+            togCat = 0
+            
+        }
+        
+    }
+
+
+    var togGior = 0
+
+    function toggleGior(bool) {
+        let giornate = document.querySelector("#calendario")
+        if (bool === 0){
+            giornate.style.display = 'block'
+            togGior = 1
+            toggleCat(1)
+        } else {
+           giornate.style.display = 'none'
+            // QUI
+            togGior = 0
+        }
+        
+
+    }
+    
+
 
 
     // evento per cambiare la mappa
     document.getElementById("changeMap").addEventListener("click", () => {
         toggleMap(toggle)
+    })
+
+    // evento per categorie su mobile
+    document.getElementById("categorieToggle").addEventListener("click", () => {
+        toggleCat(togCat)
+    })
+
+    // evento per giornate su mobile
+    document.getElementById("giornateToggle").addEventListener("click", () => {
+        toggleGior(togGior)
     })
 
 
@@ -291,13 +355,12 @@
             
 
 
-            var myIcon = L.divIcon({html: "<span>{{$post['quando']}}</span>"+`<div class='holder' style='width: 25px; height: 25px; border-radius: 20px; background:${colors};'></div>`+"<span class='titlePost'>{{$post['titolo'] }}</span>"});
+            var myIcon = L.divIcon({html: "<b>{{$post['quando']}}</b>"+`<div class='holder' style='width: 25px; height: 25px; border-radius: 20px; background:${colors};'></div>`+"<span class='titlePost' style='background: rgba(255,255,255,0.6);    padding: 3px;border-radius: 10px;'>{{$post['titolo'] }}</span>"});
 
 
             // Crea il marker
-            marker = L.marker([{{ $post['coordinate'] }}], {radius: 7, icon: myIcon}).bindPopup('{!! $post["testo"] !!}',popupOptions);
+            marker = L.marker([{{ $post['coordinate'] }}], {radius: 7, icon: myIcon}).bindPopup(`<a target="_blank" href='http://maps.google.com/maps?q=${"{{$post['coordinate']}}"}'>Clicca per aprire il navigatore!</a><br>{!! $post["testo"] !!}`,popupOptions);
             
-            console.log()
 
             // Controlla in che giorno è e mettilo nel cluster
             if ("{{$post['calendario']}}" == 'zero') {
@@ -384,6 +447,45 @@
         // controlla quale mappa deve andare
 
         // toggleMap(toggle)
+
+
+
+
+        // seleziona tutti i checkbox
+
+        function selects(){  
+                var ele=document.getElementsByName('chk');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox')  
+                        ele[i].checked=true;  
+                }  
+                map.addLayer(zero)
+                map.addLayer(uno)
+                map.addLayer(due)
+                map.addLayer(tre)
+                map.addLayer(quattro)
+                map.addLayer(cinque)
+                map.addLayer(sei)
+            }  
+
+
+        // deselezionali
+
+        function deSelect(){  
+            var ele=document.getElementsByName('chk');  
+            for(var i=0; i<ele.length; i++){  
+                if(ele[i].type=='checkbox')  
+                    ele[i].checked=false;  
+            }  
+            map.removeLayer(zero)
+            map.removeLayer(uno)
+            map.removeLayer(due)
+            map.removeLayer(tre)
+            map.removeLayer(quattro)
+            map.removeLayer(cinque)
+            
+        }      
+
 
 
 
