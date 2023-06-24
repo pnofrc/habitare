@@ -69,13 +69,13 @@
         <label for="15">15 Luglio | Rocca</label><br>
         <input checked type="checkbox" name="chk" onclick="toggleCluster(due)">
         <label for="16">16 Luglio | Rocca</label><br>
-        <input checked type="checkbox" name="chk" onclick="toggleCluster(tre)">
+        <input type="checkbox" name="chk" onclick="toggleCluster(tre)">
         <label for="22">22 Luglio | Tredozio</label><br>
-        <input checked type="checkbox" name="chk" onclick="toggleCluster(quattro'">
+        <input type="checkbox" name="chk" onclick="toggleCluster(quattro'">
         <label for="23">23 Luglio | Tredozio</label><br>
-        <input checked type="checkbox" name="chk" onclick="toggleCluster(cinque)">
+        <input type="checkbox" name="chk" onclick="toggleCluster(cinque)">
         <label for="30">30 Luglio | Portico San Benedetto</label><br>
-        <input checked type="checkbox" name="chk" onclick="toggleCluster(sei)">
+        <input type="checkbox" name="chk" onclick="toggleCluster(sei)">
         <label for="31">31 Luglio | Portico San Benedetto</label><br>
 
     </div>
