@@ -18,4 +18,8 @@ Route::get('/', 'App\Http\Controllers\PostsController@index');
 
 Route::get('/info', 'App\Http\Controllers\PostsController@info');
 
+Route::get('/programma', 'App\Http\Controllers\PostsController@program');
+
 Route::get('/map', function () {return view('map');});
+
+Route::get('/call', function () {return view('call');});

@@ -71,7 +71,7 @@
         <label for="16">16 Luglio | Rocca</label><br>
         <input type="checkbox" name="chk" onclick="toggleCluster(tre)">
         <label for="22">22 Luglio | Tredozio</label><br>
-        <input type="checkbox" name="chk" onclick="toggleCluster(quattro'">
+        <input type="checkbox" name="chk" onclick="toggleCluster(quattro)">
         <label for="23">23 Luglio | Tredozio</label><br>
         <input type="checkbox" name="chk" onclick="toggleCluster(cinque)">
         <label for="30">30 Luglio | Portico San Benedetto</label><br>
@@ -83,23 +83,23 @@
 
     <div class="flex sidebar">
       <div class="top">
-        <div class="flex"><span>14-15-16</span><span>20-23</span><span>29-30</span><span>Luglio</span><span>2023</span></div>
+        <div class="flex"><span>14-15-16</span><span>22-23</span><span>29-30</span><span>Luglio</span><span>2023</span></div>
 
         <img id="title" src="/assets/title.png">
 
         <div class="text">
           <h2>Nuove Prospettive Cult(r)urali</h2>
           <p>
-            Il festival Habitare è un festival nomade che si muove adattandosi e abitando ogni weekend un borgo differente.
-            Le attività sono state concentrate dedicando un weekend specifico ad ognuno dei tre comuni coinvolti nel festival, che diventeranno ogni volta epicentro delle attività. In ognuno dei comuni potrete trovare un punto di ritrovo e info, sempre attivo per accogliervi.
-            
-            
-            Ogni giorno, dalle 10:00 fino alle 00:00 Il festival si diffonde nei tre comuni proponendo durante questi weekend, laboratori, concerti, performance, talks e tavoli rotondi, in vari luoghi disseminati lungo strade, parchi e sentieri. Il festival intende inserirsi nella dinamica culturale, sociale e produttiva di ognuno di questi borghi. Ci immaginiamo infatti il borgo come festival stesso, in cui siete invitati a muovervi liberamente in quanto abitanti.
-
+            Habitare è un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).<br>
+Ogni weekend, dalle 10 alle 00, il Festival popolerà un differente borgo, delineando un percorso collettivo fatto di laboratori, presentazioni, tavole rotonde, musica, mostre, installazioni ed escursioni.<br>
+Il filo conduttore é la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.<br>
+Nello sviluppo condiviso di tale dimensione, comunità e territori possono diventare vettori di sostenibilità sociale e di attivazione partecipata di nuove dinamiche dell'abitare, espresse e vissute tramite linguaggi creativi contemporanei.
+<br><br>
+Zaini in spalla!
         </p>
 
         <div class="links">
-            <a href="">OPEN CALL</a>
+            <a href="/call">OPEN CALL</a>
             <BR>
             <a href="/info">TUTTE LE INFO!</a>
         </div>
@@ -139,7 +139,7 @@
         </div>
 
         <div class="closeSidebar">
-          <button>Chiudi</button>
+          <button>Apri la mappa</button>
         </div>
     </div>
    </div>
