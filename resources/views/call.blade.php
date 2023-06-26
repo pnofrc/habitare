@@ -108,9 +108,7 @@
                 width: 90%
                 }
 
-                #title{
-                    margin-top: 4rem;
-                }
+      
 
                 ul{
                     width: 90%;
@@ -121,7 +119,13 @@
                     margin: 2rem
                 }
 
-               
+               h2{
+                margin: 0 1rem;
+                /* width: 90%; */
+                display: block;
+                z-index: 4;
+                text-align: center
+            }
 
                 hr{
                     margin: 1rem 0 3rem 0

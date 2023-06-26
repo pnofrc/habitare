@@ -67,6 +67,10 @@ body {
     font-family: 'gothic' !important;
     }
 
+button{
+    font-family: 'gothic' !important;
+}
+
 html, body, #map {
     height: 100%;
     width: 100vw;
@@ -317,8 +321,11 @@ z-index: 2;}
     }
 
     .closeSidebar button{
-        width: 100px;
+        padding: 3px;
         font-size: 1.1rem;
+        border: 1px yellow solid;
+        border-radius: 5px;
+        width: max-content;
     }
 
     .flex {

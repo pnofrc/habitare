@@ -143,7 +143,7 @@
         </div>
 
         <div class="closeSidebar">
-          <button>Apri la mappa</button>
+          <button>VAI ALLA MAPPA</button>
         </div>
     </div>
    </div>
