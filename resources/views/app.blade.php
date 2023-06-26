@@ -15,7 +15,6 @@
 
         <link rel="stylesheet" href="/app.css">
 
-        {{-- <script src="/leaflet/leaflet-data-markers.js"></script> --}}
 
         <link
         rel="stylesheet"
@@ -34,8 +33,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css" integrity="sha512-ENrTWqddXrLJsQS2A86QmvA17PkJ0GVm1bqj5aTgpeMAfDKN2+SIOLpKG8R/6KkimnhTb+VW5qqUHB/r1zaRgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/leaflet.markercluster.layersupport@2.0.1/dist/leaflet.markercluster.layersupport.js"></script>
-    </head>
+        <script src="https://unpkg.com/leaflet.markercluster.layersupport@2.0.1/dist/leaflet.markercluster.layersupport.js"></script>
+        <script src="leaflet/leaflet-providers.js"></script>
+</head>
     <body>
 
     <div class="buttons">
@@ -64,42 +64,42 @@
         <br>    
 
         <input checked type="checkbox" name="chk" onclick="toggleCluster(zero)" >
-        <label for="14">14 Luglio | Tredozio</label><br>
+        <label for="14">14 Luglio | Tredozio  (Welcoming)</label><br>
         <input checked type="checkbox" name="chk" onclick="toggleCluster(uno)">
-        <label for="15">15 Luglio | Rocca</label><br>
+        <label for="15">15 Luglio | Rocca S. Casciano</label><br>
         <input checked type="checkbox" name="chk" onclick="toggleCluster(due)">
-        <label for="16">16 Luglio | Rocca</label><br>
-        <input type="checkbox" name="chk" onclick="toggleCluster(tre)">
+        <label for="16">16 Luglio | Rocca S. Casciano</label><br>
+        <input  checked type="checkbox" name="chk" onclick="toggleCluster(tre)">
         <label for="22">22 Luglio | Tredozio</label><br>
-        <input type="checkbox" name="chk" onclick="toggleCluster(quattro)">
+        <input  checked type="checkbox" name="chk" onclick="toggleCluster(quattro)">
         <label for="23">23 Luglio | Tredozio</label><br>
-        <input type="checkbox" name="chk" onclick="toggleCluster(cinque)">
-        <label for="30">30 Luglio | Portico San Benedetto</label><br>
-        <input type="checkbox" name="chk" onclick="toggleCluster(sei)">
-        <label for="31">31 Luglio | Portico San Benedetto</label><br>
+        <input checked  type="checkbox" name="chk" onclick="toggleCluster(cinque)">
+        <label for="30">30 Luglio | Portico e San Benedetto</label><br>
+        <input checked  type="checkbox" name="chk" onclick="toggleCluster(sei)">
+        <label for="31">31 Luglio | Portico e San Benedetto</label><br>
 
     </div>
 
 
     <div class="flex sidebar">
       <div class="top">
-        <div class="flex"><span>14-15-16</span><span>22-23</span><span>29-30</span><span>Luglio</span><span>2023</span></div>
+        <div class="flex"><span>15-16</span><span>22-23</span><span>29-30</span><span>Luglio 2023</span></div>
 
         <img id="title" src="/assets/title.png">
 
         <div class="text">
           <h2>Nuove Prospettive Cult(r)urali</h2>
           <p>
-            Habitare è un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).<br>
-Ogni weekend, dalle 10 alle 00, il Festival popolerà un differente borgo, delineando un percorso collettivo fatto di laboratori, presentazioni, tavole rotonde, musica, mostre, installazioni ed escursioni.<br>
-Il filo conduttore é la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.<br>
-Nello sviluppo condiviso di tale dimensione, comunità e territori possono diventare vettori di sostenibilità sociale e di attivazione partecipata di nuove dinamiche dell'abitare, espresse e vissute tramite linguaggi creativi contemporanei.
-<br><br>
-Zaini in spalla!
+            Habitare è un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).<br><br>
+            Ogni sabato e domenica, dalle 10 alle 00, il Festival popolerà un differente borgo, delineando un percorso collettivo fatto di laboratori, presentazioni, tavole rotonde, musica, mostre, installazioni ed escursioni.<br><br>
+            Il filo conduttore é la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.<br>
+            Nello sviluppo condiviso di tale dimensione, comunità e territori possono diventare vettori di sostenibilità sociale e di attivazione partecipata di nuove dinamiche dell'abitare, espresse e vissute tramite linguaggi creativi contemporanei.
+            <br><br>
+            Zaini in spalla!
         </p>
 
         <div class="links">
-            <a href="/call">OPEN CALL</a>
+            <a href="/call">OPEN CALL - MERCATO</a>
             <BR>
             <a href="/info">TUTTE LE INFO!</a>
             <BR>
@@ -113,16 +113,10 @@ Zaini in spalla!
 
             <h2>ISTRUZIONI:</h2>
 
-            <p>Ci sono due liste: 
-                <li>una colorata, dove ogni colore indica la categoria corrisposta sui pin dei singoli eventi</li>
-                <li>una interagibile dove puoi filtrare gli eventi per giornata</li>
-
-                <br>
-
-                Si può interagire con la mappa navigandola in diversi modi: "ingrandendo" lo schermo con il pollice e l'indice (se da cellulare!), cliccando sui pulsanti + e - in alto a sinistra, cliccando sui pin.
-
-                <br>
-                Avrai notato un bottone con un globo: puoi cambiare la mappa con una pura distesa bianca.
+            <p>Con la lista colorata, puoi filtrare gli eventi in base alla tipologia.
+                Puoi inoltre filtrare gli eventi spuntando le caselle in base ai giorni in cui vorrai venire.
+                
+                Nel caso qualcosa andasse storto, puoi sempre deselezionare tutto e ricominciare da capo con la distillazione.                
             </p>
 
             <p>
@@ -164,14 +158,14 @@ Zaini in spalla!
     // Toggle mappa geo / vuota
 
 
-    var toggle = 1
+    var toggle = 0
 
     function toggleMap(bool) {
         let markers = document.querySelectorAll(".leaflet-marker-icon.leaflet-interactive")
         let lines = document.querySelectorAll(".leaflet-pane > svg path.leaflet-interactive")
         if (bool === 0){
             tiles.addTo(map);
-            
+            tilesBW.removeFrom(map)
             // markers.forEach(marker => {
             //     marker.style.display = 'none'
             // });
@@ -181,6 +175,8 @@ Zaini in spalla!
             toggle = 1
         } else {
             tiles.removeFrom(map)
+            tilesBW.addTo(map);
+
             // markers.forEach(marker => {
             //     marker.style.display = 'flex'
             // });
@@ -276,9 +272,14 @@ Zaini in spalla!
 
     // Popola la mappa con tiles + copyright open street map
 
+    let tilesBW= L.tileLayer('https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey=d93d6b0ff1934fefb1df41ceacb4614d', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	maxZoom: 18
+}).addTo(map);
+    
     let tiles= L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributor',    
-    }).addTo(map);
+    });
 
 
 

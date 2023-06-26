@@ -128,73 +128,67 @@
    
 
     <div class="menu">
-        <a href="#zero">14 Luglio | Tredozio</a><br>
-        <a href="#uno">15 Luglio | Rocca</a><br>
-        <a href="#due">16 Luglio | Rocca</a><br>
+        <a href="#zero">14 Luglio | Tredozio (Welcoming)</a><br>
+        <a href="#uno">15 Luglio | Rocca S. Casciano</a><br>
+        <a href="#due">16 Luglio | Rocca S. Casciano</a><br>
         <a href="#tre">22 Luglio | Tredozio</a><br>
         <a href="#quattro">23 Luglio | Tredozio</a><br>
-        <a href="#cinque">30 Luglio | Portico San Benedetto</a><br>
-        <a href="#sei">31 Luglio | Portico San Benedetto</a><br>
+        <a href="#cinque">30 Luglio | Portico e San Benedetto</a><br>
+        <a href="#sei">31 Luglio | Portico e San Benedetto</a><br>
     </div>
 
 
 
 
     <div class="container">
-        <h1 id="zero">14 Luglio | Tredozio</h1><br>
+        <h1 id="zero">14 Luglio | Tredozio  (Welcoming)</h1><br>
 
         @foreach ($posts as $key => $post)
             @if ($key == 'zero')
                 @foreach ($post as $k => $p)
-                    <b>{{$k}}</b>
-                    <ul>
+                    <u>{{$k}}:</u><br><br>
                     @foreach ($p as $singlePost)
-                        <li>{!!$singlePost['titolo'] !!}</li>
-                        <ul>
-                        @foreach ($singlePost['categories'] as $categoria)
-                            <li><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
-                        @endforeach
-                        </ul>
-                    @endforeach
-                    </ul>
+                    {!!$singlePost['titolo'] !!}
+                      <ul>
+                      @foreach ($singlePost['categories'] as $categoria)
+                          <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
+                      @endforeach
+                      </ul>
+                  @endforeach
                 @endforeach
             @endif
         @endforeach
            
-        <h1 id="uno">15 Luglio | Rocca</h1><br>
+        <h1 id="uno">15 Luglio | Rocca S. Casciano</h1><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'uno')
                 @foreach ($post as $k => $p)
-                <b>{{$k}}</b>
-                <ul>
-                    @foreach ($p as $singlePost)
-                        <li>{!!$singlePost['titolo'] !!}</li>
+                <u>{{$k}}:</u><br><br>
+                @foreach ($p as $singlePost)
+                      {!!$singlePost['titolo'] !!}
                         <ul>
                         @foreach ($singlePost['categories'] as $categoria)
-                            <li><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
+                            <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                         @endforeach
                         </ul>
                     @endforeach
-                    </ul>
             @endforeach
             @endif
         @endforeach
 
-        <h1 id="due">16 Luglio | Rocca</h1><br>
+        <h1 id="due">16 Luglio | Rocca S. Casciano</h1><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'due')
                 @foreach ($post as $k => $p)
-                <b>{{$k}}</b>
-                <ul>
-                    @foreach ($p as $singlePost)
-                        <li>{!!$singlePost['titolo'] !!}</li>
+                <u>{{$k}}:</u><br><br>
+                @foreach ($p as $singlePost)
+                      {!!$singlePost['titolo'] !!}
                         <ul>
                         @foreach ($singlePost['categories'] as $categoria)
-                            <li><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
+                            <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                         @endforeach
                         </ul>
                     @endforeach
-                    </ul>
             @endforeach
             @endif
         @endforeach
@@ -203,17 +197,15 @@
         @foreach ($posts as $key => $post)
             @if ($key == 'tre')
                 @foreach ($post as $k => $p)
-                    <b>{{$k}}</b>
-                    <ul>
+                    <u>{{$k}}:</u><br><br>
                         @foreach ($p as $singlePost)
-                            <li>{!!$singlePost['titolo'] !!}</li>
+                          {!!$singlePost['titolo'] !!}
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
-                                <li><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
+                                <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
                             </ul>
                         @endforeach
-                        </ul>
                 @endforeach
             @endif
         @endforeach 
@@ -222,55 +214,49 @@
         @foreach ($posts as $key => $post)
             @if ($key == 'quattro')
                 @foreach ($post as $k => $p)
-                    <b>{{$k}}</b>
-                    <ul>
+                    <u>{{$k}}:</u><br><br>
                         @foreach ($p as $singlePost)
-                            <li>{!!$singlePost['titolo'] !!}</li>
+                          {!!$singlePost['titolo'] !!}
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
-                                <li><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
+                                <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
                             </ul>
                         @endforeach
-                        </ul>
                 @endforeach
             @endif
         @endforeach
 
-        <h1 id="cinque">30 Luglio | Portico San Benedetto</h1><br>
+        <h1 id="cinque">30 Luglio | Portico e San Benedetto</h1><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'cinque')
                 @foreach ($post as $k => $p)
-                <b>{{$k}}</b>
-                <ul>
-                    @foreach ($p as $singlePost)
-                        <li>{!!$singlePost['titolo'] !!}</li>
+                <u>{{$k}}:</u><br><br>
+                @foreach ($p as $singlePost)
+                      {!!$singlePost['titolo'] !!}
                         <ul>
                         @foreach ($singlePost['categories'] as $categoria)
-                            <li><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
+                            <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                         @endforeach
                         </ul>
                     @endforeach
-                    </ul>
                 @endforeach
             @endif
         @endforeach
 
-        <h1 id="sei">31 Luglio | Portico San Benedetto</h1><br>
+        <h1 id="sei">31 Luglio | Portico e San Benedetto</h1><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'sei')
                  @foreach ($post as $k => $p)
-                    <b>{{$k}}</b>
-                    <ul>
+                    <u>{{$k}}:</u><br><br>
                         @foreach ($p as $singlePost)
-                            <li>{!!$singlePost['titolo'] !!}</li>
+                          {!!$singlePost['titolo'] !!}
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
-                                <li><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
+                                <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
                             </ul>
                         @endforeach
-                        </ul>
                 @endforeach
             @endif
         @endforeach

@@ -178,14 +178,14 @@
     Qualche indicazione:
 
     <ul>
-        <li>La partecipazione al Mercato è gratuita. Ci piacerebbe, tuttavia, chiedere ad ongunə dei e delle espositorə di donare una copia o esemplare delle proprie produzioni, nell'ottica di ampliare e rendere fruibile al pubblico una piccola biblioteca ed archivio negli spazi di Habitat;</li>
+        <li>La partecipazione al Mercato è gratuita. Ci piacerebbe, tuttavia, chiedere ad ongunə dei e delle espositorə di donare una o più copie/esemplari delle proprie produzioni, nell'ottica di ampliare e rendere fruibile al pubblico una piccola biblioteca ed archivio negli spazi di Habitat;</li>
         <li>La deadline per applicare al Mercato è fissata al 14 luglio 2023;</li>
         <li>Gli e le espositorə dovranno provvedere in modo autonomo alla propria sistemazione per la notte. Consultare a tal proposito la sezione relativa all'Accoglienza, nelle Informazioni del Festival;</li>
         <li>Le modalità di vendita e pagamento saranno gestite completamente e liberamente dagli espositori;</li>
         <li>È consigliato essere automuniti, le strutture ricettive potrebbero essere dislocate rispetto alle locations;</li>
-        <li>Il Mercato si svolgerà all'aperto. Saranno disponibili tavoli e sedie per i banchetti, in caso abbiate necessità più specifiche comunicatele via mail</li>
+        <li>Il Mercato si svolgerà all'aperto. Saranno disponibili tavoli e sedie per i banchetti, in caso abbiate necessità più specifiche potete comunicarcele direttamente via email</li>
     </ul>
-    <p>Per candidature e informazioni scrivete a: <b>info@habitattt.it</b></p>
+    <p>Per candidature e informazioni scrivete a <b>info@habitattt.it</b> con oggetto "Mercato"</p>
     </div>
 
 

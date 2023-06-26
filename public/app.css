@@ -262,6 +262,11 @@ z-index: 2;}
     }
 
 
+    .marker-cluster-small div {
+        background-color: black !important;
+        border: solid grey 1px !important;
+    }    
+
 
 @media (max-width: 450px) {
 
@@ -311,6 +316,7 @@ z-index: 2;}
         bottom: 2%;
         width: 100%;
         text-align: center;
+        height: max-content;
     }
 
     .closeSidebar button{
@@ -323,6 +329,9 @@ z-index: 2;}
         justify-content: space-between;
         align-items: center;
         bottom: 0;
+        gap: 7px;
+        position: relative;
+        margin-bottom: 5rem;
         }
 
     
