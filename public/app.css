@@ -262,10 +262,7 @@ z-index: 2;}
     }
 
 
-    .marker-cluster-small div {
-        background-color: black !important;
-        border: solid grey 1px !important;
-    }    
+
 
 
 @media (max-width: 450px) {

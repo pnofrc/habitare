@@ -35,6 +35,13 @@
         <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/leaflet.markercluster.layersupport@2.0.1/dist/leaflet.markercluster.layersupport.js"></script>
         <script src="leaflet/leaflet-providers.js"></script>
+
+        <style>
+            .marker-cluster-small div {
+                background-color: black !important;
+                border: solid grey 1px !important;
+            }    
+        </style>
 </head>
     <body>
 
