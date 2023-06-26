@@ -91,7 +91,8 @@
                 }
                 
                 .menu{
-                    margin: 2rem
+                    margin: 2rem;
+                    width: 80%;
                 }
 
                
@@ -107,6 +108,7 @@
                 font-size: 2rem;
                 text-decoration: none
             }
+
 
                 }
 

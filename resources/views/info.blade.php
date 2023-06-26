@@ -91,7 +91,8 @@
                 }
                 
                 .menu{
-                    margin: 2rem
+                    margin: 2rem;
+                    width: 80%;
                 }
 
                
