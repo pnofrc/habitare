@@ -484,7 +484,7 @@
 
         function deSelect(){  
             var ele=document.getElementsByName('chk');  
-            for(var i=0; i<ele.length+1; i++){  
+            for(var i=0; i<ele.length; i++){  
                 if(ele[i].type=='checkbox')  
                     ele[i].checked=false;  
             }  
@@ -494,7 +494,7 @@
             map.removeLayer(tre)
             map.removeLayer(quattro)
             map.removeLayer(cinque)
-            
+            map.removeLayer(sei)
         }      
 
 
