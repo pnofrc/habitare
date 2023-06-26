@@ -484,7 +484,7 @@
 
         function deSelect(){  
             var ele=document.getElementsByName('chk');  
-            for(var i=0; i<ele.length; i++){  
+            for(var i=0; i<ele.length+1; i++){  
                 if(ele[i].type=='checkbox')  
                     ele[i].checked=false;  
             }  
