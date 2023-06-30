@@ -69,6 +69,7 @@ class Post extends Resource
             ])->displayUsingLabels(),
 
             Select::make('Quando')->options([
+                'Tutto' => 'Tutto il giorno',
                 'Mattino' => 'Mattino',
                 'Pomeriggio' => 'Pomeriggio',
                 'Sera' => 'Sera',

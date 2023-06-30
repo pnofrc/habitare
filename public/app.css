@@ -52,9 +52,12 @@ a {
     /* Places underlines below the descenders */
     text-underline-position: under;
 
-
     /* Sets the thickness as a percentage of the font size */
     text-decoration-thickness: 8;
+}
+
+.top div a {
+    color: black !important;
 }
 
 
@@ -265,7 +268,16 @@ z-index: 2;}
         z-index: 2;
     }
 
+    .linkMaps{
+        font-family: "gothic";
+        font-size: 1.4em;
+    }
 
+    .postContent div{
+        margin-top: 20px;
+        font-family: "gothic";
+        font-size: 1.7em;
+    }
 
 
 

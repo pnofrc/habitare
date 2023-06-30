@@ -81,16 +81,16 @@
         <input  checked type="checkbox" name="chk" onclick="toggleCluster(quattro)">
         <label for="23">23 Luglio | Tredozio</label><br>
         <input checked  type="checkbox" name="chk" onclick="toggleCluster(cinque)">
-        <label for="30">30 Luglio | Portico e San Benedetto</label><br>
+        <label for="29">29 Luglio | Portico e San Benedetto</label><br>
         <input checked  type="checkbox" name="chk" onclick="toggleCluster(sei)">
-        <label for="31">31 Luglio | Portico e San Benedetto</label><br>
+        <label for="30">30 Luglio | Portico e San Benedetto</label><br>
 
     </div>
 
 
     <div class="flex sidebar">
       <div class="top">
-        <div class="flex"><span>15-16</span><span>22-23</span><span>29-30</span><span>Luglio 2023</span></div>
+        <div class="flex"><span><a href="/programma#uno">15-16</a></span><span><a href="/programma#tre">22-23</a></span><span><a href="/programma#cinque">29-30</a></span><span>Luglio 2023</span></div>
 
         <img id="title" src="/assets/title.png">
 
@@ -370,7 +370,7 @@
 
 
             // Crea il marker
-            marker = L.marker([{{ $post['coordinate'] }}], {radius: 7, icon: myIcon}).bindPopup(`<a target="_blank" href='http://maps.google.com/maps?q=${"{{$post['coordinate']}}"}'>Clicca per aprire il navigatore!</a><br>{!! $post["testo"] !!}`,popupOptions);
+            marker = L.marker([{{ $post['coordinate'] }}], {radius: 7, icon: myIcon}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{$post['coordinate']}}"}'>Clicca per aprire il navigatore!</a><br><div class="postContent">{!! $post["testo"] !!}</div>`,popupOptions);
             
 
             // Controlla in che giorno è e mettilo nel cluster

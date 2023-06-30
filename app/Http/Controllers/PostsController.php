@@ -5,7 +5,6 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Info;
 use Illuminate\Http\Request;
-
 class PostsController extends Controller
 {
     public function index()
@@ -105,9 +104,11 @@ class PostsController extends Controller
 
         $filtered_posts = array();
         foreach ($posts_ok as $key => $post) {
-            $filtered_posts[$post['calendario']][ $post['quando']][] = $post;
+            
+            $filtered_posts[$post['calendario']][$post['quando']][] = $post;
         }
 
+        // dd($filtered_posts);
         $props['categories'] = $categories_clean;
         $props['posts'] = $filtered_posts;
 
