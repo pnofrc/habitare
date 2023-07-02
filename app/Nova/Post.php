@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\Number;
 
 
 class Post extends Resource
@@ -53,7 +54,8 @@ class Post extends Resource
             ->rules('required', 'max:255'),
 
 
-            Text::make('coordinate'),
+            Text::make('coordinate')->hideFromIndex(),
+
 
 
             Trix::make('Testo')->withFiles('public'),
@@ -74,6 +76,9 @@ class Post extends Resource
                 'Pomeriggio' => 'Pomeriggio',
                 'Sera' => 'Sera',
             ])->displayUsingLabels(),
+
+            Number::make('orario')->min(0)->max(24)->step(0.01)->nullable(),
+
             
 
             BelongsToMany::make('Categoria', 'categories', Categories::class)->display('title'),

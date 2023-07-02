@@ -23,6 +23,7 @@ class Post extends Model
         'coordinate',
         'calendario',
         'quando',
+        'orario',
         'testo',
     ];
 

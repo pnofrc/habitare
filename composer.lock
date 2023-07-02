@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5a855a7fdf0108c10de4fbd99cd865d",
+    "content-hash": "df0435d976de33f2805dc3a749f8499f",
     "packages": [
         {
             "name": "brick/math",
@@ -1539,6 +1539,51 @@
                 "source": "https://github.com/shailesh-ladumor/laravel-pwa/tree/v0.0.3"
             },
             "time": "2022-04-24T06:31:02+00:00"
+        },
+        {
+            "name": "laraning/nova-time-field",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laraning/nova-time-field.git",
+                "reference": "f12fd7ebf172279f0838b05f965161e75e42f823"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laraning/nova-time-field/zipball/f12fd7ebf172279f0838b05f965161e75e42f823",
+                "reference": "f12fd7ebf172279f0838b05f965161e75e42f823",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laraning\\NovaTimeField\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laraning\\NovaTimeField\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova field.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/laraning/nova-time-field/issues",
+                "source": "https://github.com/laraning/nova-time-field/tree/v1.2"
+            },
+            "time": "2020-11-29T17:27:34+00:00"
         },
         {
             "name": "laravel/framework",
