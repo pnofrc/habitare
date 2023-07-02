@@ -79,7 +79,6 @@ class Post extends Resource
 
             Number::make('orario')->min(0)->max(24)->step(0.01)->nullable(),
 
-            
 
             BelongsToMany::make('Categoria', 'categories', Categories::class)->display('title'),
 
