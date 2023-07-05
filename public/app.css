@@ -4,6 +4,14 @@
     src: url('/fonts/routed-gothic-narrow.ttf');
 }
 
+
+@font-face {
+    font-family: 'gothicItalic';
+    src: url('/fonts/routed-gothic-italic.ttf');
+}
+
+
+
 *,
 *::before,
 *::after {
@@ -80,6 +88,11 @@ html, body, #map {
     width: 100vw;
 }
 
+
+i{
+    font-style: normal !important;
+    font-family: 'gothicItalic';
+}
 /* CATEGORIE */
 
 #calendario{

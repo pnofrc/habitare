@@ -8,7 +8,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-       <!-- PWA  -->
         <meta name="theme-color" content="green"/>
         <link rel="apple-touch-icon" href="{{ asset('/assets/habitare/H.png') }}">
         <link rel="manifest" href="{{ asset('/manifest.json') }}">
@@ -69,6 +68,24 @@
                 font-size: .8rem;
             }
 
+            .testo{
+                margin-left: 1rem;
+    margin-bottom: 2rem;
+            }
+
+            ul{
+                margin: .5rem 0
+            }
+
+            img{
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+
+            figcaption{
+                display: none;
+            }
 
 
             @media only screen and (max-width: 900px) {
@@ -135,13 +152,13 @@
    
 
     <div class="menu">
-        <a href="#zero">14 Luglio | Tredozio (Welcoming)</a><br>
-        <a href="#uno">15 Luglio | Rocca S. Casciano</a><br>
-        <a href="#due">16 Luglio | Rocca S. Casciano</a><br>
-        <a href="#tre">22 Luglio | Tredozio</a><br>
-        <a href="#quattro">23 Luglio | Tredozio</a><br>
-        <a href="#cinque">29 Luglio | Portico e San Benedetto</a><br>
-        <a href="#sei">30 Luglio | Portico e San Benedetto</a><br>
+        <a href="#zero">14 Luglio   -    Tredozio (Welcoming)</a><br>
+        <a href="#uno">15 Luglio   -    Rocca S. Casciano</a><br>
+        <a href="#due">16 Luglio   -    Rocca S. Casciano</a><br>
+        <a href="#tre">22 Luglio   -    Tredozio</a><br>
+        <a href="#quattro">23 Luglio   -    Tredozio</a><br>
+        <a href="#cinque">29 Luglio   -    Portico e San Benedetto</a><br>
+        <a href="#sei">30 Luglio   -    Portico e San Benedetto</a><br>
     </div>
 
 
@@ -149,38 +166,46 @@
 
     <div class="container">
         <hr>
-<h1 id="zero">14 Luglio | Tredozio  (Welcoming)</h1>
+<h1 id="zero">14 Luglio   -    Tredozio  (Welcoming)</h1>
 
         @foreach ($posts as $key => $post)
             @if ($key == 'zero')
                 @foreach ($post as $k => $p)
                     <br><u class="quando">{{$k}}:</u><br>
                     @foreach ($p as $singlePost)
-                    {!!$singlePost['titolo'] !!}
+                    {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                       <ul>
                       @foreach ($singlePost['categories'] as $categoria)
                           <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                       @endforeach
+                  
+                                        
                       </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
+              
                   @endforeach
                 @endforeach
             @endif
         @endforeach
            
         <hr>
-<h1 id="uno">15 Luglio | Rocca S. Casciano</h1>
+<h1 id="uno">15 Luglio   -    Rocca S. Casciano</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'uno')
                 @foreach ($post as $k => $p)
                     @if ($k == 'Tutto')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -192,12 +217,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Mattino')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -209,12 +237,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Pomeriggio')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -227,12 +258,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Sera')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -240,19 +274,22 @@
         @endforeach
 
         <hr>
-<h1 id="due">16 Luglio | Rocca S. Casciano</h1>
+<h1 id="due">16 Luglio   -    Rocca S. Casciano</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'due')
                 @foreach ($post as $k => $p)
                     @if ($k == 'Tutto')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!} 
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -264,12 +301,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Mattino')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -281,12 +321,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Pomeriggio')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -299,12 +342,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Sera')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -312,19 +358,22 @@
         @endforeach
 
         <hr>
-<h1 id="tre">22 Luglio | Tredozio</h1>
+<h1 id="tre">22 Luglio   -    Tredozio</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'tre')
                 @foreach ($post as $k => $p)
                     @if ($k == 'Tutto')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -336,12 +385,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Mattino')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -353,12 +405,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Pomeriggio')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -371,12 +426,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Sera')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -384,19 +442,22 @@
         @endforeach
 
         <hr>
-<h1 id="quattro">23 Luglio | Tredozio</h1>
+<h1 id="quattro">23 Luglio   -    Tredozio</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'quattro')
                 @foreach ($post as $k => $p)
                     @if ($k == 'Tutto')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!} 
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -408,12 +469,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Mattino')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -425,12 +489,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Pomeriggio')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -443,12 +510,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Sera')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -456,7 +526,7 @@
         @endforeach
 
         <hr>
-<h1 id="cinque">29 Luglio | Portico e San Benedetto</h1>
+<h1 id="cinque">29 Luglio   -    Portico e San Benedetto</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'cinque')
@@ -468,7 +538,10 @@
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -480,12 +553,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Mattino')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -497,12 +573,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Pomeriggio')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -515,12 +594,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Sera')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -528,19 +610,22 @@
         @endforeach
 
         <hr>
-<h1 id="sei">30 Luglio | Portico e San Benedetto</h1>
+<h1 id="sei">30 Luglio   -    Portico e San Benedetto</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'sei')
                 @foreach ($post as $k => $p)
                     @if ($k == 'Tutto')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -552,12 +637,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Mattino')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -569,12 +657,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Pomeriggio')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach
@@ -587,12 +678,15 @@
                 @foreach ($post as $k => $p)
                     @if ($k == 'Sera')
                         @foreach ($p as $singlePost)
-                        {!!$singlePost['titolo'] !!}
+                        {!!$singlePost['titolo'] !!}   •    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>
                             <ul>
                             @foreach ($singlePost['categories'] as $categoria)
                                 <li style="color: {!! $categoria['color'] !!}"><i style="color: {!! $categoria['color'] !!}">{!! $categoria['title'] !!}</i></li>
                             @endforeach
-                            </ul>
+                                              
+                      </ul>
+              <div class="testo">{!! $singlePost['testo']!!}</div>
+
                         @endforeach
                     @endif
                 @endforeach

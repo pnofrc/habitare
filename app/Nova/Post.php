@@ -77,8 +77,8 @@ class Post extends Resource
                 'Sera' => 'Sera',
             ])->displayUsingLabels(),
 
-            Number::make('orario')->min(0)->max(24)->step(0.01)->nullable(),
-
+            Number::make('Orario')->min(0)->max(24)->step(0.01)->nullable(),
+            Number::make('Orario_fine')->min(0)->max(24)->step(0.01),
 
             BelongsToMany::make('Categoria', 'categories', Categories::class)->display('title'),
 

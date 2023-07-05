@@ -24,6 +24,7 @@ class Post extends Model
         'calendario',
         'quando',
         'orario',
+        'Orario_fine',
         'testo',
     ];
 

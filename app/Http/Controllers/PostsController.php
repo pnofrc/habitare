@@ -74,6 +74,7 @@ class PostsController extends Controller
 
     public function program(){
         $posts = Post::all();
+        $posts = $posts->sortBy('orario');
         $categories = Category::all();
         $posts_ok= array();
         $categories_clean = array();
@@ -84,7 +85,7 @@ class PostsController extends Controller
 
         // Filter posts
         foreach ($categories_clean as $category) {
-            
+
             // Check trough all the posts
             foreach ($posts as $p => $post) {
                 $posts_ok[$post->id] = $post->getAttributes();
@@ -102,16 +103,17 @@ class PostsController extends Controller
 
         }
 
+
         $filtered_posts = array();
+
         foreach ($posts_ok as $key => $post) {
-            
             $filtered_posts[$post['calendario']][$post['quando']][] = $post;
+            // $filtered_posts[$post['calendario']][$post['orario']][] = $post;
         }
 
-        // dd($filtered_posts);
-        $props['categories'] = $categories_clean;
+        // $props['categories'] = $categories_clean;
         $props['posts'] = $filtered_posts;
-
+        // dd($filtered_posts);
 
         return view('programma', $props);
     }
