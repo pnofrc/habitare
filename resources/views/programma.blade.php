@@ -181,7 +181,7 @@
                   
                                         
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
               
                   @endforeach
@@ -204,7 +204,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -224,7 +224,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -244,7 +244,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -265,7 +265,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -288,7 +288,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -308,7 +308,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -328,7 +328,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -349,7 +349,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -372,7 +372,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -392,7 +392,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -412,7 +412,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -433,7 +433,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -456,7 +456,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -476,7 +476,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -496,7 +496,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -517,7 +517,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -540,7 +540,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -560,7 +560,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -580,7 +580,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -601,7 +601,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -624,7 +624,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -644,7 +644,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -664,7 +664,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
@@ -685,7 +685,7 @@
                             @endforeach
                                               
                       </ul>
-              <div class="testo">{!! $singlePost['testo']!!}</div>
+              <div class="testo">{!! $singlePost['testo']!!}</div><hr>
 
                         @endforeach
                     @endif
