@@ -41,6 +41,16 @@
                 background-color: black !important;
                 border: solid grey 1px !important;
             }    
+
+            img{
+                max-width: unset;
+                width: 100%;
+                height: auto;
+            }
+
+            figcaption{
+                display: none !important
+            }
         </style>
 </head>
     <body>
@@ -261,7 +271,7 @@
     if (x.matches) {
         var map = L.map('map',{
             minZoom: 11,
-            maxZoom: 18,
+            maxZoom: 20,
         }).fitWorld();
             map.panTo(new L.LatLng( 44.022944686536185 , 11.773438401287423))
         
@@ -269,7 +279,7 @@
 
         var map = L.map('map',{ 
             minZoom: 12,
-            maxZoom: 18,
+            maxZoom: 20,
         }).fitWorld();
             map.panTo(new L.LatLng(  44.03009912078176 , 11.828155517578125))
     }
@@ -281,7 +291,7 @@
 
     let tilesBW= L.tileLayer('https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey=d93d6b0ff1934fefb1df41ceacb4614d', {
 	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-	maxZoom: 18
+	maxZoom: 20
 }).addTo(map);
     
     let tiles= L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -338,7 +348,7 @@
             // crea l'icona per il marker  
             // e aggiungi categorie come classe (per filtraggio)
 
-            console.log("{{$post['calendario']}}")
+            // console.log("{{$post['calendario']}}")
             
 
             // Colora il marker in base alla categoria
@@ -536,13 +546,13 @@
 
     <!-- PWA -->
     <script src="{{ asset('/sw.js') }}"></script>
-    {{-- <script>
+    <script>
         if (!navigator.serviceWorker.controller) {
             navigator.serviceWorker.register("/sw.js").then(function (reg) {
                 console.log("Service worker has been registered for scope: " + reg.scope);
             });
         }
-    </script> --}}
+    </script>
 
     </body>
 </html>
