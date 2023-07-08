@@ -212,7 +212,7 @@
         @endforeach
            
 <h1 id="uno">15 Luglio   -    Rocca S. Casciano</h1>
-        {{-- <u class="quando">Tutto il giorno:</u><br>
+        <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'uno')
                 @foreach ($post as $k => $p)
@@ -231,7 +231,7 @@
                     @endif
                 @endforeach
             @endif
-        @endforeach --}}
+        @endforeach
         <u class="quando">Mattino:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'uno')
@@ -295,7 +295,7 @@
         @endforeach
 
 <h1 id="due">16 Luglio   -    Rocca S. Casciano</h1>
-        {{-- <u class="quando">Tutto il giorno:</u><br>
+        <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'due')
                 @foreach ($post as $k => $p)
@@ -314,7 +314,7 @@
                     @endif
                 @endforeach
             @endif
-        @endforeach --}}
+        @endforeach
         <u class="quando">Mattino:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'due')
