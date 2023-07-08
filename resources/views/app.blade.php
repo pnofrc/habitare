@@ -96,9 +96,9 @@
         <input  checked type="checkbox" name="chk" onclick="toggleCluster(quattro)">
         <label for="23">23 Luglio | Tredozio</label><br>
         <input checked  type="checkbox" name="chk" onclick="toggleCluster(cinque)">
-        <label for="29">29 Luglio | Portico e San Benedetto</label><br>
+        <label for="29">29 Luglio | Portico di Romagna</label><br>
         <input checked  type="checkbox" name="chk" onclick="toggleCluster(sei)">
-        <label for="30">30 Luglio | Portico e San Benedetto</label><br>
+        <label for="30">30 Luglio | Portico di Romagna</label><br>
 
     </div>
 

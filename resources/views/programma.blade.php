@@ -189,8 +189,8 @@
         <a href="#due">16 Luglio   -    Rocca S. Casciano</a><br>
         <a href="#tre">22 Luglio   -    Tredozio</a><br>
         <a href="#quattro">23 Luglio   -    Tredozio</a><br>
-        <a href="#cinque">29 Luglio   -    Portico e San Benedetto</a><br>
-        <a href="#sei">30 Luglio   -    Portico e San Benedetto</a><br>
+        <a href="#cinque">29 Luglio   -    Portico di Romagna</a><br>
+        <a href="#sei">30 Luglio   -    Portico di Romagna</a><br>
     </div>
 
 
@@ -553,7 +553,7 @@
             @endif
         @endforeach
 
-<h1 id="cinque">29 Luglio   -    Portico e San Benedetto</h1>
+<h1 id="cinque">29 Luglio   -    Portico di Romagna</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'cinque')
@@ -636,7 +636,7 @@
             @endif
         @endforeach
 
-<h1 id="sei">30 Luglio   -    Portico e San Benedetto</h1>
+<h1 id="sei">30 Luglio   -    Portico di Romagna</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'sei')
