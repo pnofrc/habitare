@@ -108,9 +108,19 @@
             }
             @media only screen and (max-width: 900px) {
 
+                figure{
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .testo{
+                    margin-left: unset;
+                }
+                
+
                 h1{
                     height: 190px;
-                    width: fit-content
+                 width: 95vw;
                 }
                 body{
                     font-size: 1rem
@@ -174,7 +184,7 @@
    
 
     <div class="menu">
-        <a href="#zero">14 Luglio   -    Tredozio (Welcoming)</a><br>
+        <a href="#zero">14 Luglio   -    Tredozio</a><br>
         <a href="#uno">15 Luglio   -    Rocca S. Casciano</a><br>
         <a href="#due">16 Luglio   -    Rocca S. Casciano</a><br>
         <a href="#tre">22 Luglio   -    Tredozio</a><br>
@@ -188,7 +198,7 @@
 
     <div class="container">
         <hr>
-<h1 id="zero">14 Luglio   -    Tredozio  (Welcoming)</h1>
+<h1 id="zero">14 Luglio   -    Tredozio</h1>
 
         @foreach ($posts as $key => $post)
             @if ($key == 'zero')

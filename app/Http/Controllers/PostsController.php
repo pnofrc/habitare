@@ -16,7 +16,7 @@ class PostsController extends Controller
 
 			'name' => $request->name,
 			'post' =>  $request->post, // used to check if the order has been updated
-            'file' => $request->file,
+            'file' => $request->file->nullable()->default(NULL),
 			'lat' =>  $request->lat,
 			'lng' =>  $request->lng, // quella per il codice
 			'published' => false, // quella visualizzata nel front
