@@ -2,14 +2,33 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
+use App\Models\PostFromInterface;
 use App\Models\Category;
 use App\Models\Info;
 use Illuminate\Http\Request;
 class PostsController extends Controller
 {
+
+
+    public function postFromInterface(Request $request){
+
+        $newPost = PostFromInterface::create([
+
+			'name' => $request->name,
+			'post' =>  $request->post, // used to check if the order has been updated
+            'file' => $request->file,
+			'lat' =>  $request->lat,
+			'lng' =>  $request->lng, // quella per il codice
+			'published' => false, // quella visualizzata nel front
+		]);
+
+        $newPost->save();
+
+        return back();
+    }
+
     public function index()
     {
-
       
         // Take the categories to display on the interface
         $categories = Category::all();
@@ -49,10 +68,7 @@ class PostsController extends Controller
                 }
 
 
-               
-
-              
-                // ... send to view
+            
                 $props['posts'] = $posts_ok;
                 return view('app', $props);
             }
@@ -62,7 +78,9 @@ class PostsController extends Controller
         else {
             return view('app');
         }
-    }      
+    }   
+    
+
 
     public function info(){
         $infos = Info::all();
@@ -117,4 +135,16 @@ class PostsController extends Controller
 
         return view('programma', $props);
     }
+
+    public function posts(){
+        // POSTS FROM USERS
+        $postsFromUsers = PostFromInterface::all();
+        // ... send to view
+        $props['postsFromUsers'] = $postsFromUsers;
+
+
+        return view('bartolacciogram', $props);
+    }
+
+
 }

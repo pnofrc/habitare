@@ -1,13 +1,18 @@
 
 @font-face {
     font-family: 'gothic';
-    src: url('/fonts/routed-gothic.ttf');
+    src: url('/fonts/routed-gothic-narrow.ttf');
 }
 
 
 @font-face {
     font-family: 'gothicItalic';
     src: url('/fonts/routed-gothic-italic.ttf');
+}
+
+@font-face {
+    font-family: 'internazionale';
+    src: url('/fonts/LInternationale.ttf');
 }
 
 
@@ -36,8 +41,12 @@ summary,
 [type=submit],
 [type=checkbox] {
     cursor: pointer;
-    padding: 3px;
+    /* padding: 3px; */
     margin: 2px 0;
+}
+
+button{
+    font-size: 12px;
 }
 
 menu,
@@ -79,6 +88,15 @@ body {
     font-family: 'gothic' !important;
     }
 
+
+
+textarea, input{
+    font-family: 'gothic' !important;
+    padding: 1px;
+}
+
+
+
 button{
     font-family: 'gothic' !important;
 }
@@ -88,6 +106,10 @@ html, body, #map {
     width: 100vw;
 }
 
+b, .exp{
+    font-style: normal !important;
+    font-family: 'internazionale';
+}
 
 i{
     font-style: normal !important;
@@ -105,9 +127,14 @@ z-index: 2;}
 #categories{
     position: absolute;
     transform:scale(1.2);
-    top: 10rem;
+    top: 7rem;
     left: 2rem;
 z-index: 2;}
+
+#calendario, #categories{
+    font-size: 15px;
+    line-height: 20px;
+}
 /* MAP */
 
 
@@ -129,10 +156,16 @@ z-index: 2;}
 
 #changeMap{
     position: fixed;
-    top: 80px;
-    left: 12px;
+    top: 8px;
+    right: 65%;
     z-index: 2;
-    font-size: 22px;
+
+}
+
+#changeMap a{
+    color: black !important;
+    text-decoration: none;
+    font-size: 12px;
 }
 
 
@@ -205,12 +238,23 @@ z-index: 2;}
     flex-direction: column;
 }
 
+.top{
+    top: 1rem;
+    position: relative;
+    width: -webkit-fill-available;
+}
+
+.top .flex:nth-child(1){
+    position: sticky;
+    top: 1rem;
+}
+
 .bottom{
     margin-bottom: 10%;
 }
 .text h2{
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 }
 
 .leaflet-div-icon{
@@ -222,8 +266,15 @@ z-index: 2;}
     align-items: center;
 }
 
-.leaflet-control-attribution.leaflet-control{
+   .leaflet-control-attribution.leaflet-control{
+    top: 0;
     position: fixed;
+    right: 5px;
+
+}
+
+.leaflet-control-attribution.leaflet-control {
+    font-size: .3rem;
 }
 
 .closeSidebar{
@@ -300,15 +351,67 @@ z-index: 2;}
     }
 
 
+    #heart {
+        top: 70px;
+        right: 44%;
+        z-index: 2;
+        position: absolute;
+        width: 100px;
+        height: 90px;
+        background-color: transparent;
+        border: none;
+        transform: rotate(15deg);
+      }
+      #heart:before,
+      #heart:after {
+        position: absolute;
+        content: "";
+        left: 50px;
+        top: 0;
+        width: 50px;
+        height: 80px;
+        background: rgb(41,172,228);
+        border-radius: 50px 50px 0 0;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+      }
+      #heart:after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+      }
+
+      #heart a {
+        color: black;
+        position: relative;
+        z-index: 999;
+        bottom: 15px;
+        left: 2px;
+      }
 
 @media (max-width: 450px) {
+
+    #heart{
+        top: 24px;
+        right: 12px;
+    }
+
+    #heart:before,
+    #heart:after {
+      background: rgb(36,192,68);
+    }
+
+    #changeMap{
+        top: 9px;
+        right: 11px
+    }
 
     .buttons{
          position: fixed;
         z-index: 5;
         display: block;
         left: 12px;
-        top: 125px;  
+        top: 80px;  
         width: 43px;
         display: flex;
         justify-content: center;
@@ -355,7 +458,7 @@ z-index: 2;}
     .closeSidebar button{
         padding: 3px;
         font-size: 1.1rem;
-        border: 1px yellow solid;
+        background: rgb(236,108,0);
         border-radius: 5px;
         width: max-content;
     }
@@ -382,9 +485,7 @@ z-index: 2;}
 
 
 
-    #calendario{
-        display: none;
-    }
+
     #categories{
         bottom: 1rem;
         left: 1rem;

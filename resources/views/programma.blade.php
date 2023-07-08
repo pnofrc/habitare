@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="theme-color" content="green"/>
+        <meta name="theme-color" content="rgb(36,192,68);"/>
         <link rel="apple-touch-icon" href="{{ asset('/assets/habitare/H.png') }}">
         <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
@@ -31,13 +31,14 @@
             }
 
             hr{
-                margin: 1rem 0 3rem 0
+                margin: 1rem 0 3rem 0;
+                width: 92vw;
             }
 
             a{
                 word-break: break-all;
                 white-space: normal;
-                color: green !important;
+                color: rgb(36,192,68); !important;
             }
 
             hr{
@@ -57,12 +58,15 @@
                 align-items: center;
                 gap: 20px;
                 position: fixed;
-                top: 0;
+                top: 15px;
                 left: 2rem;
-                font-size: 2rem;
+
                 text-decoration: none;
             }
 
+            #back p{
+                margin: 0
+            }
 
             #back span{
                 font-size: .8rem;
@@ -87,9 +91,27 @@
                 display: none;
             }
 
+            h1{
+                position: sticky;
+                background: white;
+                width: 96vw;
+                top: 0rem;
+                height: 135px;
+                padding-top: 3rem;
+            }
 
+    
+
+            .over{
+                position: relative;
+                z-index: 9999;
+            }
             @media only screen and (max-width: 900px) {
 
+                h1{
+                    height: 190px;
+                    width: fit-content
+                }
                 body{
                     font-size: 1rem
                 }
@@ -144,8 +166,8 @@
     </head>
     <body>
 
-    <a href="#" id="up">↑</a>
-    <a href="/" id="back"><p>←</p><span> alla piattaforma!</span></a>
+    <a class="over" href="#" id="up">↑</a>
+    <a class="over"  href="/" id="back"><p>←</p><span> alla piattaforma!</span></a>
   
     <h1 id="title">PROGRAMMA</h1>
 
@@ -171,7 +193,7 @@
         @foreach ($posts as $key => $post)
             @if ($key == 'zero')
                 @foreach ($post as $k => $p)
-                    <br><u class="quando">{{$k}}:</u><br>
+                    <u class="quando">{{$k}}:</u><br>
                     @foreach ($p as $singlePost)
                    <h2>{!!$singlePost['titolo'] !!}   @if($singlePost['Orario_fine'])•    <u>{!!$singlePost['orario'] !!} - {!!$singlePost['Orario_fine'] !!}</u>@endif</h2>
                       <ul>
@@ -189,7 +211,6 @@
             @endif
         @endforeach
            
-        <hr>
 <h1 id="uno">15 Luglio   -    Rocca S. Casciano</h1>
         {{-- <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
@@ -211,7 +232,7 @@
                 @endforeach
             @endif
         @endforeach --}}
-        <br><u class="quando">Mattino:</u><br>
+        <u class="quando">Mattino:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'uno')
                 @foreach ($post as $k => $p)
@@ -231,7 +252,7 @@
                 @endforeach
             @endif
         @endforeach
-        <br><u class="quando">Pomeriggio</u><br>
+        <u class="quando">Pomeriggio</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'uno')
                 @foreach ($post as $k => $p)
@@ -252,7 +273,7 @@
             @endif
         @endforeach
 
-        <br><u class="quando">Sera:</u><br>
+        <u class="quando">Sera:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'uno')
                 @foreach ($post as $k => $p)
@@ -273,7 +294,6 @@
             @endif
         @endforeach
 
-        <hr>
 <h1 id="due">16 Luglio   -    Rocca S. Casciano</h1>
         {{-- <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
@@ -295,7 +315,7 @@
                 @endforeach
             @endif
         @endforeach --}}
-        <br><u class="quando">Mattino:</u><br>
+        <u class="quando">Mattino:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'due')
                 @foreach ($post as $k => $p)
@@ -315,7 +335,7 @@
                 @endforeach
             @endif
         @endforeach
-        <br><u class="quando">Pomeriggio</u><br>
+        <u class="quando">Pomeriggio</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'due')
                 @foreach ($post as $k => $p)
@@ -336,7 +356,7 @@
             @endif
         @endforeach
 
-        <br><u class="quando">Sera:</u><br>
+        <u class="quando">Sera:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'due')
                 @foreach ($post as $k => $p)
@@ -357,7 +377,6 @@
             @endif
         @endforeach
 
-        <hr>
 <h1 id="tre">22 Luglio   -    Tredozio</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
@@ -379,7 +398,7 @@
                 @endforeach
             @endif
         @endforeach
-        <br><u class="quando">Mattino:</u><br>
+        <u class="quando">Mattino:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'tre')
                 @foreach ($post as $k => $p)
@@ -399,7 +418,7 @@
                 @endforeach
             @endif
         @endforeach
-        <br><u class="quando">Pomeriggio</u><br>
+        <u class="quando">Pomeriggio</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'tre')
                 @foreach ($post as $k => $p)
@@ -420,7 +439,7 @@
             @endif
         @endforeach
 
-        <br><u class="quando">Sera:</u><br>
+        <u class="quando">Sera:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'tre')
                 @foreach ($post as $k => $p)
@@ -441,7 +460,6 @@
             @endif
         @endforeach
 
-        <hr>
 <h1 id="quattro">23 Luglio   -    Tredozio</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
@@ -463,7 +481,7 @@
                 @endforeach
             @endif
         @endforeach
-                <br><u class="quando">Mattino:</u><br>
+                <u class="quando">Mattino:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'quattro')
                 @foreach ($post as $k => $p)
@@ -483,7 +501,7 @@
                 @endforeach
             @endif
         @endforeach
-        <br><u class="quando">Pomeriggio</u><br>
+        <u class="quando">Pomeriggio</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'quattro')
                 @foreach ($post as $k => $p)
@@ -504,7 +522,7 @@
             @endif
         @endforeach
 
-        <br><u class="quando">Sera:</u><br>
+        <u class="quando">Sera:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'quattro')
                 @foreach ($post as $k => $p)
@@ -525,7 +543,6 @@
             @endif
         @endforeach
 
-        <hr>
 <h1 id="cinque">29 Luglio   -    Portico e San Benedetto</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
@@ -547,7 +564,7 @@
                 @endforeach
             @endif
         @endforeach
-        <br><u class="quando">Mattino:</u><br>
+        <u class="quando">Mattino:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'cinque')
                 @foreach ($post as $k => $p)
@@ -567,7 +584,7 @@
                 @endforeach
             @endif
         @endforeach
-        <br><u class="quando">Pomeriggio</u><br>
+        <u class="quando">Pomeriggio</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'cinque')
                 @foreach ($post as $k => $p)
@@ -588,7 +605,7 @@
             @endif
         @endforeach
 
-        <br><u class="quando">Sera:</u><br>
+        <u class="quando">Sera:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'cinque')
                 @foreach ($post as $k => $p)
@@ -609,7 +626,6 @@
             @endif
         @endforeach
 
-        <hr>
 <h1 id="sei">30 Luglio   -    Portico e San Benedetto</h1>
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
@@ -631,7 +647,7 @@
                 @endforeach
             @endif
         @endforeach
-        <br><u class="quando">Mattino:</u><br>
+        <u class="quando">Mattino:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'sei')
                 @foreach ($post as $k => $p)
@@ -651,7 +667,7 @@
                 @endforeach
             @endif
         @endforeach
-        <br><u class="quando">Pomeriggio</u><br>
+        <u class="quando">Pomeriggio</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'sei')
                 @foreach ($post as $k => $p)
@@ -672,7 +688,7 @@
             @endif
         @endforeach
 
-        <br><u class="quando">Sera:</u><br>
+        <u class="quando">Sera:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'sei')
                 @foreach ($post as $k => $p)
