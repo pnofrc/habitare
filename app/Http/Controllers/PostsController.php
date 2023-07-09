@@ -17,7 +17,6 @@ class PostsController extends Controller
 
     public function postFromInterface(Request $request){
      
-        dd($request->file('file'));
 
         if ($request->hasFile('file')) {
            
