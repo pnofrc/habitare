@@ -65,6 +65,11 @@
                 display: none !important
             }
 
+            .leflet-popup-content{
+                height: 300px !important;
+                overflow-y: scroll !important;
+            }
+
            
         </style>
 </head>
@@ -224,14 +229,6 @@
     }
     
 
-
-
-    // evento per cambiare la mappa
-   document.querySelectorAll(".leaflet-popup").forEach(marker => {
-        marker.addEventListener("onchange",()=>{
-            alert(marker)
-        })
-   });
 
     // evento per categorie su mobile
     document.getElementById("categorieToggle").addEventListener("click", () => {
