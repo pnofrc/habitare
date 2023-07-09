@@ -24,6 +24,7 @@ class PostsController extends Controller
            
         } else {
             $file =  $request->file;
+            dd($file);
         }
 
         $newPost = PostFromInterface::create([
