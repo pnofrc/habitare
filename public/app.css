@@ -165,7 +165,10 @@ z-index: 2;}
     top: 8px;
     right: 65%;
     z-index: 2;
-
+    border-radius: 20px;
+    padding: 6px 19px;
+        background-color: var(--orange);
+    border: none;
 }
 
 #changeMap a{
@@ -372,7 +375,7 @@ z-index: 2;}
         border-right: 100px solid transparent;
         border-bottom: 70px solid  var(--green);
         border-left: 100px solid transparent;
-        transform: scale(.5) rotate(-25deg);
+        transform: scale(.5) rotate(298deg);
       }
       #star-five:before {
         border-bottom: 80px solid  var(--green);
@@ -409,6 +412,7 @@ z-index: 2;}
         font-size: 1.5rem;
         z-index: 3;
         margin-top: 10px;
+        transform: rotate(36deg);
       }
 
     #heart {
@@ -470,8 +474,9 @@ z-index: 2;}
 
 
     #changeMap{
-        top: 9px;
-        right: 11px
+        top: 20%;
+        right: 11px;
+        background-color: var(--green);
     }
 
     .buttons{

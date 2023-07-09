@@ -72,7 +72,7 @@
         <button id="star-five"><a id="cretina" href="/info">INFO!</a></button>
         <button id="heart"><a href="/programma">PROGRAMMA!</a></button>
     <div class="buttons">
-        {{-- <button id="changeMap"><a href="/bartolacciogram">BARTOLACCIOGRAM</a></button> --}}
+        <button id="changeMap"><a href="/bartolacciogram">BARTOLACCIOGRAM</a></button>
         <button class="showSidebar">info</button>
         <button id="categorieToggle">Categorie</button>
         <button id="giornateToggle">Giornate</button>
@@ -346,20 +346,20 @@
                         fillOpacity: 0.5
                     }}
 
-    @if ($posts ?? '')
+    // @if ($posts ?? '')
 
         // posta tutti i post
         let categoriesPost 
         let categoriesPostArray
         let colors
         
-        var zero = L.markerClusterGroup();
-        var uno = L.markerClusterGroup(clusterOptions);
-        var due = L.markerClusterGroup();
-        var tre = L.markerClusterGroup();
-        var quattro = L.markerClusterGroup();
-        var cinque = L.markerClusterGroup();
-        var sei = L.markerClusterGroup();
+        var zero = L.markerClusterGroup(clusterOptionsTredozio);
+        var uno = L.markerClusterGroup(clusterOptionsRocca);
+        var due = L.markerClusterGroup(clusterOptionsRocca);
+        var tre = L.markerClusterGroup(clusterOptionsTredozio);
+        var quattro = L.markerClusterGroup(clusterOptionsTredozio);
+        var cinque = L.markerClusterGroup(clusterOptionsPortico);
+        var sei = L.markerClusterGroup(clusterOptionsPortico);
 
         @foreach ($posts as $key => $post)
         
@@ -421,7 +421,7 @@
 
             
          @endforeach
-    @endif
+    // @endif
 
     // aggiungi all mappa i clusters
 
