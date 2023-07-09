@@ -65,12 +65,7 @@
                 display: none !important
             }
 
-            .leflet-popup-content{
-                height: 300px !important;
-                overflow-y: scroll !important;
-            }
-
-           
+         
         </style>
 </head>
     <body>
@@ -283,6 +278,7 @@
         {  closeButton: false,
             autoClose: false,
             'maxWidth': '300',
+            'maxHeight': '400',
             'className' : 'another-popup' // classname for another popup
         }
 
