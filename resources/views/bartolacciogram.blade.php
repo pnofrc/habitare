@@ -74,7 +74,8 @@
             button{
                 z-index: 9;
                  position: relative;
-                 
+                 font-size: 1rem;
+                 border-radius: 10px
             }
 
             .buttons{
@@ -85,7 +86,16 @@
                 width: fit-content;
                 bottom: 0;
                 position: absolute;
+                height: 85%;
+    justify-content: space-between;
             }
+
+            .flex-column{
+                display: flex;
+                flex-direction: column;
+            }
+
+
 
 
             .closeSidebar{      z-index: 19;}
@@ -103,23 +113,44 @@
                 display: none;
                 z-index: 100;
                 position: relative;
-                width: 50%;
+                background: white;
+                border-radius: 30px;
+                width: 70%;
+                margin-top: 5%;
+                padding: 20px;
+                margin-left: 15%;
             }
 
             li{
-               line-height: 1.4rem
+                padding: 10px 0;
+               line-height: 1.5rem;
+               font-size: 1.2rem
             }
 
+
+            @media (max-width: 450px) {
+                #istruzioni{
+                background: white;
+                width: 100%;
+                height: 100%;
+                overflow-y: scroll;
+                padding: 40px 20px;
+                margin: unset;
+                border-radius: 0;
+
+            }
+            }
             
         </style>
     </head>
     <body>
 
     <div class="buttons">
-        <button id="backTo"><a href="/">HABITARE</a></button>
-        <button id="toggleInstructions">ISTRUZIONI</button>
-        <button id="postMode">MODALITA' POST</button>
-        {{-- <button class="showSidebar">info</button> --}}
+        <button id="backTo"><a style="text-decoration: none" href="/">HABITARE</a></button>
+        <div class="flex-column">
+            <button id="toggleInstructions">ISTRUZIONI</button>
+            <button id="postMode">MODALITA' POST</button>
+        </div>
     </div>
 
 
@@ -189,6 +220,8 @@
             <li>Attenzione: i post vengono controllati prima di essere pubblicati globalmnte. Tuttavia, ogni post creato da te verrà salvato sul tuo browser.</li>
             <li>Se vuoi che un post pubblicatio venga eliminato, sentiti libere di scriverci per richiedere la rimozione.</li>
         </ul>
+
+        <button id="closeIstructions">CHIUDI ISTRUZIONI</button>
    </div>
 
 
@@ -200,13 +233,15 @@
         let t = true
     document.querySelector("#toggleInstructions").addEventListener("click", ()=>{
         if (t){document.querySelector("#istruzioni").style.display = 'block'; t=!t}else{ document.querySelector("#istruzioni").style.display = 'none';t=!t}
-  
+    })
+
+    document.querySelector("#closeIstructions").addEventListener("click", ()=>{
+        if (t){document.querySelector("#istruzioni").style.display = 'block'; t=!t}else{ document.querySelector("#istruzioni").style.display = 'none';t=!t}
     })
 
     // Toggle sidebar su mobile
 
     document.querySelector('.closeSidebar').addEventListener('click', () =>{
-        console.log(document.querySelector('.sidebar').style.display)
 
         if (document.querySelector('.sidebar').style.display = 'flex'){
             document.querySelector('.sidebar').style.display = 'none'
@@ -299,11 +334,6 @@ tiles.addTo(map)
         @endforeach
 
 
-        /*
-        descrizione istruzione
-        colophon tech?
-        */
-        
 
 
         // posta nuovi contenuti
