@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\PostsController@index');
 
 Route::get('/bartolacciogram', 'App\Http\Controllers\PostsController@posts');
-
+Route::post('/piadina', 'App\Http\Controllers\PostsController@postFromInterface');
+Route::get('/crescione/{id}', 'App\Http\Controllers\PostsController@acceptPost');
 
 Route::get('/info', 'App\Http\Controllers\PostsController@info');
 
@@ -27,5 +28,4 @@ Route::get('/map', function () {return view('map');});
 
 Route::get('/call', function () {return view('call');});
 
-// Route::post('/posting', 'App\Http\Controllers\PostsController@postFromInterface');
-Route::post('/pippo', 'App\Http\Controllers\PostsController@postFromInterface');
+

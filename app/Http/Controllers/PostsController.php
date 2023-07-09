@@ -6,17 +6,30 @@ use App\Models\PostFromInterface;
 use App\Models\Category;
 use App\Models\Info;
 use Illuminate\Http\Request;
+use App\Mail\acceptPost;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+
 class PostsController extends Controller
 {
 
 
     public function postFromInterface(Request $request){
+     
+        if ($request->hasFile('file')) {
+            $file = $request->file('file')->store('public');;
+          
+        } else {
+            $file = 'no';
+        }
 
         $newPost = PostFromInterface::create([
 
 			'name' => $request->name,
 			'post' =>  $request->post, // used to check if the order has been updated
-            'file' => $request->file->nullable()->default(NULL),
+            'file' => $file,
+            'category' => $request->category,
 			'lat' =>  $request->lat,
 			'lng' =>  $request->lng, // quella per il codice
 			'published' => false, // quella visualizzata nel front
@@ -24,7 +37,22 @@ class PostsController extends Controller
 
         $newPost->save();
 
+
+        Mail::to("poni@habitattt.it")
+            ->send(new acceptPost($newPost->id,$request->name,$request->post,$file));
+
+
         return back();
+    }
+
+    public function acceptPost($id) {
+
+        $post = PostFromInterface::findOrFail($id);
+        $post->published = !$post->published;
+        $post->save();
+
+        return 'Postato!';
+
     }
 
     public function index()
@@ -141,7 +169,6 @@ class PostsController extends Controller
         $postsFromUsers = PostFromInterface::all();
         // ... send to view
         $props['postsFromUsers'] = $postsFromUsers;
-
 
         return view('bartolacciogram', $props);
     }

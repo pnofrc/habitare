@@ -39,6 +39,17 @@
         <script src="leaflet/leaflet-providers.js"></script>
 
         <style>
+
+            :root{
+                --blue: rgb(41,172,228);
+                --green:rgb(36,192,68);
+                --orange: rgb(236,108,0);
+            }
+
+
+            a{
+                color: black !important
+            }
             .marker-cluster-small div {
                 background-color: black !important;
                 border: solid grey 1px !important;
@@ -58,7 +69,7 @@
         </style>
 </head>
     <body>
-
+        <button id="star-five"><a id="cretina" href="/info">INFO!</a></button>
         <button id="heart"><a href="/programma">PROGRAMMA!</a></button>
     <div class="buttons">
         {{-- <button id="changeMap"><a href="/bartolacciogram">BARTOLACCIOGRAM</a></button> --}}
@@ -105,7 +116,8 @@
 
     <div class="flex sidebar">
       <div class="top">
-        <div class="flex"><span><a href="/programma#uno">15-16</a></span><span><a href="/programma#tre">22-23</a></span><span><a href="/programma#cinque">29-30</a></span><span>Luglio 2023</span></div>
+        <div class="flex" style="margin-bottom: 3rem"><span><a href="/programma#uno">15-16</a></span><span><a href="/programma#tre">22-23</a></span><span><a href="/programma#cinque">29-30</a></span><span>Luglio 2023</span></div>
+        <a href="/info" id="infoPlus" style="text-align: center; width: inherit; display: inline-block;">INFO UTILI QUA!</a>
 
         <img id="title" src="/assets/title.png">
 
@@ -122,8 +134,6 @@
 
         <div class="links">
             <a href="/call">OPEN CALL - MERCATO</a>
-            <BR>
-            <a href="/info">TUTTE LE INFO!</a>
             <BR>
             <a href="/programma">PROGRAMMA</a>
             
@@ -286,7 +296,7 @@
     var popupOptions =
         {  closeButton: false,
             autoClose: false,
-            'maxWidth': '500',
+            'maxWidth': '300',
             'className' : 'another-popup' // classname for another popup
         }
 
@@ -312,6 +322,30 @@
 
     // Se esistono post..
 
+    let clusterOptionsRocca = {polygonOptions: {
+                        fillColor: 'rgb(236,108,0)',
+                        color: 'rgba(236,108,0,0.52)',
+                        weight: 0.5,
+                        opacity: 1,
+                        fillOpacity: 0.5
+                    }}
+
+    let clusterOptionsTredozio = {polygonOptions: {
+                        fillColor: 'rgb(41,172,228)',
+                        color: 'rgba(41,172,228,0.5)',
+                        weight: 0.5,
+                        opacity: 1,
+                        fillOpacity: 0.5
+                    }}
+
+    let clusterOptionsPortico = {polygonOptions: {
+                        fillColor: '#1b2557',
+                        color: '#1b2557',
+                        weight: 0.5,
+                        opacity: 1,
+                        fillOpacity: 0.5
+                    }}
+
     @if ($posts ?? '')
 
         // posta tutti i post
@@ -320,7 +354,7 @@
         let colors
         
         var zero = L.markerClusterGroup();
-        var uno = L.markerClusterGroup();
+        var uno = L.markerClusterGroup(clusterOptions);
         var due = L.markerClusterGroup();
         var tre = L.markerClusterGroup();
         var quattro = L.markerClusterGroup();
@@ -550,7 +584,7 @@
         // var lat, lng, name, post;
 
         // let postPopup = `<div id="postDiv">
-        //                 <form  action="/pippo" method="POST" id="postData" style="display: flex; align-items: center; gap: 10px;">
+        //                 <form  action="/piadina" method="POST" id="postData" style="display: flex; align-items: center; gap: 10px;">
         //                     @csrf
 
         //                     <input hidden value="" name="lat" id="lat">

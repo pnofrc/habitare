@@ -15,7 +15,11 @@
     src: url('/fonts/LInternationale.ttf');
 }
 
-
+:root{
+    --blue: rgb(41,172,228);
+    --green:rgb(36,192,68);
+    --orange: rgb(236,108,0);
+}
 
 *,
 *::before,
@@ -72,6 +76,8 @@ a {
 
     /* Sets the thickness as a percentage of the font size */
     text-decoration-thickness: 8;
+
+
 }
 
 .top div a {
@@ -351,6 +357,60 @@ z-index: 2;}
     }
 
 
+    #star-five {
+        display: flex;
+    background: transparent;
+    justify-content: center;
+    top: 69px;
+    right: 60%;
+        z-index: 2;
+        position: absolute;
+        margin: 50px 0;
+        color:  var(--green);
+        width: 0px;
+        height: 0px;
+        border-right: 100px solid transparent;
+        border-bottom: 70px solid  var(--green);
+        border-left: 100px solid transparent;
+        transform: scale(.5) rotate(-25deg);
+      }
+      #star-five:before {
+        border-bottom: 80px solid  var(--green);
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        position: absolute;
+        height: 0;
+        width: 0;
+        top: -45px;
+        left: -65px;
+        display: block;
+        content: '';
+        transform: rotate(-35deg);
+      }
+      #star-five:after {
+        position: absolute;
+        display: block;
+        color:  var(--green);
+        top: 3px;
+        left: -105px;
+        width: 0px;
+        height: 0px;
+        border-right: 100px solid transparent;
+        border-bottom: 70px solid  var(--green);
+        border-left: 100px solid transparent;
+        transform: rotate(-70deg);
+        content: '';
+      }
+
+      #cretina{
+        color: black;
+        position: relative;
+        z-index: 999;
+        font-size: 1.5rem;
+        z-index: 3;
+        margin-top: 10px;
+      }
+
     #heart {
         top: 70px;
         right: 44%;
@@ -370,7 +430,7 @@ z-index: 2;}
         top: 0;
         width: 50px;
         height: 80px;
-        background: rgb(41,172,228);
+        background: var(--blue);
         border-radius: 50px 50px 0 0;
         transform: rotate(-45deg);
         transform-origin: 0 100%;
@@ -389,17 +449,25 @@ z-index: 2;}
         left: 2px;
       }
 
+      #infoPlus{
+        display:none;
+    }
+
 @media (max-width: 450px) {
+
+    #infoPlus{
+        display: block;
+    }
 
     #heart{
         top: 24px;
         right: 12px;
     }
 
-    #heart:before,
-    #heart:after {
-      background: rgb(36,192,68);
+    #star-five {
+        display: none;
     }
+
 
     #changeMap{
         top: 9px;

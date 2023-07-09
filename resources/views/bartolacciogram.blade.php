@@ -39,6 +39,12 @@
         <script src="leaflet/leaflet-providers.js"></script>
 
         <style>
+
+            :root{
+                --blue: rgb(41,172,228);
+                --green:rgb(36,192,68);
+                --orange: rgb(236,108,0);
+            }
             .marker-cluster-small div {
                 background-color: black !important;
                 border: solid grey 1px !important;
@@ -53,85 +59,168 @@
             figcaption{
                 display: none !important
             }
+            .bartolaccio{
+                font-size: 3em
+            }
+
+            #title{width: 65%}
+
+            a{color: black}
+
+            .postContent,.postName{
+                font-size: 1rem
+            }
+
+            button{
+                z-index: 9;
+                 position: relative;
+                 
+            }
+
+            .buttons{
+                display: flex;
+                margin-bottom: 11px;
+                flex-direction: column;
+                margin-left: 11px;
+                width: fit-content;
+                bottom: 0;
+                position: absolute;
+            }
+
+
+            .closeSidebar{      z-index: 19;}
+            .closeSidebar button{
+                background-color: var(--green);
+          
+            }
+
+
+            .filter {
+                filter: grayscale(1);
+            }
+
+            #istruzioni{
+                display: none;
+                z-index: 100;
+                position: relative;
+                width: 50%;
+            }
+
+            li{
+               line-height: 1.4rem
+            }
+
+            
         </style>
-</head>
+    </head>
     <body>
 
     <div class="buttons">
-        <button id="changeMap"><a href="/">HABITARE</a></button>
-        <button class="showSidebar">info</button>
+        <button id="backTo"><a href="/">HABITARE</a></button>
+        <button id="toggleInstructions">ISTRUZIONI</button>
+        <button id="postMode">MODALITA' POST</button>
+        {{-- <button class="showSidebar">info</button> --}}
     </div>
-
-    
 
 
     <div class="flex sidebar">
-      <div class="top">
-        <div class="flex"><span><a href="/programma#uno">15-16</a></span><span><a href="/programma#tre">22-23</a></span><span><a href="/programma#cinque">29-30</a></span><span>Luglio 2023</span></div>
 
-        <img id="title" src="/assets/title.png">
+        <div style="margin-top: 2rem; display: flex; flex-direction: column; align-items: center">
+            <b class="bartolaccio">BartolaccioGram</b>
+            <b>Creato da</b>
+            <img id="title" src="/assets/title.png">
+        </div>
 
         <div class="text">
-          <h2>Nuove Prospettive Cult(r)urali</h2>
+          <h2>La bacheca pubblica della Romagna Toscana</h2>
+
           <p>
+            <b>BartolaccioGram</b> è parte della piattaforma web <a href="../">Habitare</a> creata nel contesto del festival omonimo.<br><br>
+            Chiunque può pubblicare su questa pagina racconti, poesie, fotografie, disegni, consigli su dove mangiare, ricordi passati o speranze future.<br><br>
+            Data la natura geografica di questa pagina, l'idea è di associare il post da voi creato ad un posto della zona della Romagna Toscana, per permettere a tutte le persone di visitare i posti da voi segnalati.<br><br>
+
+            <br>
+
             Habitare è un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).<br><br>
             Ogni sabato e domenica, dalle 10 alle 00, il Festival popolerà un differente borgo, delineando un percorso collettivo fatto di laboratori, presentazioni, tavole rotonde, musica, mostre, installazioni ed escursioni.<br><br>
-            Il filo conduttore é la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.<br>
+            Il filo conduttore é la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.
+<br>
             Nello sviluppo condiviso di tale dimensione, comunità e territori possono diventare vettori di sostenibilità sociale e di attivazione partecipata di nuove dinamiche dell'abitare, espresse e vissute tramite linguaggi creativi contemporanei.
             <br><br>
             Zaini in spalla!
         </p>
+        </div>  
 
-        <div class="links">
-            <a href="/call">OPEN CALL - MERCATO</a>
-            <BR>
-            <a href="/info">TUTTE LE INFO!</a>
-            <BR>
-            <a href="/programma">PROGRAMMA</a>
-            
+        <div class="bottom flex">
+            <span>
+              Progetto co-finanziato dal Ministero per la Transizione Ecologica nell'ambito del processo di attuazione della Strategia Nazionale per lo Sviluppo Sostenibile
+            </span>
+            <div id="loghi">
+                <img src="/assets/loghi/habitat.png">
+                <img src="/assets/loghi/distrettoA.png">
+                <img id="ministero" src="/assets/loghi/mase.png">
+                <img src="/assets/loghi/sns.png">
+            </div>
         </div>
 
-            <p>
-                Per navigare nei luoghi ed eventi del festival e del territorio, ti invitiamo ad utilizzare questa piattaforma, la Piattaforma Habitare: una mappa interattiva e condivisa, ma anche strumento di orientamento che permetterà di conoscere e scoprire i luoghi, gli eventi, e tutte le possibilità che circondano il festival.                
-            </p>
-
-            <h2 class="exp">ISTRUZIONI:</h2>
-
-            <p>Con la lista colorata, puoi filtrare gli eventi in base alla tipologia.
-                Puoi inoltre filtrare gli eventi spuntando le caselle in base ai giorni in cui vorrai venire.
-                
-                Nel caso qualcosa andasse storto, puoi sempre deselezionare tutto e ricominciare da capo con la distillazione.                
-            </p>
-
-            <p>
-        </div>  
     </div>  
 
-      <div class="bottom flex">
-        <span>
-          Progetto co-finanziato dal Ministero per la Transizione Ecologica nell'ambito del processo di attuazione della Strategia Nazionale per lo Sviluppo Sostenibile
-        </span>
       
-        <div id="loghi">
-            <img src="/assets/loghi/habitat.png">
-            <img src="/assets/loghi/distrettoA.png">
-            <img id="ministero" src="/assets/loghi/mase.png">
-            <img src="/assets/loghi/sns.png">
-        </div>
+      
+       
 
         <div class="closeSidebar">
-          <button>VAI ALLA MAPPA</button>
+          <button>VAI SULLA BACHECA</button>
         </div>
     </div>
    </div>
 
 
 
+   <div id="istruzioni">
+        <ul>
+            <li>Questa pagina è per mappare il territorio della Romagna Toscana in modo multiforme, da racconti personali a leggende di paese, da ricette tradizionali a immaginazione di futuri possibili franati.</li>
+            <li>Prima di tutto, bisogna decidere dove pubblicare il post. Si può navigare come una mappa qualsiasi; Più zoomerai più il risultato sarà preciso.</li>
+            <li>Per pubblicare bisogna entrare in modalità "Post" con l'apposito bottone.</li>
+            <li>Una volta cliccato, la mappa sarà in bianco/nero. Ora è possibile ottenere la finestra per immettere i contenuti: clicca sul luogo per il post da te scelto </li>
+            <li>Nella finestra dovrai mettere il tuo nome e potrai continuare immettendo testi, e/o una immagine.</li>
+            <li>E' necessaria la scelta della categoria! Se hai desiderio di avere una particolare categoria che non vedi, sentiti liber* di scriverci via email.</li>
+            <li>Una volta riempiti i campi, basta solo cliccare il pulsante "Posta!"</li>
+            <li>Attenzione: i post vengono controllati prima di essere pubblicati globalmnte. Tuttavia, ogni post creato da te verrà salvato sul tuo browser.</li>
+            <li>Se vuoi che un post pubblicatio venga eliminato, sentiti libere di scriverci per richiedere la rimozione.</li>
+        </ul>
+   </div>
+
 
     <div id="map"></div>
-    <script src="/app.js" async defer></script>
+    {{-- <script src="/app.js" async defer></script> --}}
 
     <script async defer type="text/javascript">
+
+        let t = true
+    document.querySelector("#toggleInstructions").addEventListener("click", ()=>{
+        if (t){document.querySelector("#istruzioni").style.display = 'block'; t=!t}else{ document.querySelector("#istruzioni").style.display = 'none';t=!t}
+  
+    })
+
+    // Toggle sidebar su mobile
+
+    document.querySelector('.closeSidebar').addEventListener('click', () =>{
+        console.log(document.querySelector('.sidebar').style.display)
+
+        if (document.querySelector('.sidebar').style.display = 'flex'){
+            document.querySelector('.sidebar').style.display = 'none'
+        }
+        else if( document.querySelector('.sidebar').style.display = 'none'){
+            document.querySelector('.sidebar').style.display = 'flex'
+        }
+
+    })
+
+
+
+// window.dispatchEvent(new Event("resize"));
+
 
     // Dichiarazioni globali
 
@@ -145,7 +234,8 @@
     if (x.matches) {
         var map = L.map('map',{
             minZoom: 11,
-            maxZoom: 20,
+            maxZoom: 18,
+            // setMaxBounds: [L.latLng(40.712, -74.227),L.latLng(40.774, -74.125),] TODO: set boundaries
         }).fitWorld();
             map.panTo(new L.LatLng( 44.022944686536185 , 11.773438401287423))
         
@@ -153,7 +243,7 @@
 
         var map = L.map('map',{ 
             minZoom: 12,
-            maxZoom: 20,
+            maxZoom: 18,
         }).fitWorld();
             map.panTo(new L.LatLng(  44.03009912078176 , 11.828155517578125))
     }
@@ -162,24 +252,12 @@
 
 
     // Popola la mappa con tiles + copyright open street map
-
-//     let tilesBW= L.tileLayer('https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey=d93d6b0ff1934fefb1df41ceacb4614d', {
-// 	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-// 	maxZoom: 20
-// })
     
     let tiles= L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributor',    
     })
 
 
-//     var tiles = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}', {
-// 	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-// 	subdomains: 'abcd',
-// 	minZoom: 0,
-// 	maxZoom: 20,
-// 	ext: 'png'
-// });
 
 tiles.addTo(map)
 
@@ -187,78 +265,119 @@ tiles.addTo(map)
     // Opzioni per i popup
 
     var popupOptions =
-        {  closeButton: false,
-            autoClose: false,
-            'maxWidth': '500',
+        {  closeButton: true,
+            autoClose: true,
+            'maxWidth': '300',
             'className' : 'another-popup' // classname for another popup
         }
 
     var dotSmall = L.icon({
             iconUrl: 'https://images.vexels.com/media/users/3/139158/isolated/preview/c862a3c9ef219140fb365301f9ebbd50-black-dot-by-vexels.png',
-            iconSize:     [15,15], // size of the icon
+            iconSize:     [20,20], // size of the icon
         });
+
+        var dotSmall
+
+        // CATEGORIE
+
 
 
         @foreach ($postsFromUsers as $key => $post)
+            @if ($post['published'] == 1 )
+            dotSmall =   L.divIcon({html: `<div class='holder' style='width: 25px; height: 25px; border-radius: 20px; background-color: {{$post['category']}}'></div>`});
+                marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><br><i class="postName">Pubblicato da {!! $post["name"] !!}</i><br><br><div class="postContent">{!! $post["post"] !!}<br><img src="{!!$post['file']!!}"></div>`,popupOptions).addTo(map);
+            @endif   
+        @endforeach
 
-        marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<i>Pubblicato da {!! $post["name"] !!}</i><br><br><div class="postContent">{!! $post["post"] !!}</div>`,popupOptions).addTo(map);
-            @endforeach
 
-
+        /*
+        descrizione istruzione
+        colophon tech?
+        */
         
-
-
-        
-
-    
-
-    function toggleCluster(cluster){
-        if (map.hasLayer(cluster)){
-            map.removeLayer(cluster)
-        } else {
-            map.addLayer(cluster)
-        }
-    }
-
-
-
-        // crea gruppi cluster per ogni weekend
-    
-        var cluster = L.markerClusterGroup({zoomToBoundsOnClick: false});
-    
 
 
         // posta nuovi contenuti
 
+
         var lat, lng, name, post;
 
         let postPopup = `<div id="postDiv">
-                        <form  action="/pippo" method="POST" id="postData" style="display: flex; align-items: center; gap: 10px;">
+                        <form   enctype="multipart/form-data" action="/piadina" method="POST" id="postData" style="display: flex; align-items: center; gap: 10px;">
                             @csrf
 
-                            <input hidden value="" name="lat" id="lat">
-                            <input hidden value="" name="lng" id="lng">
+                            <input hidden  required value="" name="lat" id="lat">
+                            <input hidden  required value="" name="lng" id="lng">
 
                             <div style="display: flex; flex-direction:column">
-                                <input placeholder="Il tuo nome qui" id="postAuthor" name="name" type="text">
-                                <textarea rows="4" cols="20" wrap="hard" name="post" placeholder="E qui lascia un pensiero!" id="postContent"  type="text"></textarea>
-                                <input type="file" name="file">
+                                <input placeholder="Metti il tuo nome qui" id="postAuthor" name="name" type="text">
+                                <textarea rows="4" cols="20" wrap="hard" name="post" placeholder="E qui lascia un pensiero!" id="postContent"  type="text"></textarea>                         
+
+                                <fieldset>
+                                    <legend>Seleziona una categoria adatta:</legend>
+
+                                    <div>
+                                        <input type="radio" name="category" value="blue" checked>
+                                        <label for="Racconto">Racconto</label>
+                                    </div>
+
+                                    <div>
+                                        <input type="radio" name="category" value="blue">
+                                        <label for="Memorie">Memorie</label>
+                                    </div>
+
+                                    <div>
+                                        <input type="radio"  name="category" value="yellow">
+                                        <label for="Ristoro">Ristoro</label>
+                                    </div>
+                                </fieldset>
+                                <input type="file" accept="image/*" capture="camera" name="red">
+
                             </div>
-                    
-                            <button style="background: orange; border-radius: 5px; color: black;" id="submit"><input type="submit"></button>
+                            <button style="background: orange; border-radius: 5px; color: black;" id="submit"><input style="opacity: 0" type="submit">Pubblica!</button>
                         </form>
                         </div>`
+            
+            let postMode = document.getElementById("postMode")
+            let allowPost = false
+            let newPost
+            postMode.addEventListener("click", ()=>{
+                if (allowPost == false){   
+                    document.body.classList.add("filter");
+                    postMode.innerHTML = "MODALITA' NAVIGAZIONE"
+                    allowPost = !allowPost
+                   
+                } else {
+                    postMode.innerHTML = "MODALITA' POST"
+                    document.body.classList.remove("filter");
+                    allowPost = !allowPost
+                    // if(newPost){
+                    //     newPost.removeFrom(map)
+                    // }
+                }
+             
+            })
 
-        map.addEventListener('dblclick', function(ev) {
-            lat = ev.latlng.lat;
-            lng = ev.latlng.lng;
+           
+            map.addEventListener('click', function(ev) {
+                if (allowPost && !newPost){
+                    lat = ev.latlng.lat;
+                    lng = ev.latlng.lng;
 
-            let newPost = L.circleMarker([lat,lng],{draggable:true,radius: 3}).addTo(map).bindPopup(postPopup).openPopup();
+                    newPost = L.circleMarker([lat,lng],{draggable:true,color: 'black',radius: 5}).addTo(map).bindPopup(postPopup,popupOptions).openPopup();
 
-            document.getElementById("lat").value = ev.latlng.lat
-            document.getElementById("lng").value = ev.latlng.lng
+                    document.getElementById("lat").value = ev.latlng.lat
+                    document.getElementById("lng").value = ev.latlng.lng
 
-        })
+                   
+                }
+
+                
+            })
+        
+
+
+       
     </script>
 
     <!-- PWA -->

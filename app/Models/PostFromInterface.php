@@ -18,6 +18,7 @@ class PostFromInterface extends Model
         'name',
         'post',
         'file',
+        'category',
         'lat',
         'lng',
         'published'

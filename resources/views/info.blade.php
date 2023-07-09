@@ -16,6 +16,18 @@
         <link rel="stylesheet" href="/app.css">
 
         <style>
+
+            :root{
+                --blue: rgb(41,172,228);
+                --green:rgb(36,192,68);
+                --orange: rgb(236,108,0);
+            }
+
+
+            a{
+                color: var(--green) !important
+            }
+
             body,html{
                 width: 100%;
                 height: 100%;
@@ -38,7 +50,7 @@
             a{
                 word-break: break-all;
                 white-space: normal;
-                color: green !important;
+             
             }
 
             #up{
