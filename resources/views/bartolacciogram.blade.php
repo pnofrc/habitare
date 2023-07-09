@@ -326,7 +326,7 @@ tiles.addTo(map)
                                     <legend>Seleziona una categoria adatta:</legend>
 
                                     <div>
-                                        <input type="radio" name="category" value="blue" checked>
+                                        <input type="radio" name="category" value="red" checked>
                                         <label for="Racconto">Racconto</label>
                                     </div>
 
@@ -340,7 +340,7 @@ tiles.addTo(map)
                                         <label for="Ristoro">Ristoro</label>
                                     </div>
                                 </fieldset>
-                                <input type="file" accept="image/*" capture="camera" name="red">
+                                <input type="file" accept="image/*" capture="camera" name="file">
 
                             </div>
                             <button style="background: orange; border-radius: 5px; color: black;" id="submit"><input style="opacity: 0" type="submit">Pubblica!</button>
