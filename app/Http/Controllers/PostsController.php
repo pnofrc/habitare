@@ -21,7 +21,7 @@ class PostsController extends Controller
             $file = $request->file('file')->store('public');;
           
         } else {
-            $file = 'no';
+            $file = 'null';
         }
 
         $newPost = PostFromInterface::create([

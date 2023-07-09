@@ -281,12 +281,21 @@ tiles.addTo(map)
         // CATEGORIE
 
 
-
+        let img
         @foreach ($postsFromUsers as $key => $post)
             @if ($post['published'] == 1 )
-            dotSmall =   L.divIcon({html: `<div class='holder' style='width: 25px; height: 25px; border-radius: 20px; background-color: {{$post['category']}}'></div>`});
-                marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><br><i class="postName">Pubblicato da {!! $post["name"] !!}</i><br><br><div class="postContent">{!! $post["post"] !!}<br><img src="{!!$post['file']!!}"></div>`,popupOptions).addTo(map);
-            @endif   
+
+                @if ($post['file'] != 'null'){
+                    img = `<img src="{!!$post['file']!!}">`
+                } @else {
+                    img = ''
+                }
+                @endif 
+
+                dotSmall =   L.divIcon({html: `<div class='holder' style='width: 25px; height: 25px; border-radius: 20px; background-color: {{$post['category']}}'></div>`});
+                marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><br><i class="postName">Pubblicato da {!! $post["name"] !!}</i><br><br><div class="postContent">{!! $post["post"] !!}<br>${img}</div>`,popupOptions).addTo(map);
+                
+            @endif  
         @endforeach
 
 
