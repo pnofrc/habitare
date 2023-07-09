@@ -19,9 +19,9 @@ class PostsController extends Controller
      
 
         if ($request->hasFile('file')) {
-           
+            dd($request->file('file'));
             $file = $request->file('file')->store('public');;
-            dd($file);
+           
         } else {
             $file = 'null';
         }
