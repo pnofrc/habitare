@@ -17,14 +17,14 @@ class PostsController extends Controller
 
     public function postFromInterface(Request $request){
      
+        dd($request->file('file'));
 
         if ($request->hasFile('file')) {
-            dd($request->file('file'));
+           
             $file = $request->file('file')->store('public');;
            
         } else {
-            $file =  $request->file;
-            dd($request);
+            $file = 'null';
         }
 
         $newPost = PostFromInterface::create([
