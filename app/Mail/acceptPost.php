@@ -25,7 +25,7 @@ class acceptPost extends Mailable
        $this->id = env('APP_URL') . "crescione/" . $id;
        $this->name = $name;
        $this->post = $post;
-       $this->img = env('APP_URL') . $img;
+       $this->img = env('APP_URL') .'storage/' . $img;
    }
 
     /**

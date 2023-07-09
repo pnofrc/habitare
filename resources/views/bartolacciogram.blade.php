@@ -286,7 +286,7 @@ tiles.addTo(map)
             @if ($post['published'] == 1 )
 
                 @if ($post['file'] != 'null'){
-                    img = `<img src="{!!$post['file']!!}">`
+                    img = `<img src="storage/{!!$post['file']!!}">`
                 } @else {
                     img = ''
                 }
