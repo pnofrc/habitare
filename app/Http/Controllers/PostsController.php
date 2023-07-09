@@ -20,7 +20,7 @@ class PostsController extends Controller
 
         if ($request->hasFile('file')) {
            
-            $file = $request->file('file')->store('public');;
+            $file = $request->file('file')->store('/');;
            
         } else {
             $file = 'null';
