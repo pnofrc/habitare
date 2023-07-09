@@ -227,9 +227,11 @@
 
 
     // evento per cambiare la mappa
-    // document.getElementById("changeMap").addEventListener("click", () => {
-    //     toggleMap(toggle)
-    // })
+   document.querySelectorAll(".leaflet-popup").forEach(marker => {
+        marker.addEventListener("onchange",()=>{
+            alert(marker)
+        })
+   });
 
     // evento per categorie su mobile
     document.getElementById("categorieToggle").addEventListener("click", () => {
@@ -278,19 +280,6 @@
 
 
 
-    // Dichiara due markers differenti da utilizzare per popolare la mappa
-
-    // var dot = L.icon({
-    //         iconUrl: 'https://images.vexels.com/media/users/3/139158/isolated/preview/c862a3c9ef219140fb365301f9ebbd50-black-dot-by-vexels.png',
-    //         iconSize:     [25], // size of the icon
-    //     });
-    // var dotSmall = L.icon({
-    //         iconUrl: 'https://images.vexels.com/media/users/3/139158/isolated/preview/c862a3c9ef219140fb365301f9ebbd50-black-dot-by-vexels.png',
-    //         iconSize:     [15,15], // size of the icon
-    //     });
-
-
-
     // Opzioni per i popup
 
     var popupOptions =
@@ -300,27 +289,7 @@
             'className' : 'another-popup' // classname for another popup
         }
 
-
-        // @if ($postsFromUsers ?? '')
-
-        //     var postsFromUsers= L.markerClusterGroup();
-
-        //     @foreach ($postsFromUsers as $key => $post)
-        //         postsFromUsers.addLayer($post)
-        //     @endforeach
-
-
-        //     var smallIcon = L.divIcon({html: `<div class='holder' style='width: 25px; height: 25px; border-radius: 20px;'></div>`+"<span class='titlePost' style='background: rgba(255,255,255,0.6);    padding: 3px;border-radius: 10px;'>{{$post['name'] }}</span>"});
-
-
-        //     // Crea il marker
-        //     marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 7, icon: smallIcon}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><div class="postContent">{!! $post["post"] !!}</div>`,popupOptions);
-            
-
-
-        // @endif
-
-    // Se esistono post..
+    // SCustom clusters per i comuni
 
     let clusterOptionsRocca = {polygonOptions: {
                         fillColor: 'rgb(236,108,0)',
@@ -346,7 +315,7 @@
                         fillOpacity: 0.5
                     }}
 
-    // @if ($posts ?? '')
+    @if ($posts ?? '')
 
         // posta tutti i post
         let categoriesPost 
@@ -421,7 +390,7 @@
 
             
          @endforeach
-    // @endif
+    @endif
 
     // aggiungi all mappa i clusters
 
@@ -438,51 +407,6 @@
 
     var toggle = 0
 
-    // function toggleMap(bool) {
-    //     let markers = document.querySelectorAll(".leaflet-marker-icon.leaflet-interactive")
-    //     let lines = document.querySelectorAll(".leaflet-pane > svg path.leaflet-interactive")
-    //     if (bool === 0){
-    //         tiles.addTo(map);
-    //         tilesBW.removeFrom(map)
-
-    //        document.getElementById("calendario").style.display = 'none'
-
-    //        document.getElementById("categories").style.display = 'none'
-
-    //        map.removeLayer(zero);
-    //         map.removeLayer(uno);
-    //         map.removeLayer(due);
-    //         map.removeLayer(tre);
-    //         map.removeLayer(quattro);
-    //         map.removeLayer(cinque);
-    //         map.removeLayer(sei);
-
-    //         toggle = 1
-    //     } else {
-    //         tiles.removeFrom(map)
-    //         tilesBW.addTo(map);
-
-    //         document.getElementById("calendario").style.display = 'block'
-
-    //         document.getElementById("categories").style.display = 'block'
-
-            
-    //         map.addLayer(zero);
-    //         map.addLayer(uno);
-    //         map.addLayer(due);
-    //         map.addLayer(tre);
-    //         map.addLayer(quattro);
-    //         map.addLayer(cinque);
-    //         map.addLayer(sei);
-            
-    //         // QUI
-    //         toggle = 0
-    //     }
-    // }
-
-
-    
-
     function toggleCluster(cluster){
         if (map.hasLayer(cluster)){
             map.removeLayer(cluster)
@@ -491,55 +415,10 @@
         }
     }
 
-
-
-    // // addEventListener per ogni categoria per filtrare
-    // function filtering(){
-
-    //     let selectedCategories = []
-    //     document.querySelectorAll("#categories input").forEach(element => {
-    //         if (element.checked){
-    //             selectedCategories.push(element.id)
-    //         }
-    //     });
-    //     // console.log(selectedCategories)
-
-    //     document.querySelectorAll(".leaflet-marker-icon").forEach(post => {
-    //         post.style.display = 'none'
-    //     });
-
-    //     selectedCategories.forEach(category => {
-    //         document.querySelectorAll(`.${category}`).forEach(post =>{
-    //             post.parentNode.style.display = 'flex'
-    //         })
-    //     });
-    // }
-
-
-
-    //     // quando una categoria viene selezionata/deselezionata, filtra
-
-    //     document.querySelectorAll("#categories input").forEach(element => {
-    //             element.addEventListener("click", ()=>{
-    //                 filtering()
-    //             })
-    //         });
-
-
-
-
         // crea gruppi cluster per ogni weekend
     
         var cluster = L.markerClusterGroup({zoomToBoundsOnClick: false});
-        
-
-
-        // controlla quale mappa deve andare
-
-        // toggleMap(toggle)
-
-
-
+    
 
         // seleziona tutti i checkbox
 
@@ -577,38 +456,6 @@
         }      
 
 
-
-
-        // // posta nuovi contenuti
-
-        // var lat, lng, name, post;
-
-        // let postPopup = `<div id="postDiv">
-        //                 <form  action="/piadina" method="POST" id="postData" style="display: flex; align-items: center; gap: 10px;">
-        //                     @csrf
-
-        //                     <input hidden value="" name="lat" id="lat">
-        //                     <input hidden value="" name="lng" id="lng">
-
-        //                     <div style="display: flex; flex-direction:column">
-        //                         <input placeholder="Il tuo nome qui" id="postAuthor" name="name" type="text">
-        //                         <textarea rows="4" cols="20" wrap="hard" name="post" placeholder="E qui lascia un pensiero!" id="postContent"  type="text"></textarea>
-        //                     </div>
-                    
-        //                     <button style="background: orange; border-radius: 5px; color: black;" id="submit"><input type="submit"></button>
-        //                 </form>
-        //                 </div>`
-
-        // map.addEventListener('dblclick', function(ev) {
-        //     lat = ev.latlng.lat;
-        //     lng = ev.latlng.lng;
-
-        //     let newPost = L.circleMarker([lat,lng],{draggable:true,radius: 3}).addTo(map).bindPopup(postPopup).openPopup();
-
-        //     document.getElementById("lat").value = ev.latlng.lat
-        //     document.getElementById("lng").value = ev.latlng.lng
-
-        // })
     </script>
 
     <!-- PWA -->

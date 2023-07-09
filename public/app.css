@@ -457,6 +457,11 @@ z-index: 2;}
         display:none;
     }
 
+    .leflet-popup-content{
+        height: 300px !important;
+        overflow-y: scroll !important;
+    }
+
 @media (max-width: 450px) {
 
     #infoPlus{
