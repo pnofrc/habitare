@@ -185,7 +185,7 @@
     <script src="/app.js" async defer></script>
 
     <script async defer type="text/javascript">
-
+    $( document ).ready(function() {
     // Dichiarazioni globali
 
     var markers
@@ -516,7 +516,7 @@
               iconSize: [60]
           })}).addTo(map);
 
-
+        });
     </script>
 
     <!-- PWA -->
