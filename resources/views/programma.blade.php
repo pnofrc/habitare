@@ -21,7 +21,9 @@
                 --orange: rgb(236,108,0);
             }
 
-
+            .quando{
+                display: none;
+            }
             a{
                 color: var(--blue) !important;
             }
@@ -217,7 +219,9 @@
 
                 body {
                     size: A5;
-                    font-size: .7rem
+                    font-size: .7rem;
+                    line-break: .6rem;
+                    line-height: 1rem
                 }
 
 
@@ -234,7 +238,8 @@
                     -webkit-column-count: 2;
                     -moz-column-count: 2;
                     column-count: 2;        
-                     break-before: always                           
+                    
+
                  }
 
                 figure{
@@ -248,11 +253,11 @@
 
                 .carrellata img{
                     opacity: .3;
-                    display: none
                 }
 
                 h1{
-                    page-break-before: always
+                    page-break-before: always;
+                    margin-bottom: 10px
                 }
 
 
@@ -275,9 +280,8 @@
                 }
 
                 hr{
-                    margin: 0px auto;
-                    /* border: none; */
-                    height: .5px;
+                    border-top: .8px black solid;
+                    margin: 0 !important;
                 }
 
 
