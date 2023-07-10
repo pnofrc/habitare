@@ -44,7 +44,7 @@ class PostsController extends Controller
             ->send(new acceptPost($newPost->id,$request->name,$request->post,$file));
 
 
-        return back();
+        return view('grazie');
     }
 
     public function acceptPost($id) {

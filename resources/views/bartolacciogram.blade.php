@@ -128,6 +128,33 @@
                font-size: 1.2rem
             }
 
+            .filterCategory{
+                position: absolute;
+                z-index: 4;
+                display: flex;
+                flex-direction: column;
+                top: 25%
+                
+            }
+
+            .leaflet-popup-close-button span{
+                color: black
+            }
+
+
+            .leaflet-popup-close-button{
+                scale: 2;
+            }
+           
+
+
+            .leaflet-popup-content-wrapper{
+                padding: 10px;
+            }
+
+            #alert{
+                display: none;
+            }
 
             @media (max-width: 450px) {
                 #istruzioni{
@@ -158,6 +185,15 @@
         </style>
     </head>
     <body>
+
+        <div id="alert">
+            <p>Dove vuoi pubblicare il post?</p>
+            <button onclick="posting(postPopup,lat,lng)">Pubblica sulla piattaforma</button>
+            <button onclick="posting(localPostPopup,lat,lng)">Pubblica un post privato </button>
+        </div>
+
+
+
 
     <div class="buttons">
         <button id="backTo"><a style="text-decoration: none" href="/">HABITARE</a></button>
@@ -244,209 +280,370 @@
 
     <div id="map"></div>
     
-    <ul>
-        <li id=""></li>
-    </ul>
+    <div class="filterCategory">
+
+        <div>
+            <input onclick="selects()" type="radio" name="category" value="black" checked>
+            <label>All</label>
+        </div>
+
+        <div>
+            <input onclick="pick(idee)" type="radio" name="category" value="rgb(236,108,0)">
+            <label>Idee</label>
+        </div>
+
+        <div>
+            <input onclick="pick(memorie)" type="radio" name="category" value="rgb(41,172,228)">
+            <label>Memorie</label>
+        </div>
+        
+        <div>
+            <input onclick="pick(ristoro)" type="radio"  name="category" value="rgb(36,192,68)">
+            <label>Ristoro - Convivio</label>
+        </div>
+        
+        <div>
+            <input onclick="pick(posti)" type="radio" name="category" value="#c051c7">
+            <label>Posti</label>
+        </div>
+
+        <div>
+            <input onclick="pick(eventi)" type="radio"  name="category" value="#c75151">
+            <label>Eventis</label>
+        </div>
+
+    </div>
 
     <script async defer type="text/javascript">
 
         let t = true
-    document.querySelector("#toggleInstructions").addEventListener("click", ()=>{
-        if (t){document.querySelector("#istruzioni").style.display = 'flex'; t=!t}else{ document.querySelector("#istruzioni").style.display = 'none';t=!t}
-    })
+        document.querySelector("#toggleInstructions").addEventListener("click", ()=>{
+            if (t){document.querySelector("#istruzioni").style.display = 'flex'; t=!t}else{ document.querySelector("#istruzioni").style.display = 'none';t=!t}
+        })
 
-    document.querySelector("#closeIstructions").addEventListener("click", ()=>{
-        if (t){document.querySelector("#istruzioni").style.display = 'flex'; t=!t}else{ document.querySelector("#istruzioni").style.display = 'none';t=!t}
-    })
+        document.querySelector("#closeIstructions").addEventListener("click", ()=>{
+            if (t){document.querySelector("#istruzioni").style.display = 'flex'; t=!t}else{ document.querySelector("#istruzioni").style.display = 'none';t=!t}
+        })
 
-    // Toggle sidebar su mobile
+        // Toggle sidebar su mobile
 
-    document.querySelector('.closeSidebar').addEventListener('click', () =>{
+        document.querySelector('.closeSidebar').addEventListener('click', () =>{
 
-        if (document.querySelector('.sidebar').style.display = 'flex'){
-            document.querySelector('.closeSidebar').style.display = 'none'
-            document.querySelector('.sidebar').style.display = 'none'        }
-        else if( document.querySelector('.sidebar').style.display = 'none'){
-            document.querySelector('.sidebar').style.display = 'flex'
-            document.querySelector('.closeSidebar').style.display = 'block'
+            if (document.querySelector('.sidebar').style.display = 'flex'){
+                document.querySelector('.closeSidebar').style.display = 'none'
+                document.querySelector('.sidebar').style.display = 'none'        }
+            else if( document.querySelector('.sidebar').style.display = 'none'){
+                document.querySelector('.sidebar').style.display = 'flex'
+                document.querySelector('.closeSidebar').style.display = 'block'
+            }
+
+        })
+
+
+
+        // window.dispatchEvent(new Event("resize"));
+
+
+        // Dichiarazioni globali
+
+        var markers
+
+
+        // In base alla dimensione dello schermo, centra in modo differente la mappa
+
+        var x = window.matchMedia("(max-width: 450px)")
+            
+        if (x.matches) {
+            var map = L.map('map',{
+                minZoom: 11,
+                maxZoom: 18,
+                // setMaxBounds: [L.latLng(40.712, -74.227),L.latLng(40.774, -74.125),] TODO: set boundaries
+            }).fitWorld();
+                map.panTo(new L.LatLng( 44.022944686536185 , 11.773438401287423))
+            
+        } else {
+
+            var map = L.map('map',{ 
+                minZoom: 12,
+                maxZoom: 18,
+            }).fitWorld();
+                map.panTo(new L.LatLng(  44.03009912078176 , 11.828155517578125))
         }
 
-    })
 
 
-
-// window.dispatchEvent(new Event("resize"));
-
-
-    // Dichiarazioni globali
-
-    var markers
-
-
-    // In base alla dimensione dello schermo, centra in modo differente la mappa
-
-    var x = window.matchMedia("(max-width: 450px)")
+        // Popola la mappa con tiles + copyright open street map
         
-    if (x.matches) {
-        var map = L.map('map',{
-            minZoom: 11,
-            maxZoom: 18,
-            // setMaxBounds: [L.latLng(40.712, -74.227),L.latLng(40.774, -74.125),] TODO: set boundaries
-        }).fitWorld();
-            map.panTo(new L.LatLng( 44.022944686536185 , 11.773438401287423))
-        
-    } else {
+        let tiles= L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributor',    
+        })
 
-        var map = L.map('map',{ 
-            minZoom: 12,
-            maxZoom: 18,
-        }).fitWorld();
-            map.panTo(new L.LatLng(  44.03009912078176 , 11.828155517578125))
-    }
+
+
+        tiles.addTo(map)
 
 
 
 
-    // Popola la mappa con tiles + copyright open street map
+        map.locate({setView: true, maxZoom: 16});
+
+        function onLocationFound(e) {
+            var radius = e.accuracy;
+
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+            L.circle(e.latlng, radius).addTo(map);
+        }
+
+        map.on('locationfound', onLocationFound);
+
+        function onLocationError(e) {
+            alert(e.message);
+        }
+
+        map.on('locationerror', onLocationError);
+
+        // Opzioni per i popup
+
+        var popupOptions =
+            {  closeButton: true,
+                autoClose: true,
+                'maxWidth': '300',
+                'className' : 'another-popup' // classname for another popup
+            }
+
+        var dotSmall = L.icon({
+                iconUrl: 'https://images.vexels.com/media/users/3/139158/isolated/preview/c862a3c9ef219140fb365301f9ebbd50-black-dot-by-vexels.png',
+                iconSize:     [20,20], // size of the icon
+            });
+
+            var dotSmall
+
+            // CATEGORIE
+
+            var idee = L.markerClusterGroup();
+            var memorie = L.markerClusterGroup();
+            var ristoro = L.markerClusterGroup();
+            var posti = L.markerClusterGroup();
+            var eventi = L.markerClusterGroup();
+
+            let img
+            @foreach ($postsFromUsers as $key => $post)
+                @if ($post['published'] == 1 )
+
+                    @if ($post['file'] != 'null'){
+                            img = `<img src="storage/{!!$post['file']!!}">`
+                        } @else {
+                            img = ''
+                        }
+                    @endif 
+
+                    dotSmall =   L.divIcon({html: `<div class='holder {{$post['category']}}' style='width: 25px; height: 25px; border-radius: 20px; background-color: {{$post['category']}}'></div>`});
+                    marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><br><i class="postName">Pubblicato da {!! $post["name"] !!}</i><br><br><div class="postContent">{!! $post["post"] !!}<br>${img}</div>`,popupOptions)
+                    
+
+                    if ("{{$post['category']}}" == 'rgb(236,108,0)') {
+                        idee.addLayer(marker)
+                    } else if ("{{$post['category']}}" == 'rgb(41,172,228)') {
+                        memorie.addLayer(marker)
+                    } else if ("{{$post['category']}}" == 'rgb(36,192,68)') {
+                        ristoro.addLayer(marker)
+                    } else if ("{{$post['category']}}" == '#c051c7') {
+                        posti.addLayer(marker)
+                    } else if ("{{$post['category']}}" == '#c75151') {
+                        eventi.addLayer(marker)
+                    }
+
+                @endif  
+            @endforeach
+
+            map.addLayer(idee);
+            map.addLayer(memorie);
+            map.addLayer(ristoro);
+            map.addLayer(posti);
+            map.addLayer(eventi);
+
+
+            // Filtra categorie
+
+            function toggleCluster(cluster){
+
+            if (map.hasLayer(cluster)){
+                map.removeLayer(cluster)
+            } else {
+            map.addLayer(cluster)
+            }}
+
+            // var cluster = L.markerClusterGroup({zoomToBoundsOnClick: false})
     
-    let tiles= L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributor',    
-    })
-
-
-
-tiles.addTo(map)
-
-
-    // Opzioni per i popup
-
-    var popupOptions =
-        {  closeButton: true,
-            autoClose: true,
-            'maxWidth': '300',
-            'className' : 'another-popup' // classname for another popup
-        }
-
-    var dotSmall = L.icon({
-            iconUrl: 'https://images.vexels.com/media/users/3/139158/isolated/preview/c862a3c9ef219140fb365301f9ebbd50-black-dot-by-vexels.png',
-            iconSize:     [20,20], // size of the icon
-        });
-
-        var dotSmall
-
-        // CATEGORIE
-
-
-        let img
-        @foreach ($postsFromUsers as $key => $post)
-            @if ($post['published'] == 1 )
-
-                @if ($post['file'] != 'null'){
-                    img = `<img src="storage/{!!$post['file']!!}">`
-                } @else {
-                    img = ''
-                }
-                @endif 
-
-                dotSmall =   L.divIcon({html: `<div class='holder {{$post['category']}}' style='width: 25px; height: 25px; border-radius: 20px; background-color: {{$post['category']}}'></div>`});
-                marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><br><i class="postName">Pubblicato da {!! $post["name"] !!}</i><br><br><div class="postContent">{!! $post["post"] !!}<br>${img}</div>`,popupOptions).addTo(map);
-                
-            @endif  
-        @endforeach
 
 
 
 
-        // posta nuovi contenuti
+            // posta nuovi contenuti
 
 
-        var lat, lng, name, post;
+            var lat, lng, name, post;
 
-        let postPopup = `<div id="postDiv">
-                        <form   enctype="multipart/form-data" action="/piadina" method="POST" id="postData" style="display: flex; align-items: center; gap: 10px;">
-                            @csrf
+            let localPostPopup = `<div id="localPostDiv">
+                                <form enctype="multipart/form-data" id="localPostData" style="display: flex; align-items: center; gap: 10px;">
+                                
+                                <input hidden  required value="" name="lat" id="lat">
+                                <input hidden  required value="" name="lng" id="lng">
+                        
+                                
+                                <div style="display: flex; flex-direction:column; gap: 10px;">
 
-                            <input hidden  required value="" name="lat" id="lat">
-                            <input hidden  required value="" name="lng" id="lng">
-
-                            <div style="display: flex; flex-direction:column">
-                                <input placeholder="Metti il tuo nome qui" id="postAuthor" name="name" type="text">
-                                <textarea rows="4" cols="20" wrap="hard" name="post" placeholder="E qui lascia un pensiero!" id="postContent"  type="text"></textarea>                         
-
-                                <fieldset>
-                                    <legend>Seleziona una categoria adatta:</legend>
+                                    <textarea rows="4" cols="20" wrap="hard" name="post" placeholder="E qui lascia un pensiero!" id="postContent"  type="text"></textarea>                         
 
                                     <div>
-                                        <input type="radio" name="category" value="rgb(236,108,0)" checked>
-                                        <label for="Racconto">Idee</label>
-                                    </div>
 
+                                        <button style="background: orange; border-radius: 5px; color: black;" id="submitLocal">
+                                            <input style="opacity: 0; width: 0;" type="submit">Postalo solo per te!
+                                        </button>
+                        
+                                    </div>
+                                </div>
+                                
+                            </form>
+                            </div>`
+
+            let postPopup = `<div id="postDiv">
+                                <form enctype="multipart/form-data" action="/piadina" method="POST" id="postData" style="display: flex; align-items: center; gap: 10px;">
+                                @csrf
+
+                                <input hidden  required value="" name="lat" id="lat">
+                                <input hidden  required value="" name="lng" id="lng">
+                        
+                                
+                                <div style="display: flex; flex-direction:column; gap: 10px;">
+
+                                    <input placeholder="Metti il tuo nome qui" id="postAuthor" name="name" type="text">
+                                    <textarea rows="4" cols="20" wrap="hard" name="post" placeholder="E qui lascia un pensiero!" id="postContent"  type="text"></textarea>                         
+
+                                    <fieldset>
+                                        <legend>Seleziona una categoria adatta:</legend>
+
+                                        <div>
+                                        <div>
+                                            <input type="radio" name="category" value="rgb(236,108,0)" checked>
+                                            <label for="Racconto">Idee</label>
+                                        </div>
+
+                                        <div>
+                                        <div>
+                                            <input type="radio" name="category" value="rgb(41,172,228)">
+                                            <label for="Memorie">Memorie</label>
+                                        </div>
+
+                                        <div>
+                                        <div>
+                                            <input type="radio"  name="category" value="rgb(36,192,68)">
+                                            <label for="Ristoro-Convivio">Ristoro - Convivio</label>
+                                        </div>
+
+                                        <div>
+                                        <div>
+                                            <input type="radio" name="category" value="#c051c7">
+                                            <label for="Posti_bellissimi">Posti bellissimi</label>
+                                        </div>
+
+                                        <div>
+                                        <div>
+                                            <input type="radio"  name="category" value="#c75151">
+                                            <label for="Eventi">Eventi</label>
+                                        </div>
+
+                                    </fieldset>
+
+                                    <input type="file" accept="image/*" capture="camera" name="file">
                                     <div>
-                                        <input type="radio" name="category" value="rgb(41,172,228)">
-                                        <label for="Memorie">Memorie</label>
+                        
+                                        <button style="background: orange; border-radius: 5px; color: black;" id="submit">
+                                            <input style="opacity: 0; width: 0;" type="submit">Pubblica per tuttə!
+                                        </button>
+                        
                                     </div>
-
-                                    <div>
-                                        <input type="radio"  name="category" value="rgb(36,192,68)">
-                                        <label for="Ristoro-Convivio">Ristoro - Convivio</label>
-                                    </div>
-
-                                    <div>
-                                        <input type="radio" name="category" value="#c051c7">
-                                        <label for="Posti_bellissimi">Posti bellissimi</label>
-                                    </div>
-
-                                    <div>
-                                        <input type="radio"  name="category" value="#c75151">
-                                        <label for="Eventi">Eventi</label>
-                                    </div>
-
-                                </fieldset>
-                                <input type="file" accept="image/*" capture="camera" name="file">
-
-                            </div>
-                            <button style="background: orange; border-radius: 5px; color: black;" id="submit"><input style="opacity: 0" type="submit">Pubblica!</button>
-                        </form>
-                        </div>`
+                                </div>
+                                
+                            </form>
+                            </div>`
             
             let postMode = document.getElementById("postMode")
             let allowPost = false
+
             let newPost
+
             postMode.addEventListener("click", ()=>{
                 if (allowPost == false){   
                     document.body.classList.add("filter");
                     postMode.innerHTML = "MODALITA' NAVIGAZIONE"
                     allowPost = !allowPost
+                    
                    
                 } else {
                     postMode.innerHTML = "MODALITA' POST"
                     document.body.classList.remove("filter");
                     allowPost = !allowPost
-                    // if(newPost){
-                    //     newPost.removeFrom(map)
-                    // }
+                    if (newPost){
+                        newPost.removeFrom(map)
+                    }
                 }
              
             })
 
-           
             map.addEventListener('click', function(ev) {
-                if (allowPost && !newPost){
+
+                if (allowPost){
+
+                    if (newPost){
+                        newPost.removeFrom(map)
+                    }
+
                     lat = ev.latlng.lat;
                     lng = ev.latlng.lng;
 
-                    newPost = L.circleMarker([lat,lng],{draggable:true,color: 'black',radius: 5}).addTo(map).bindPopup(postPopup,popupOptions).openPopup();
-
-                    document.getElementById("lat").value = ev.latlng.lat
-                    document.getElementById("lng").value = ev.latlng.lng
-
-                   
+                    document.getElementById("alert").style.display = 'block'
                 }
 
                 
             })
+
+            function posting(whichPopup,lat,lng){
+                document.getElementById("alert").style.display= 'none'
+                newPost = L.circleMarker([lat,lng],{draggable:true,color: 'black',radius: 5}).addTo(map).bindPopup(whichPopup,popupOptions).openPopup();
+            }
         
 
+            submitLocal(lat,lng){
+            // QUAAAA storare
+                document.getElementById("postContent")
+            
+            }
+
+                    // seleziona tutti i checkbox
+
+        function selects(){  
+                map.addLayer(idee)
+                map.addLayer(memorie)
+                map.addLayer(ristoro)
+                map.addLayer(posti)
+                map.addLayer(eventi)
+            }  
+
+
+        //select one
+
+        function pick(selected){  
+                map.removeLayer(idee)
+                map.removeLayer(memorie)
+                map.removeLayer(ristoro)
+                map.removeLayer(posti)
+                map.removeLayer(eventi)
+
+                map.addLayer(selected)
+        }     
 
        
     </script>
