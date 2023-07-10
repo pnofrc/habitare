@@ -243,7 +243,10 @@
 
 
     <div id="map"></div>
-    {{-- <script src="/app.js" async defer></script> --}}
+    
+    <ul>
+        <li id=""></li>
+    </ul>
 
     <script async defer type="text/javascript">
 
@@ -345,7 +348,7 @@ tiles.addTo(map)
                 }
                 @endif 
 
-                dotSmall =   L.divIcon({html: `<div class='holder' style='width: 25px; height: 25px; border-radius: 20px; background-color: {{$post['category']}}'></div>`});
+                dotSmall =   L.divIcon({html: `<div class='holder {{$post['category']}}' style='width: 25px; height: 25px; border-radius: 20px; background-color: {{$post['category']}}'></div>`});
                 marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><br><i class="postName">Pubblicato da {!! $post["name"] !!}</i><br><br><div class="postContent">{!! $post["post"] !!}<br>${img}</div>`,popupOptions).addTo(map);
                 
             @endif  
@@ -374,19 +377,30 @@ tiles.addTo(map)
                                     <legend>Seleziona una categoria adatta:</legend>
 
                                     <div>
-                                        <input type="radio" name="category" value="red" checked>
-                                        <label for="Racconto">Racconto</label>
+                                        <input type="radio" name="category" value="rgb(236,108,0)" checked>
+                                        <label for="Racconto">Idee</label>
                                     </div>
 
                                     <div>
-                                        <input type="radio" name="category" value="blue">
+                                        <input type="radio" name="category" value="rgb(41,172,228)">
                                         <label for="Memorie">Memorie</label>
                                     </div>
 
                                     <div>
-                                        <input type="radio"  name="category" value="yellow">
-                                        <label for="Ristoro">Ristoro</label>
+                                        <input type="radio"  name="category" value="rgb(36,192,68)">
+                                        <label for="Ristoro-Convivio">Ristoro - Convivio</label>
                                     </div>
+
+                                    <div>
+                                        <input type="radio" name="category" value="#c051c7">
+                                        <label for="Posti_bellissimi">Posti bellissimi</label>
+                                    </div>
+
+                                    <div>
+                                        <input type="radio"  name="category" value="#c75151">
+                                        <label for="Eventi">Eventi</label>
+                                    </div>
+
                                 </fieldset>
                                 <input type="file" accept="image/*" capture="camera" name="file">
 
