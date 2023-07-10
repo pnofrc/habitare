@@ -43,9 +43,9 @@
                 width: 50%
             }
             #title{
-                font-size: 2rem;
+                font-size: 2.5rem;
                 margin-top: 5rem;
-               height: 20px !important;
+               height: 90px !important;
             }
 
             hr{
@@ -213,6 +213,7 @@
    
 
     <div class="menu">
+        <a onclick="makeActive(event)" href="#cash">Nota Bene!</a><br>
         <a onclick="makeActive(event)" href="#zero">14 Luglio   -    Tredozio</a><br>
         <a onclick="makeActive(event)" href="#uno">15 Luglio   -    Rocca S. Casciano</a><br>
         <a  onclick="makeActive(event)" href="#due">16 Luglio   -    Rocca S. Casciano</a><br>
@@ -226,6 +227,22 @@
 
 
     <div class="container">
+
+
+        <h1 class="" id="cash">Nota bene!</h1 class="">
+        
+        L’accesso al <b>festival</b> è libero.  <br>
+        Potrai tuttavia decidere di supportare Habitare e <a href="https://habitattt.it">Habitat</a> con l’acquisto del merchandising, iscrivendoti alla nostra associazione oppure con una semplice donazione durante il Festival.
+        <br> <br>
+        Alcuni laboratori sono a numero chiuso e per questo sarà <u>necessaria la prenotazione</u>. Troverai il link della prenotazione nel programma, associato a ciascuno di questi laboratori.
+        <br> <br>
+        Per qualsiasi informazioni sulle modalità di partecipazione e il programma:<br>
+        info@habitattt.it
+        
+        
+
+
+
 <h1 class="" id="zero">14 Luglio   -    Tredozio</h1 class="">
 
         @foreach ($posts as $key => $post)
