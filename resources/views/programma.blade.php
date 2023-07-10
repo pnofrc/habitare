@@ -11,7 +11,6 @@
         <meta name="theme-color" content="rgb(36,192,68);"/>
         <link rel="apple-touch-icon" href="{{ asset('/assets/habitare/H.png') }}">
         <link rel="manifest" href="{{ asset('/manifest.json') }}">
-
         <link rel="stylesheet" href="/app.css">
 
         <style>
@@ -111,9 +110,6 @@
 
             h1{
                 /* position: sticky; */
-                
-                background: white;
-                width: 96vw;
                 top: 0rem;
                 height: 135px;
                 padding-top: 3rem;
@@ -195,18 +191,46 @@
 
                 }
 
-.carrellata{
-    position: absolute;
-    /* margin-top: 50vh; */
-    opacity: .2;
-    z-index: -1
-}
+            .carrellata{
+                position: absolute;
+                /* margin-top: 50vh; */
+                opacity: .2;
+                z-index: -1
+            }
 
-.carrellata img{
-    margin-bottom: 300px
-}
+            .carrellata img{
+                margin-bottom: 300px
+            }
 
-            
+                        
+            /* override styles when printing */
+            @media print {
+
+                body {
+                margin: 0;
+                }
+
+
+                .menu{
+                    display: none
+                }
+
+                .container,hr{
+                    width: 96%
+                }
+
+                .carrellata img{
+                    opacity: .3;
+                }
+
+                #back,#up{
+                    display: none
+                }
+
+            }
+
+
+
         </style>
 
        
