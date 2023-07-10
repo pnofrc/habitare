@@ -74,6 +74,14 @@
         </style>
 </head>
     <body>
+
+        <div id="loading">
+            <img id="loading-image" src="path/to/ajax-loader.gif" alt="Loading..." />
+          </div>
+
+
+
+
         <button id="star-five"><a id="cretina" href="/info">INFO!</a></button>
         <button id="heart"><a href="/programma">PROGRAMMA!</a></button>
     <div class="buttons">

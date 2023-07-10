@@ -33,7 +33,8 @@
 
             body,html{
                 width: 100%;
-                height: 100%;
+                height: 100%;;
+                line-height: 1.8rem;
                 font-size: 1.2rem
             }
 
@@ -216,7 +217,6 @@
 
                 body {
                     size: A5;
-                  
                     font-size: .7rem
                 }
 
@@ -234,7 +234,7 @@
                     -webkit-column-count: 2;
                     -moz-column-count: 2;
                     column-count: 2;        
-    break-before: always                           
+                     break-before: always                           
                  }
 
                 figure{
