@@ -480,30 +480,42 @@
             map.removeLayer(sei)
         }      
 
+      
+
+        L.marker([  44.042933431708875, 11.676750183105469],{icon: L.icon({
+              iconUrl: "assets/disegnini/1.png",
+              iconSize: [100]
+          })}).addTo(map);
+
+          L.marker([43.98219273809204, 11.78764343261719],{icon: L.icon({
+              iconUrl: "assets/disegnini/9.png",
+              iconSize: [100]
+          })}).addTo(map);
 
 
-        
+        L.marker([44.04614157509527, 11.773223876953127],{icon: L.icon({
+              iconUrl: "assets/disegnini/7.png",
+              iconSize: [60]
+          })}).addTo(map);
 
-        // STATIC 
-        let static= {
-            1: {
-            file: "",
-            lat: "",
-            lng: ""
-            },
-        2: {
-            file: "",
-            lat: "",
-            lng: ""
-            }}
-            console.log(static.length)
 
-for (let x = 0; x < static.length; x++) {
-    console.log(static.x)
+        L.marker([43.9349893800415, 11.891670227050781],{icon: L.icon({
+              iconUrl: "assets/disegnini/4.png",
+              iconSize: [60]
+          })}).addTo(map);
 
-}
 
-     
+        L.marker([44.09202367722237, 11.794166564941408 ],{icon: L.icon({
+              iconUrl: "assets/disegnini/6.png",
+              iconSize: [60]
+          })}).addTo(map);
+
+
+        L.marker([44.13910215406817, 11.608772277832033 ],{icon: L.icon({
+              iconUrl: "assets/disegnini/2.png",
+              iconSize: [60]
+          })}).addTo(map);
+
 
     </script>
 
