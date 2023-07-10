@@ -224,6 +224,16 @@
             <img src="/assets/disegnini/11.png" alt="">
             <img src="/assets/disegnini/9.png" alt="">
             <img src="/assets/disegnini/7.png" alt="">
+            <img src="/assets/disegnini/8.png" alt="">
+            <img src="/assets/disegnini/3.png" alt="">
+            <img src="/assets/disegnini/5.png" alt="">
+            <img src="/assets/disegnini/10.png" alt="">
+            <img src="/assets/disegnini/6.png" alt="">
+            <img src="/assets/disegnini/1.png" alt="">
+            <img src="/assets/disegnini/2.png" alt="">
+            <img src="/assets/disegnini/11.png" alt="">
+            <img src="/assets/disegnini/9.png" alt="">
+            <img src="/assets/disegnini/7.png" alt="">
 
         </div>
 
