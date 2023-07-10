@@ -199,6 +199,7 @@
     position: absolute;
     /* margin-top: 50vh; */
     opacity: .2;
+    z-index: -1
 }
 
 .carrellata img{
