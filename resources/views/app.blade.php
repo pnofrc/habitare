@@ -481,6 +481,30 @@
         }      
 
 
+
+        
+
+        // STATIC 
+        let static= {
+            1: {
+            file: "",
+            lat: "",
+            lng: ""
+            },
+        2: {
+            file: "",
+            lat: "",
+            lng: ""
+            }}
+            console.log(static.length)
+
+for (let x = 0; x < static.length; x++) {
+    console.log(static.x)
+
+}
+
+     
+
     </script>
 
     <!-- PWA -->

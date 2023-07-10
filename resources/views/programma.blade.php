@@ -195,8 +195,15 @@
 
                 }
 
+.carrellata{
+    position: absolute;
+    /* margin-top: 50vh; */
+    opacity: .2;
+}
 
-
+.carrellata img{
+    margin-bottom: 300px
+}
 
             
         </style>
@@ -204,6 +211,21 @@
        
     </head>
     <body>
+
+        <div class="carrellata">
+
+            <img src="/assets/disegnini/8.png" alt="">
+            <img src="/assets/disegnini/3.png" alt="">
+            <img src="/assets/disegnini/5.png" alt="">
+            <img src="/assets/disegnini/10.png" alt="">
+            <img src="/assets/disegnini/6.png" alt="">
+            <img src="/assets/disegnini/1.png" alt="">
+            <img src="/assets/disegnini/2.png" alt="">
+            <img src="/assets/disegnini/11.png" alt="">
+            <img src="/assets/disegnini/9.png" alt="">
+            <img src="/assets/disegnini/7.png" alt="">
+
+        </div>
 
     <a class="over" href="#" id="up">↑</a>
     <a class="over"  href="/" id="back"><p>←</p><span> alla piattaforma!</span></a>
