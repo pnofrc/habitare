@@ -17,7 +17,6 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <link rel="stylesheet" href="/app.css">
 
-
         <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -37,6 +36,11 @@
         <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/leaflet.markercluster.layersupport@2.0.1/dist/leaflet.markercluster.layersupport.js"></script>
         <script src="leaflet/leaflet-providers.js"></script>
+
+
+        <link rel="stylesheet"  href="/leaflet/leaflet-gps.css"/>
+
+        <script src="/leaflet/leaflet-gps.js"></script>
 
         <style>
 
@@ -133,7 +137,8 @@
                 z-index: 4;
                 display: flex;
                 flex-direction: column;
-                top: 25%
+                top: 25%;
+                margin-left: 11px;
                 
             }
 
@@ -152,8 +157,25 @@
                 padding: 10px;
             }
 
-            #alert{
+            #alert, #istruzionePost{
                 display: none;
+                position: absolute;
+                width: 100vw;
+                height: 100vh;
+                flex-direction: column;
+                z-index: 1000;
+                padding: 10%;
+                background: #d6dcd9e7;
+                justify-content: center;
+                text-align: center;
+            }
+
+            #alert p, #istruzionePost p{
+                font-size: 2rem;
+            }
+
+            #istruzionePost{
+                display: none
             }
 
             @media (max-width: 450px) {
@@ -186,10 +208,16 @@
     </head>
     <body>
 
+        <div id="istruzionePost">
+            <p>Clicca sulla mappa dove vuoi salvare il post. Per essere pià precisi ti consigliamo di zoomare con gli appositi pulsanti in alto a sinistra!</p>
+            <button onclick="closeIstructionsMap()">OK!</button>
+        </div>
+
         <div id="alert">
             <p>Dove vuoi pubblicare il post?</p>
             <button onclick="posting(postPopup,lat,lng)">Pubblica sulla piattaforma</button>
             <button onclick="posting(localPostPopup,lat,lng)">Pubblica un post privato </button>
+            <button style="color: white; background: black" onclick="togglePostingProcess()">Torna indietro</button>
         </div>
 
 
@@ -309,7 +337,12 @@
 
         <div>
             <input onclick="pick(eventi)" type="radio"  name="category" value="#c75151">
-            <label>Eventis</label>
+            <label>Eventi</label>
+        </div>
+
+        <div>
+            <input onclick="pick(personali)" type="radio"  name="category" value="grey">
+            <label>Personali</label>
         </div>
 
     </div>
@@ -383,26 +416,47 @@
         tiles.addTo(map)
 
 
+        var gpsMarker = L.icon({
+                iconUrl: '/gps.png',
+                iconSize:     [20,20], // size of the icon
+            });
+            
+          
 
 
-        map.locate({setView: true, maxZoom: 16});
+	// map.addControl( new L.Control.Gps({}) );//inizialize control
 
-        function onLocationFound(e) {
-            var radius = e.accuracy;
+    var gps = new L.Control.Gps({
+		autoActive:true,
+		autoCenter:true,
+        setView:true,
+        accuracy: true,
+        marker: new L.Marker([0,0],{radius: 8, icon: gpsMarker}),
+       
+	});//inizialize control
 
-            L.marker(e.latlng).addTo(map)
-                .bindPopup("You are within " + radius + " meters from this point").openPopup();
+	gps
+	.on('gps:located', function(e) {
+		//	e.marker.bindPopup(e.latlng.toString()).openPopup()
+		console.log(e.latlng, map.getCenter())
+	})
+	.on('gps:disabled', function(e) {
+		e.marker.closePopup()
+	});
 
-            L.circle(e.latlng, radius).addTo(map);
-        }
+	gps.addTo(map);
 
-        map.on('locationfound', onLocationFound);
+	// gps
+	// .on('gps:located', function(e) {
+	// 		e.marker.bindPopup(e.latlng.toString()).openPopup()
+	// 	console.log(e.latlng, map.getCenter())
+	// })
+	// .on('gps:disabled', function(e) {
+	// 	e.marker.closePopup()
+	// });
 
-        function onLocationError(e) {
-            alert(e.message);
-        }
-
-        map.on('locationerror', onLocationError);
+	// gps.addTo(map);
+    
 
         // Opzioni per i popup
 
@@ -427,6 +481,9 @@
             var ristoro = L.markerClusterGroup();
             var posti = L.markerClusterGroup();
             var eventi = L.markerClusterGroup();
+
+
+        
 
             let img
             @foreach ($postsFromUsers as $key => $post)
@@ -487,10 +544,9 @@
             var lat, lng, name, post;
 
             let localPostPopup = `<div id="localPostDiv">
-                                <form enctype="multipart/form-data" id="localPostData" style="display: flex; align-items: center; gap: 10px;">
+                                <div id="localPostData" style="display: flex; align-items: center; gap: 10px;">
                                 
-                                <input hidden  required value="" name="lat" id="lat">
-                                <input hidden  required value="" name="lng" id="lng">
+                           
                         
                                 
                                 <div style="display: flex; flex-direction:column; gap: 10px;">
@@ -499,14 +555,14 @@
 
                                     <div>
 
-                                        <button style="background: orange; border-radius: 5px; color: black;" id="submitLocal">
-                                            <input style="opacity: 0; width: 0;" type="submit">Postalo solo per te!
+                                        <button style="background: orange; border-radius: 5px; color: black;" >
+                                            <span onclick="submitLocal(lat,lng)" style="opacity: 0; width: 0;">Postalo solo per te!</span>
                                         </button>
                         
                                     </div>
                                 </div>
                                 
-                            </form>
+                            </div>
                             </div>`
 
             let postPopup = `<div id="postDiv">
@@ -576,22 +632,13 @@
             let newPost
 
             postMode.addEventListener("click", ()=>{
-                if (allowPost == false){   
-                    document.body.classList.add("filter");
-                    postMode.innerHTML = "MODALITA' NAVIGAZIONE"
-                    allowPost = !allowPost
-                    
-                   
-                } else {
-                    postMode.innerHTML = "MODALITA' POST"
-                    document.body.classList.remove("filter");
-                    allowPost = !allowPost
-                    if (newPost){
-                        newPost.removeFrom(map)
-                    }
-                }
+                togglePostingProcess()
              
             })
+
+            function closeIstructionsMap(){
+                document.getElementById('istruzionePost').style.display = 'none'
+            }
 
             map.addEventListener('click', function(ev) {
 
@@ -604,45 +651,125 @@
                     lat = ev.latlng.lat;
                     lng = ev.latlng.lng;
 
-                    document.getElementById("alert").style.display = 'block'
+                    document.getElementById("alert").style.display = 'flex'
                 }
 
                 
             })
 
+            function togglePostingProcess(){
+                if (allowPost == false){   
+                    document.body.classList.add("filter");
+                    postMode.innerHTML = "MODALITA' NAVIGAZIONE"
+                    allowPost = !allowPost
+                    document.getElementById('istruzionePost').style.display = 'flex'
+                    
+                   
+                } else {
+                    postMode.innerHTML = "MODALITA' POST"
+                    document.getElementById("alert").style.display = 'none'
+  
+                    document.body.classList.remove("filter");
+                    allowPost = !allowPost
+                    if (newPost){
+                        newPost.removeFrom(map)
+                    }
+                }            
+            }
+
+            // decide which kind of post you want to post
             function posting(whichPopup,lat,lng){
                 document.getElementById("alert").style.display= 'none'
                 newPost = L.circleMarker([lat,lng],{draggable:true,color: 'black',radius: 5}).addTo(map).bindPopup(whichPopup,popupOptions).openPopup();
             }
-        
 
-            submitLocal(lat,lng){
-            // QUAAAA storare
-                document.getElementById("postContent")
-            
+            var storageIDs = []
+
+            function storageIDCheck() {
+                if(localStorage){
+                    for (var key in localStorage){
+                        if(key.startsWith('post')){
+                            storageIDs.push(key)
+                        } 
+                    }
+                } 
+               
+            }
+        
+            storageIDCheck()
+           
+     
+            function submitLocal(lat,lng){
+               
+                let postToStore = document.getElementById("postContent").value
+
+                if(postToStore != ''){
+
+                    let postData = {
+                        'lat': lat,
+                        'lng': lng,
+                        'post':  postToStore
+                    }
+                    
+                    localStorage.setItem(`post-${storageIDs.length+1}`, JSON.stringify(postData));
+                    markerStoraged()
+                    togglePostingProcess()
+
+                } else {
+
+                    alert('Non puoi pubblicare un post vuoto!')
+
+                }
+
             }
 
-                    // seleziona tutti i checkbox
+        // popola con i marker dal localstorage
+
+        var personali = L.markerClusterGroup();
+    
+
+        function markerStoraged(){
+            for (var key in localStorage){
+                if(key.startsWith('post')){
+                    localStorage.getItem(key)
+                    let decoded = JSON.parse(localStorage.getItem(key));
+                    
+                    dotStorage =   L.divIcon({html: `<div class='holder personali' style='width: 20px; height: 20px; border-radius: 20px; background-color: grey'></div>`});
+                    marker = L.marker([decoded.lat, decoded.lng], {radius: 8, icon: dotStorage}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${decoded.lat, decoded.lng}'>Clicca per aprire il navigatore!</a><br><br><div class="postContent">${decoded.post}</div>`,popupOptions)
+
+                    personali.addLayer(marker)
+                } 
+            }
+        }
+        markerStoraged()
+
+        // add layer personali to map
+        map.addLayer(personali)
+
+        // seleziona tutte le categorie
 
         function selects(){  
-                map.addLayer(idee)
-                map.addLayer(memorie)
-                map.addLayer(ristoro)
-                map.addLayer(posti)
-                map.addLayer(eventi)
-            }  
+            map.addLayer(idee)
+            map.addLayer(memorie)
+            map.addLayer(ristoro)
+            map.addLayer(posti)
+            map.addLayer(eventi)
+            map.addLayer(personali)
+        }  
 
 
         //select one
 
         function pick(selected){  
-                map.removeLayer(idee)
-                map.removeLayer(memorie)
-                map.removeLayer(ristoro)
-                map.removeLayer(posti)
-                map.removeLayer(eventi)
+            map.removeLayer(idee)
+            map.removeLayer(memorie)
+            map.removeLayer(ristoro)
+            map.removeLayer(posti)
+            map.removeLayer(eventi)
+            map.removeLayer(personali)
 
-                map.addLayer(selected)
+
+            map.addLayer(selected)
         }     
 
        
