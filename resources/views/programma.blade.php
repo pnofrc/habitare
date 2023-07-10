@@ -238,8 +238,11 @@
                     -webkit-column-count: 2;
                     -moz-column-count: 2;
                     column-count: 2;        
-                    
+                    widows: 2;
+                 }
 
+                 img{
+                    width: 100%;
                  }
 
                 figure{
