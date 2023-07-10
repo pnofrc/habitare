@@ -77,7 +77,7 @@
         <button id="star-five"><a id="cretina" href="/info">INFO!</a></button>
         <button id="heart"><a href="/programma">PROGRAMMA!</a></button>
     <div class="buttons">
-        <button id="changeMap"><a href="/piadagram">piadagram</a></button>
+        <button id="changeMap"><a href="/piadagram">PIADAGRAM</a></button>
         <button class="showSidebar">info</button>
         <button id="categorieToggle">Categorie</button>
         <button id="giornateToggle">Giornate</button>
