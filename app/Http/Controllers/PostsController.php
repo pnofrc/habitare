@@ -172,7 +172,7 @@ class PostsController extends Controller
         // ... send to view
         $props['postsFromUsers'] = $postsFromUsers;
 
-        return view('bartolacciogram', $props);
+        return view('piadagram', $props);
     }
 
 

@@ -38,6 +38,10 @@
         <script src="https://unpkg.com/leaflet.markercluster.layersupport@2.0.1/dist/leaflet.markercluster.layersupport.js"></script>
         <script src="leaflet/leaflet-providers.js"></script>
 
+        <link rel="stylesheet"  href="/leaflet/leaflet-gps.css"/>
+
+        <script src="/leaflet/leaflet-gps.js"></script>
+
         <style>
 
             :root{
@@ -73,7 +77,7 @@
         <button id="star-five"><a id="cretina" href="/info">INFO!</a></button>
         <button id="heart"><a href="/programma">PROGRAMMA!</a></button>
     <div class="buttons">
-        <button id="changeMap"><a href="/bartolacciogram">BARTOLACCIOGRAM</a></button>
+        <button id="changeMap"><a href="/piadagram">piadagram</a></button>
         <button class="showSidebar">info</button>
         <button id="categorieToggle">Categorie</button>
         <button id="giornateToggle">Giornate</button>
@@ -258,7 +262,34 @@
     }
 
 
+    // GPS
 
+    var gpsMarker = L.icon({
+                    iconUrl: '/gps.png',
+                    iconSize:     [20,20], // size of the icon
+                });
+                
+
+
+        var gps = new L.Control.Gps({
+            autoActive:true,
+            autoCenter:true,
+            setView:true,
+            accuracy: true,
+            marker: new L.Marker([0,0],{radius: 8, icon: gpsMarker}),
+        
+        });//inizialize control
+
+        gps
+        .on('gps:located', function(e) {
+            //	e.marker.bindPopup(e.latlng.toString()).openPopup()
+            console.log(e.latlng, map.getCenter())
+        })
+        .on('gps:disabled', function(e) {
+            e.marker.closePopup()
+        });
+
+        gps.addTo(map);
 
     // Popola la mappa con tiles + copyright open street map
 

@@ -19,14 +19,13 @@
 .leaflet-control-gps .gps-button {
 	display:block;
 	float:left;
-	width:22px;
-	height:22px;
-	background-image: url('../images/gps-icon.svg');
+	width:25px;
+	height:25px;
+	background-image: url('/gps-icon.svg');
 	background-repeat: no-repeat;
 	background-position: 1px 1px;
 	background-color: #fff;
 	border-radius:4px;
-	padding: 2px;
 	margin: 2px;
 }
 .leaflet-control-gps .gps-button:hover,

@@ -38,7 +38,7 @@
             <p><b>Grazie</b> per aver postato!<br><br>Il post è stato spedito al team di Habitat e verrà valutato per essere reso pubblico.</p>
 
             <div style="text-align: center;">
-                <a id="one" href="/bartolacciogram">Torna a BartolaccioGram</a><br>
+                <a id="one" href="/piadagram">Torna a piadagram</a><br>
                 <a id="two" href="/">Torna lla piattaforma Habitare</a>
             </div>
     </div>
