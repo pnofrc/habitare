@@ -173,7 +173,7 @@ z-index: 2;}
 
 #changeMap a{
     color: black !important;
-    text-decoration: none;
+    /* text-decoration: none; */
     font-size: 12px;
 }
 

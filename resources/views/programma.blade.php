@@ -24,8 +24,13 @@
 
 
             a{
-                color: var(--blue) !important
+                color: var(--blue) !important;
             }
+
+            .active{
+                    background: var(--blue);
+                    color: white !important;
+                }
 
             body,html{
                 width: 100%;
@@ -40,11 +45,12 @@
             #title{
                 font-size: 2rem;
                 margin-top: 5rem;
+               height: 20px !important;
             }
 
             hr{
                 margin: 1rem 0 3rem 0;
-                width: 92vw;
+                width: 62vw;
             }
 
             a{
@@ -104,7 +110,8 @@
             }
 
             h1{
-                position: sticky;
+                /* position: sticky; */
+                
                 background: white;
                 width: 96vw;
                 top: 0rem;
@@ -118,7 +125,23 @@
                 position: relative;
                 z-index: 9999;
             }
+
+            .menu{
+                    position: fixed;
+                    top: 1rem;
+                    z-index: 99;
+                    right: 0;
+                    width: max-content;
+                }
+
             @media only screen and (max-width: 900px) {
+
+                .menu{
+                    background-color: rgba(255,255,255,0.5);
+                    padding: 30px;
+                    text-align: right;
+                    margin-right: 0;
+                }
 
                 figure{
                     padding: 0;
@@ -130,7 +153,7 @@
                 }
                 
 
-                h1{
+                h1 {
                     height: 190px;
                  width: 95vw;
                 }
@@ -147,7 +170,7 @@
                 }
 
                 #title{
-                    margin-top: 4rem;
+                    margin-top: 16rem;
                 }
 
                 ul{
@@ -156,12 +179,6 @@
                     margin: 1px 0 1rem 0 !important;
                 }
                 
-                .menu{
-                    margin: 2rem;
-                    width: 80%;
-                }
-
-               
 
                 hr{
                     margin: 1rem 0 3rem 0
@@ -191,26 +208,25 @@
     <a class="over" href="#" id="up">↑</a>
     <a class="over"  href="/" id="back"><p>←</p><span> alla piattaforma!</span></a>
   
-    <h1 id="title">PROGRAMMA</h1>
+    <h1 class="" id="title">PROGRAMMA</h1 class="">
 
    
 
     <div class="menu">
-        <a href="#zero">14 Luglio   -    Tredozio</a><br>
-        <a href="#uno">15 Luglio   -    Rocca S. Casciano</a><br>
-        <a href="#due">16 Luglio   -    Rocca S. Casciano</a><br>
-        <a href="#tre">22 Luglio   -    Tredozio</a><br>
-        <a href="#quattro">23 Luglio   -    Tredozio</a><br>
-        <a href="#cinque">29 Luglio   -    Portico di Romagna</a><br>
-        <a href="#sei">30 Luglio   -    Portico di Romagna</a><br>
+        <a onclick="makeActive(event)" href="#zero">14 Luglio   -    Tredozio</a><br>
+        <a onclick="makeActive(event)" href="#uno">15 Luglio   -    Rocca S. Casciano</a><br>
+        <a  onclick="makeActive(event)" href="#due">16 Luglio   -    Rocca S. Casciano</a><br>
+        <a onclick="makeActive(event)" href="#tre">22 Luglio   -    Tredozio</a><br>
+        <a onclick="makeActive(event)" href="#quattro">23 Luglio   -    Tredozio</a><br>
+        <a  onclick="makeActive(event)"href="#cinque">29 Luglio   -    Portico di Romagna</a><br>
+        <a onclick="makeActive(event)" href="#sei">30 Luglio   -    Portico di Romagna</a><br>
     </div>
 
 
 
 
     <div class="container">
-        <hr>
-<h1 id="zero">14 Luglio   -    Tredozio</h1>
+<h1 class="" id="zero">14 Luglio   -    Tredozio</h1 class="">
 
         @foreach ($posts as $key => $post)
             @if ($key == 'zero')
@@ -233,7 +249,7 @@
             @endif
         @endforeach
            
-<h1 id="uno">15 Luglio   -    Rocca S. Casciano</h1>
+<h1 class="" id="uno">15 Luglio   -    Rocca S. Casciano</h1 class="">
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'uno')
@@ -316,7 +332,7 @@
             @endif
         @endforeach
 
-<h1 id="due">16 Luglio   -    Rocca S. Casciano</h1>
+<h1 class="" id="due">16 Luglio   -    Rocca S. Casciano</h1 class="">
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'due')
@@ -399,7 +415,7 @@
             @endif
         @endforeach
 
-<h1 id="tre">22 Luglio   -    Tredozio</h1>
+<h1 class="" id="tre">22 Luglio   -    Tredozio</h1 class="">
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'tre')
@@ -482,7 +498,7 @@
             @endif
         @endforeach
 
-<h1 id="quattro">23 Luglio   -    Tredozio</h1>
+<h1 class="" id="quattro">23 Luglio   -    Tredozio</h1 class="">
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'quattro')
@@ -565,7 +581,7 @@
             @endif
         @endforeach
 
-<h1 id="cinque">29 Luglio   -    Portico di Romagna</h1>
+<h1 class="" id="cinque">29 Luglio   -    Portico di Romagna</h1 class="">
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'cinque')
@@ -648,7 +664,7 @@
             @endif
         @endforeach
 
-<h1 id="sei">30 Luglio   -    Portico di Romagna</h1>
+<h1 class="" id="sei">30 Luglio   -    Portico di Romagna</h1 class="">
         <u class="quando">Tutto il giorno:</u><br>
         @foreach ($posts as $key => $post)
             @if ($key == 'sei')
@@ -738,5 +754,44 @@
     </div>
    </div>
 
+
+   <script>
+let currentID
+
+   function makeActive(event) {
+    console.log(event)
+      var previous = document.getElementsByClassName("active");
+      if (previous.length > 0) {
+         previous[0].className = previous[0].className.replace(" active", "");
+      }
+      event.target.className += " active";
+   }
+
+   window.addEventListener('scroll', function(e) {
+    document.querySelectorAll('h1').forEach(element => {
+        var position = element.getBoundingClientRect();
+
+        if(position.top >= 0 && position.bottom <= window.innerHeight) {
+            console.log('Element is fully visible in screen');
+            currentID = element.id
+            document.querySelectorAll(`.menu a`).forEach(element => {
+            element.className = ''
+        })
+        
+            if(document.querySelector(`a[href='#${currentID}']`)){
+                document.querySelector(`a[href='#${currentID}']`).className += ' active'
+            }
+           
+        } 
+         
+
+        e.preventDefault()
+        });
+
+	
+});
+   
+
+   </script>
     </body>
 </html>

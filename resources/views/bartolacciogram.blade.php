@@ -60,7 +60,7 @@
                 display: none !important
             }
             .bartolaccio{
-                font-size: 3em
+                font-size: 3.3vw
             }
 
             #title{width: 65%}
@@ -119,6 +119,7 @@
                 margin-top: 5%;
                 padding: 20px;
                 margin-left: 15%;
+
             }
 
             li{
@@ -137,9 +138,22 @@
                 padding: 40px 20px;
                 margin: unset;
                 border-radius: 0;
+                align-items: center;
+                flex-direction: column
+            }
 
+            #closeIstructions{bottom: 1rem;
+            position: fixed;}
+
+            .bartolaccio{
+                font-size: 8vw
+            }
+
+            .buttons{
+                margin-left: unset
             }
             }
+
             
         </style>
     </head>
@@ -209,6 +223,9 @@
 
 
    <div id="istruzioni">
+
+        <h2><b class="exp">ISTRUZIONI</b></h2>
+
         <ul>
             <li>Questa pagina è per mappare il territorio della Romagna Toscana in modo multiforme, da racconti personali a leggende di paese, da ricette tradizionali a immaginazione di futuri possibili franati.</li>
             <li>Prima di tutto, bisogna decidere dove pubblicare il post. Si può navigare come una mappa qualsiasi; Più zoomerai più il risultato sarà preciso.</li>
@@ -232,11 +249,11 @@
 
         let t = true
     document.querySelector("#toggleInstructions").addEventListener("click", ()=>{
-        if (t){document.querySelector("#istruzioni").style.display = 'block'; t=!t}else{ document.querySelector("#istruzioni").style.display = 'none';t=!t}
+        if (t){document.querySelector("#istruzioni").style.display = 'flex'; t=!t}else{ document.querySelector("#istruzioni").style.display = 'none';t=!t}
     })
 
     document.querySelector("#closeIstructions").addEventListener("click", ()=>{
-        if (t){document.querySelector("#istruzioni").style.display = 'block'; t=!t}else{ document.querySelector("#istruzioni").style.display = 'none';t=!t}
+        if (t){document.querySelector("#istruzioni").style.display = 'flex'; t=!t}else{ document.querySelector("#istruzioni").style.display = 'none';t=!t}
     })
 
     // Toggle sidebar su mobile
@@ -244,10 +261,11 @@
     document.querySelector('.closeSidebar').addEventListener('click', () =>{
 
         if (document.querySelector('.sidebar').style.display = 'flex'){
-            document.querySelector('.sidebar').style.display = 'none'
-        }
+            document.querySelector('.closeSidebar').style.display = 'none'
+            document.querySelector('.sidebar').style.display = 'none'        }
         else if( document.querySelector('.sidebar').style.display = 'none'){
             document.querySelector('.sidebar').style.display = 'flex'
+            document.querySelector('.closeSidebar').style.display = 'block'
         }
 
     })
