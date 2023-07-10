@@ -130,6 +130,14 @@
                     width: max-content;
                 }
 
+                .context{
+                    display: none
+                }
+
+                #logo{
+                    display: none;
+                }
+
             @media only screen and (max-width: 900px) {
 
                 .menu{
@@ -207,25 +215,71 @@
             @media print {
 
                 body {
-                margin: 0;
+                    size: A5;
+                  
+                    font-size: .7rem
                 }
 
 
+            
                 .menu{
                     display: none
                 }
 
                 .container,hr{
-                    width: 96%
+                    width: 94%
+                }
+
+                .container{
+                    -webkit-column-count: 2;
+                    -moz-column-count: 2;
+                    column-count: 2;        
+    break-before: always                           
+                 }
+
+                figure{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                figure a{
+                    width: 70%
                 }
 
                 .carrellata img{
                     opacity: .3;
+                    display: none
                 }
+
+                h1{
+                    page-break-before: always
+                }
+
 
                 #back,#up{
                     display: none
                 }
+
+                .context{
+                    display: block;
+                    
+                }
+
+                #logo{
+                    display: inline;
+                }
+
+                #title{
+                    font-family: 'internazionale';
+                    page-break-before: avoid
+                }
+
+                hr{
+                    margin: 0px auto;
+                    /* border: none; */
+                    height: .5px;
+                }
+
 
             }
 
@@ -265,9 +319,9 @@
     <a class="over" href="#" id="up">↑</a>
     <a class="over"  href="/" id="back"><p>←</p><span> alla piattaforma!</span></a>
   
+    <img src="assets/title.png" id="logo" alt="">
     <h1 class="" id="title">PROGRAMMA</h1 class="">
 
-   
 
     <div class="menu">
         <a onclick="makeActive(event)" href="#cash">Nota Bene!</a><br>
@@ -285,6 +339,14 @@
 
     <div class="container">
 
+        <div class="context">
+            <p>Habitare è un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).</p>
+            <p>Ogni sabato e domenica, dalle 10 alle 00, il Festival popolerà un differente borgo, delineando un percorso collettivo fatto di laboratori, presentazioni, tavole rotonde, musica, mostre, installazioni ed escursioni.</p>
+            <p>Il filo conduttore é la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.</p>
+            <p>Nello sviluppo condiviso di tale dimensione, comunità e territori possono diventare vettori di sostenibilità sociale e di attivazione partecipata di nuove dinamiche dell'abitare, espresse e vissute tramite linguaggi creativi contemporanei.</p>
+            <br>
+            <p>Zaini in spalla!</p>
+        </div>
 
         <h1 class="" id="cash">Nota bene!</h1 class="">
         
