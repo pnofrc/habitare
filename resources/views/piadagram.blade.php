@@ -193,7 +193,8 @@
                 margin: unset;
                 border-radius: 0;
                 align-items: center;
-                flex-direction: column
+                flex-direction: column;
+               padding-bottom: 5rem
             }
 
             #closeIstructions{bottom: 1rem;
@@ -206,7 +207,21 @@
             .buttons{
                 margin-left: unset
             }
+
+            .buttons {
+                z-index: 2;
+                left: 12px;
+                top: unset;
+    height: fit-content;
+                justify-content: end;
             }
+        }
+
+            #loghi{
+                width: 100% !important;
+            }
+
+
 
             
         </style>
@@ -229,11 +244,12 @@
 
 
     <div class="buttons">
-        <button id="backTo"><a style="text-decoration: none" href="/">HABITARE</a></button>
         <div class="flex-column">
             <button id="toggleInstructions">ISTRUZIONI</button>
             <button id="postMode">MODALITA' POST</button>
         </div>
+        <button id="backTo"><a style="text-decoration: none" href="/">HABITARE HOMEPAGE</a></button>
+
     </div>
 
 
@@ -249,23 +265,21 @@
           <h2>La bacheca pubblica della Romagna Toscana</h2>
 
           <p>
-            <b>piadagram</b> è parte della piattaforma web <a href="../">Habitare</a> creata nel contesto del festival omonimo.<br><br>
-            Chiunque può pubblicare su questa pagina racconti, poesie, fotografie, disegni, consigli su dove mangiare, ricordi passati o speranze future.<br><br>
-            Data la natura geografica di questa pagina, l'idea è di associare il post da voi creato ad un posto della zona della Romagna Toscana, per permettere a tutte le persone di visitare i posti da voi segnalati.<br><br>
+            <b>PiadaGram</b> è parte della piattaforma web <a href="../">Habitare</a> creata nel contesto del festival omonimo.<br><br>
+            Chiunque può pubblicare su questa pagina racconti, poesie, fotografie, disegni, consigli su dove mangiare, ricordi passati o speranze future.<br>
+            Per creare il post bisogna cliccare su un punto della mappa, geolocalizzandolo, di modo che possa essere raggiunto ed esplorato da futuri viandanti.<br>
 
-            <br>
+    
 
-            Habitare è un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).<br><br>
-            Ogni sabato e domenica, dalle 10 alle 00, il Festival popolerà un differente borgo, delineando un percorso collettivo fatto di laboratori, presentazioni, tavole rotonde, musica, mostre, installazioni ed escursioni.<br><br>
-            Il filo conduttore é la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.
-<br>
-            Nello sviluppo condiviso di tale dimensione, comunità e territori possono diventare vettori di sostenibilità sociale e di attivazione partecipata di nuove dinamiche dell'abitare, espresse e vissute tramite linguaggi creativi contemporanei.
-            <br><br>
-            Zaini in spalla!
-        </p>
+           </p>
         </div>  
 
         <div class="bottom flex">
+            <span>
+                Habitare è un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).<br><br>
+                Ogni sabato e domenica, dalle 10 alle 00, il Festival popolerà un differente borgo, delineando un percorso collettivo fatto di laboratori, presentazioni, tavole rotonde, musica, mostre, installazioni ed escursioni.<br><br>
+                Il filo conduttore é la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.
+           </span>
             <span>
               Progetto co-finanziato dal Ministero per la Transizione Ecologica nell'ambito del processo di attuazione della Strategia Nazionale per lo Sviluppo Sostenibile
             </span>
@@ -295,17 +309,15 @@
 
         <h2><b class="exp">ISTRUZIONI</b></h2>
 
-        <ul>
-            <li>Questa pagina è per mappare il territorio della Romagna Toscana in modo multiforme, da racconti personali a leggende di paese, da ricette tradizionali a immaginazione di futuri possibili franati.</li>
-            <li>Prima di tutto, bisogna decidere dove pubblicare il post. Si può navigare come una mappa qualsiasi; Più zoomerai più il risultato sarà preciso.</li>
-            <li>Per pubblicare bisogna entrare in modalità "Post" con l'apposito bottone.</li>
-            <li>Una volta cliccato, la mappa sarà in bianco/nero. Ora è possibile ottenere la finestra per immettere i contenuti: clicca sul luogo per il post da te scelto </li>
-            <li>Nella finestra dovrai mettere il tuo nome e potrai continuare immettendo testi, e/o una immagine.</li>
-            <li>E' necessaria la scelta della categoria! Se hai desiderio di avere una particolare categoria che non vedi, sentiti liber* di scriverci via email.</li>
+        <ol>
+            <li>Decidere dove pubblicare il post. Si può navigare come una mappa qualsiasi; Più zoomerai più il risultato sarà preciso.</li>
+            <li>Per pubblicare bisogna entrare in modalità "Post" con l'apposito bottone a sinistra.</li>
+            <li>Una volta cliccato, la mappa sarà in bianco/nero. Ora clicca sul luogo per il post da te scelto. </li>
+            <li>Puoi decidere se pubblicare il post per chiunque ( <i>Pubblica sulla piattaforma</i> ) oppure salvarlo come nota privata ( <i>Pubblica come post privato</i> ).</li>
             <li>Una volta riempiti i campi, basta solo cliccare il pulsante "Posta!"</li>
-            <li>Attenzione: i post vengono controllati prima di essere pubblicati globalmnte. Tuttavia, ogni post creato da te verrà salvato sul tuo browser.</li>
-            <li>Se vuoi che un post pubblicatio venga eliminato, sentiti libere di scriverci per richiedere la rimozione.</li>
-        </ul>
+            <li>Se hai postato per chiunque, potrebbe volerci un po' di tempo per essere pubblicato dal team di Habitat.</li>
+            <li>Se vuoi che un post venga eliminato, sentiti libere di scriverci per richiedere la rimozione.</li>
+        </ol>
 
         <button id="closeIstructions">CHIUDI ISTRUZIONI</button>
    </div>
@@ -317,8 +329,9 @@
 
         <div>
             <input onclick="selects()" type="radio" name="category" value="black" checked>
-            <label>All</label>
+            <label>Tutti</label>
         </div>
+        <br>
 
         <div>
             <input onclick="pick(idee)" type="radio" name="category" value="rgb(236,108,0)">
@@ -332,7 +345,7 @@
         
         <div>
             <input onclick="pick(ristoro)" type="radio"  name="category" value="rgb(36,192,68)">
-            <label>Ristoro - Convivio</label>
+            <label>Ristoro</label>
         </div>
         
         <div>
@@ -344,10 +357,10 @@
             <input onclick="pick(eventi)" type="radio"  name="category" value="#c75151">
             <label>Eventi</label>
         </div>
-
+        <br>
         <div>
             <input onclick="pick(personali)" type="radio"  name="category" value="grey">
-            <label>Personali</label>
+            <label>Privati</label>
         </div>
 
     </div>
@@ -656,9 +669,11 @@
                     postMode.innerHTML = "MODALITA' NAVIGAZIONE"
                     allowPost = !allowPost
                     document.getElementById('istruzionePost').style.display = 'flex'
-                    
+                    document.querySelector('.filterCategory').style.display = 'none'
                    
                 } else {
+                 
+                    document.querySelector('.filterCategory').style.display = 'block'
                     postMode.innerHTML = "MODALITA' POST"
                     document.getElementById("alert").style.display = 'none'
   
