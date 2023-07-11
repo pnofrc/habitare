@@ -107,8 +107,8 @@
 
     <div id="calendario">
 
-        <button onclick="selects()">Seleziona tutto</button><br>
-        <button onclick="deSelect()">Deseleziona tutto</button>
+        <button id="select">Seleziona tutto</button><br>
+        <button id="deSelect">Deseleziona tutto</button>
 
         <br>    
 
@@ -196,7 +196,8 @@
     <script src="/app.js" async defer></script>
 
     <script async defer type="text/javascript">
-    $( document ).ready(function() {
+
+    
     // Dichiarazioni globali
 
     var markers
@@ -366,6 +367,47 @@
         var cinque = L.markerClusterGroup(clusterOptionsPortico);
         var sei = L.markerClusterGroup(clusterOptionsPortico);
 
+
+        // seleziona tutti i checkbox
+
+        document.getElementById("select").addEventListener("click", ()=>{
+                            var ele=document.getElementsByName('chk');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox')  
+                        ele[i].checked=true;  
+                }  
+                map.addLayer(zero)
+                map.addLayer(uno)
+                map.addLayer(due)
+                map.addLayer(tre)
+                map.addLayer(quattro)
+                map.addLayer(cinque)
+                map.addLayer(sei)
+            }  )
+
+        // deselezionali
+
+            document.getElementById("deSelect").addEventListener("click", ()=>{
+                var ele=document.getElementsByName('chk');  
+
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox')  
+                        ele[i].checked=false;  
+                }  
+                map.removeLayer(zero)
+                map.removeLayer(uno)
+                map.removeLayer(due)
+                map.removeLayer(tre)
+                map.removeLayer(quattro)
+                map.removeLayer(cinque)
+                map.removeLayer(sei)
+            }) 
+            
+        
+
+
+        
+
         @foreach ($posts as $key => $post)
         
            categoriesPost = ''
@@ -443,53 +485,20 @@
 
     var toggle = 0
 
-    function toggleCluster(cluster){
+    let toggleCluster = (cluster) => {
         if (map.hasLayer(cluster)){
             map.removeLayer(cluster)
         } else {
         map.addLayer(cluster)
         }
-    }
+        };
+
+
 
         // crea gruppi cluster per ogni weekend
     
         var cluster = L.markerClusterGroup({zoomToBoundsOnClick: false});
     
-
-        // seleziona tutti i checkbox
-
-        function selects(){  
-                var ele=document.getElementsByName('chk');  
-                for(var i=0; i<ele.length; i++){  
-                    if(ele[i].type=='checkbox')  
-                        ele[i].checked=true;  
-                }  
-                map.addLayer(zero)
-                map.addLayer(uno)
-                map.addLayer(due)
-                map.addLayer(tre)
-                map.addLayer(quattro)
-                map.addLayer(cinque)
-                map.addLayer(sei)
-            }  
-
-
-        // deselezionali
-
-        function deSelect(){  
-            var ele=document.getElementsByName('chk');  
-            for(var i=0; i<ele.length; i++){  
-                if(ele[i].type=='checkbox')  
-                    ele[i].checked=false;  
-            }  
-            map.removeLayer(zero)
-            map.removeLayer(uno)
-            map.removeLayer(due)
-            map.removeLayer(tre)
-            map.removeLayer(quattro)
-            map.removeLayer(cinque)
-            map.removeLayer(sei)
-        }      
 
       
 
@@ -527,7 +536,6 @@
               iconSize: [60]
           })}).addTo(map);
 
-        });
 
 
         document.querySelectorAll(".leaflet-marker-icon").forEach(el => {
