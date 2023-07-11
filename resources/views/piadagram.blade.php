@@ -7,6 +7,10 @@
         <title>Habitare</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:title" content="Habitare Social" />
+        <meta property="og:url" content="https://habitare.habitattt.it/piadagram" />
+        <meta property="og:image" content="https://habitare.habitattt.it/assets/habitare/H.png" />
+
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 

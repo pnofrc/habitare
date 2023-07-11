@@ -8,7 +8,13 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <meta property="og:title" content="Habitare Info" />
+        <meta property="og:url" content="https://habitare.habitattt.it/info" />
+        <meta property="og:image" content="https://habitare.habitattt.it/assets/habitare/H.png" />
+
+
        <!-- PWA  -->
+
         <meta name="theme-color" content="green"/>
         <link rel="apple-touch-icon" href="{{ asset('/assets/habitare/H.png') }}">
         <link rel="manifest" href="{{ asset('/manifest.json') }}">

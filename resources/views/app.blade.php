@@ -8,6 +8,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+        <meta property="og:title" content="Habitare" />
+        <meta property="og:url" content="https://habitare.habitattt.it/" />
+        <meta property="og:image" content="https://habitare.habitattt.it/assets/habitare/H.png" />
+
+
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
        <!-- PWA  -->
@@ -524,6 +530,17 @@
               iconSize: [60]
           })}).addTo(map);
 
+        });
+
+        sbcdscjhd chds c
+
+        document.querySelectorAll(".leaflet-marker-icon").forEach(el => {
+            el.addEventListener("click", () =>{
+                console.log('c s')
+                toggleCat(1)
+                toggleGior(1)
+
+            })
         });
     </script>
 
