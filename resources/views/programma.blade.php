@@ -5,9 +5,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Habitare</title>
-        <meta name="description" content="">
+        <meta name="og:description" content="Habitare è un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).">
+        <meta name="description" content="Habitare è un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="robots" content="index,follow">
+        <link rel="canonical" href="https://habitare.habitattt.it/programma">
         <meta property="og:title" content="Habitare Programma" />
         <meta property="og:url" content="https://habitare.habitattt.it/programma/" />
         <meta property="og:image" content="https://habitare.habitattt.it/assets/habitare/H.png" />

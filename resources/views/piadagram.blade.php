@@ -5,12 +5,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Habitare</title>
-        <meta name="description" content="">
+        <meta name="description" content="Habitare PiadaGram è una mappa dove puoi pubblicare racconti, poesie, fotografie, disegni, consigli su dove mangiare, ricordi passati o speranze future, qualsiasi cosa! 
+        Creiamo una nostra mappa della Romagna Toscana, fatta da noi per noi e per futuri viandanti.">
+
+        <meta name="og:description" content="Habitare PiadaGram è una mappa dove puoi pubblicare racconti, poesie, fotografie, disegni, consigli su dove mangiare, ricordi passati o speranze future, qualsiasi cosa! 
+        Creiamo una nostra mappa della Romagna Toscana, fatta da noi per noi e per futuri viandanti.">
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:title" content="Habitare Social" />
+        <meta property="og:title" content="Habitare PiadaGram" />
         <meta property="og:url" content="https://habitare.habitattt.it/piadagram" />
         <meta property="og:image" content="https://habitare.habitattt.it/assets/habitare/H.png" />
-
+        <meta name="robots" content="index,follow">
+        <link rel="canonical" href="https://habitare.habitattt.it/piadagram">
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
