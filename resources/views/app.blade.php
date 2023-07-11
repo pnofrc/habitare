@@ -528,7 +528,6 @@
 
         });
 
-        sbcdscjhd chds c
 
         document.querySelectorAll(".leaflet-marker-icon").forEach(el => {
             el.addEventListener("click", () =>{

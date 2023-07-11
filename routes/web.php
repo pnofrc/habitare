@@ -28,4 +28,4 @@ Route::get('/map', function () {return view('map');});
 
 Route::get('/call', function () {return view('call');});
 
-
+Route::get('/promo', function () {return view('promo');});
