@@ -501,12 +501,6 @@
                         }
                     @endif 
 
-                    @if ($post['post'] != 'null'){
-                           post = '<div class="postContent">{!! $post["post"] !!}<br>'
-                        } @else {
-                            post = ''
-                        }
-                    @endif 
 
                     dotSmall =   L.divIcon({html: `<div class='holder {{$post['category']}}' style='width: 25px; height: 25px; border-radius: 20px; background-color: {{$post['category']}}'></div>`});
                     marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><br><i class="postName">Pubblicato da {!! $post["name"] !!}</i><br><br>${post}${img}</div>`,popupOptions)
@@ -588,7 +582,7 @@
                                 <div style="display: flex; flex-direction:column; gap: 10px;">
 
                                     <input required placeholder="Metti il tuo nome qui" id="postAuthor" name="name" type="text">
-                                    <textarea rows="4" cols="20" wrap="hard" name="post" placeholder="E qui lascia un pensiero!" id="postContent"  type="text"></textarea>                         
+                                    <textarea required rows="4" cols="20" wrap="hard" name="post" placeholder="E qui lascia un pensiero!" id="postContent"  type="text"></textarea>                         
 
                                     <fieldset>
                                         <legend>Seleziona una categoria adatta:</legend>
