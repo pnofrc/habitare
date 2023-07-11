@@ -26,10 +26,18 @@ class PostsController extends Controller
             $file = 'null';
         }
 
+        if ($request->post == '') {
+           
+            $post = 'null';
+           
+        }  else {
+            $post = $request->post;
+        }
+
         $newPost = PostFromInterface::create([
 
 			'name' => $request->name,
-			'post' =>  $request->post, // used to check if the order has been updated
+			'post' =>  $post, // used to check if the order has been updated
             'file' => $file,
             'category' => $request->category,
 			'lat' =>  $request->lat,

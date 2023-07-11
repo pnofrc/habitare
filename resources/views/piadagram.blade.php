@@ -501,8 +501,15 @@
                         }
                     @endif 
 
+                    @if ($post['post'] != 'null'){
+                           post = '<div class="postContent">{!! $post["post"] !!}<br>'
+                        } @else {
+                            post = ''
+                        }
+                    @endif 
+
                     dotSmall =   L.divIcon({html: `<div class='holder {{$post['category']}}' style='width: 25px; height: 25px; border-radius: 20px; background-color: {{$post['category']}}'></div>`});
-                    marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><br><i class="postName">Pubblicato da {!! $post["name"] !!}</i><br><br><div class="postContent">{!! $post["post"] !!}<br>${img}</div>`,popupOptions)
+                    marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><br><i class="postName">Pubblicato da {!! $post["name"] !!}</i><br><br>${post}${img}</div>`,popupOptions)
                     
 
                     if ("{{$post['category']}}" == 'rgb(236,108,0)') {
@@ -580,7 +587,7 @@
                                 
                                 <div style="display: flex; flex-direction:column; gap: 10px;">
 
-                                    <input placeholder="Metti il tuo nome qui" id="postAuthor" name="name" type="text">
+                                    <input required placeholder="Metti il tuo nome qui" id="postAuthor" name="name" type="text">
                                     <textarea rows="4" cols="20" wrap="hard" name="post" placeholder="E qui lascia un pensiero!" id="postContent"  type="text"></textarea>                         
 
                                     <fieldset>
