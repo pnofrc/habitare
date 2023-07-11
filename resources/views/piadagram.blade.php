@@ -500,10 +500,10 @@
                             img = ''
                         }
                     @endif 
-
+                    
 
                     dotSmall =   L.divIcon({html: `<div class='holder {{$post['category']}}' style='width: 25px; height: 25px; border-radius: 20px; background-color: {{$post['category']}}'></div>`});
-                    marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><br><i class="postName">Pubblicato da {!! $post["name"] !!}</i><br><br>${post}${img}</div>`,popupOptions)
+                    marker = L.marker([{{ $post['lat'] }},{{ $post['lng'] }}], {radius: 8, icon: dotSmall}).bindPopup(`<a target="_blank" class="linkMaps" href='http://maps.google.com/maps?q=${"{{ $post['lat'] }},{{ $post['lng'] }}"}'>Clicca per aprire il navigatore!</a><br><br><i class="postName">Pubblicato da {!! $post["name"] !!}</i><br><br><div class="postContent">{!! $post["post"] !!}<br>${img}</div>`,popupOptions)
                     
 
                     if ("{{$post['category']}}" == 'rgb(236,108,0)') {
