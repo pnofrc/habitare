@@ -138,6 +138,12 @@
                     z-index: 99;
                     right: 0;
                     width: max-content;
+                    line-height: 1.4rem;
+                    width: fit-content;
+                }
+
+                .menu a{
+    width: fit-content;
                 }
 
                 .context{
