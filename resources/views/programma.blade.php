@@ -238,7 +238,8 @@
                 }
 
 
-            
+                img{ display: none}
+
                 .menu{
                     display: none
                 }
@@ -258,10 +259,21 @@
                     width: 100%;
                  }
 
+                 
+                 br{
+                    display: none !important;
+                 }
+
                 figure{
-                    display: flex;
+                    displ
+                    display: none;
                     align-items: center;
                     justify-content: center;
+                }
+
+                h1{
+                    height: auto;
+                    padding: auto;
                 }
                 figure a{
                     width: 70%
@@ -273,6 +285,7 @@
 
                 h1{
                     page-break-before: always;
+                    -webkit-break-before: always;
                     margin-bottom: 10px
                 }
 
@@ -292,12 +305,18 @@
 
                 #title{
                     font-family: 'internazionale';
-                    page-break-before: avoid
+                    page-break-before: avoid;
+                    margin: 0
                 }
 
                 hr{
                     border-top: .8px black solid;
                     margin: 0 !important;
+                    display: none
+                }
+
+
+                div{
                 }
 
 
