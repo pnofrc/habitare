@@ -317,6 +317,7 @@
 
 
                 div{
+                    font-size: 9pt
                 }
 
 
