@@ -311,6 +311,7 @@
 
                 h1{
                     margin: 10pt 0;
+                    padding-top: 10pt;
                 }
                 hr{
                     border-top: .8px black solid;
