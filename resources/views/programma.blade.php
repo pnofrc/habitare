@@ -311,7 +311,7 @@
 
                 h1{
                     margin: 10pt 0;
-                    height: 0;
+                    height: auto;
                     padding-top: 0;
                 }
                 hr{
