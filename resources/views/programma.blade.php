@@ -306,9 +306,12 @@
                 #title{
                     font-family: 'internazionale';
                     page-break-before: avoid;
-                    margin: 0
+                    
                 }
 
+                h1{
+                    margin: 10pt 0;
+                }
                 hr{
                     border-top: .8px black solid;
                     margin: 0 !important;
