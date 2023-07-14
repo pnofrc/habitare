@@ -256,6 +256,14 @@
     // In base alla dimensione dello schermo, centra in modo differente la mappa
 
     var x = window.matchMedia("(max-width: 450px)")
+         document.querySelectorAll(".leaflet-marker-icon").forEach(el => {
+            el.addEventListener("click", () =>{
+                console.log('c s')
+                toggleCat(1)
+                toggleGior(1)
+
+            })
+        });
         
     if (x.matches) {
         var map = L.map('map',{
@@ -276,32 +284,32 @@
 
     // GPS
 
-    var gpsMarker = L.icon({
-                    iconUrl: '/gps.png',
-                    iconSize:     [20,20], // size of the icon
-                });
+    // var gpsMarker = L.icon({
+    //                 iconUrl: '/gps.png',
+    //                 iconSize:     [20,20], // size of the icon
+    //             });
                 
 
 
-        var gps = new L.Control.Gps({
-            autoActive:true,
-            autoCenter:true,
-            setView:true,
-            accuracy: true,
-            marker: new L.Marker([0,0],{radius: 8, icon: gpsMarker}),
+    //     var gps = new L.Control.Gps({
+    //         autoActive:true,
+    //         autoCenter:true,
+    //         setView:true,
+    //         accuracy: true,
+    //         marker: new L.Marker([0,0],{radius: 8, icon: gpsMarker}),
         
-        });//inizialize control
+    //     });//inizialize control
 
-        gps
-        .on('gps:located', function(e) {
-            //	e.marker.bindPopup(e.latlng.toString()).openPopup()
-            console.log(e.latlng, map.getCenter())
-        })
-        .on('gps:disabled', function(e) {
-            e.marker.closePopup()
-        });
+    //     gps
+    //     .on('gps:located', function(e) {
+    //         //	e.marker.bindPopup(e.latlng.toString()).openPopup()
+    //         console.log(e.latlng, map.getCenter())
+    //     })
+    //     .on('gps:disabled', function(e) {
+    //         e.marker.closePopup()
+    //     });
 
-        gps.addTo(map);
+    //     gps.addTo(map);
 
     // Popola la mappa con tiles + copyright open street map
 
@@ -538,14 +546,7 @@
 
 
 
-        document.querySelectorAll(".leaflet-marker-icon").forEach(el => {
-            el.addEventListener("click", () =>{
-                console.log('c s')
-                toggleCat(1)
-                toggleGior(1)
-
-            })
-        });
+       
     </script>
 
     <!-- PWA -->
