@@ -322,7 +322,8 @@
 
 
                 div{
-                    font-size: 9pt
+                    font-size: 9pt;
+                    line-height: 11pt
                 }
 
 
