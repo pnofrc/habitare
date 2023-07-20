@@ -125,7 +125,7 @@ function startRecordingWithGyroscope() {
 
       // Event handler for gyroscope data
       window.addEventListener('deviceorientation', function (event) {
-        alert('Gyroscope Data:', event);
+        alert('Gyroscope Datfgha:', event);
 
         // Map gyroscope data to delay time (adjust the mapping range as needed)
         const minDelay = 0.1; // Minimum delay time in seconds
