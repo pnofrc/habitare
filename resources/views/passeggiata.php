@@ -44,6 +44,7 @@ function startRecording() {
     DeviceOrientationEvent.requestPermission()
       .then(permissionState => {
         if (permissionState === 'granted') {
+            alert('Gyroscope Data:');
           startRecordingWithGyroscope();
         } else {
           console.error('Permission to access gyroscope denied.');
@@ -125,6 +126,8 @@ function startRecordingWithGyroscope() {
 
       // Event handler for gyroscope data
       window.addEventListener('deviceorientation', function (event) {
+        alert('Gyroscope Data:', event);
+
         // Map gyroscope data to delay time (adjust the mapping range as needed)
         const minDelay = 0.1; // Minimum delay time in seconds
         const maxDelay = 4.0; // Maximum delay time in seconds
