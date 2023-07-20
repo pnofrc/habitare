@@ -44,7 +44,6 @@ function startRecording() {
     DeviceOrientationEvent.requestPermission()
       .then(permissionState => {
         if (permissionState === 'granted') {
-            alert('Gyroscope Data:');
           startRecordingWithGyroscope();
         } else {
           console.error('Permission to access gyroscope denied.');
