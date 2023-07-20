@@ -31,3 +31,5 @@ Route::get('/call', function () {return view('call');});
 Route::get('/promo', function () {return view('promo');});
 
 Route::get('/radio', function () {return view('radio');});
+
+Route::get('/passeggiata', function () {return view('passeggiata');});
