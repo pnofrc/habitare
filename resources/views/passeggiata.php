@@ -53,6 +53,29 @@
 
 </div>
 
+<input type="range" id="gyroSlider" min="0" max="100" value="50" />
+  <script>
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', handleOrientation);
+    } else {
+      console.log('DeviceOrientationEvent is not supported on this device.');
+    }
+
+    function handleOrientation(event) {
+      // Assuming you want to use the device's rotation around the X-axis to control the slider:
+      var xRotation = event.beta; // Range: -180 to 180
+
+      // Map the gyroscope X-axis rotation range (-180 to 180) to the slider range (0 to 100):
+      var mappedValue = (xRotation + 180) * (100 / 360);
+
+      // Clamp the value to ensure it stays within the slider's range:
+      var clampedValue = Math.min(100, Math.max(0, mappedValue));
+
+      // Update the slider position:
+      document.getElementById('gyroSlider').value = clampedValue;
+    }
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>
