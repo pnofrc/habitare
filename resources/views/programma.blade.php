@@ -263,12 +263,11 @@
                     break-before: always
                  }
                  
-                 br{
+                 /* br{
                     display: none !important;
-                 }
+                 } */
 
                 figure{
-                    displ
                     display: none;
                     align-items: center;
                     justify-content: center;
