@@ -332,6 +332,10 @@
                     line-height: 11pt
                 }
 
+                .testo{
+                    margin-bottom: 1rem
+                }
+
 
             }
 
