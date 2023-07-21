@@ -275,7 +275,7 @@
 
                 h1{
                     height: auto;
-                    padding: auto;
+                    padding: 10px;
                 }
                 figure a{
                     width: 70%
