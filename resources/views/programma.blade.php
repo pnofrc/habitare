@@ -259,6 +259,9 @@
                     width: 100%;
                  }
 
+                 a{
+                    break-before: always
+                 }
                  
                  br{
                     display: none !important;
