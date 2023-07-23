@@ -53,7 +53,7 @@
 
 </div>
 
-<input type="range" id="gyroSlider" min="0" max="100" value="50" />
+<!-- <input type="range" id="gyroSlider" min="0" max="100" value="50" /> -->
   <script>
     if (window.DeviceOrientationEvent) {
       window.addEventListener('deviceorientation', handleOrientation);
@@ -72,7 +72,7 @@
       var clampedValue = Math.min(100, Math.max(0, mappedValue));
 
       // Update the slider position:
-      document.getElementById('gyroSlider').value = clampedValue;
+      document.getElementById('gainSlider').value = clampedValue/60;
     }
   </script>
 
