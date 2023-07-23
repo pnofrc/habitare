@@ -31,7 +31,7 @@
 <body>
   <div class=" flex column">
     <button onclick="startRecording()">Inizia</button>
-    <button onclick="stopRecording()">Stop</button>
+    <!-- <button onclick="stopRecording()">Stop</button> -->
   </div>
 
   <div class="flex column">
