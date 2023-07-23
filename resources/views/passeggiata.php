@@ -72,7 +72,7 @@
       var clampedValue = Math.min(100, Math.max(0, mappedValue));
 
       // Update the slider position:
-      document.getElementById('delaySlider').value = clampedValue/30;
+      document.getElementById('feedbackSlider').value = clampedValue/60;
     }
   </script>
 
