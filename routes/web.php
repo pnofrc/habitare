@@ -32,4 +32,6 @@ Route::get('/promo', function () {return view('promo');});
 
 Route::get('/radio', function () {return view('radio');});
 
+Route::get('/laura', function () {return view('laura');});
+
 Route::get('/passeggiata', function () {return view('passeggiata');});
