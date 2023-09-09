@@ -79,7 +79,7 @@
 
     <div class="flex">
         <h1>Habitare <b>Radio</b></h1>
-        <audio controls src="https://echo.lurk.org:999/habitare.ogg">
+        <audio controls src="http://echo.lurk.org:999/habitare.ogg">
     </div>
 
 

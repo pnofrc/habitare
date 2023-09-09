@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>DEVICE OF CICALE SIMULATION</title>
   <style>
     body{
       width: 100%;
@@ -29,6 +29,7 @@
   </style>
 </head>
 <body>
+  <h2>DEVICE OF CICALE SIMULATION</h2>
   <div class=" flex column">
     <button onclick="startRecording()">Inizia</button>
     <!-- <button onclick="stopRecording()">Stop</button> -->
@@ -52,6 +53,8 @@
     </div>
 
 </div>
+
+<footer>Made for "Passeggiata Preparata", by Alessandro Gambato - Federico Poni - Lorenzo Travaglini <br> Code by Federico Poni - copyleft!</footer>
 
 <!-- <input type="range" id="gyroSlider" min="0" max="100" value="50" /> -->
   <script>

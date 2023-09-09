@@ -57,7 +57,7 @@ class Categories extends Resource
             Hidden::make('selected')->default(1),
 
 
-            BelongsToMany::make('Post', 'posts', Post::class)
+            BelongsToMany::make('Post', 'posts', Posts::class)
                
         ];
 
