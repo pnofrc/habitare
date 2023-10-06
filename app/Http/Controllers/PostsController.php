@@ -38,7 +38,9 @@ class PostsController extends Controller
 
             $image = $request->file('file')->store('/');
 
-            $file = Image::make('storage/' . $image)->resize(300);
+            $file = Image::make('storage/' . $image)->resize(300, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
 
             $file->save('storage/' . $image);
 
