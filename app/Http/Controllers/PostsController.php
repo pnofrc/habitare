@@ -31,7 +31,7 @@ class PostsController extends Controller
 
             $path = resource_path('/')  . $image_name;
     
-            $file = Image::make($image->getRealPath())->resize(150, 150)->save($path);
+            $file = Image::make($image->getRealPath())->resize(150, 150)->save('/');
             
             $file=$file->filename;
            
