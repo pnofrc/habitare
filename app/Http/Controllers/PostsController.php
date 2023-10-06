@@ -25,16 +25,19 @@ class PostsController extends Controller
             //     'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
             // ]);
     
-            $image = $request->file('file');
+            // $image = $request->file('file');
 
-            $image_name = time().'_'. $image;
+            // $image_name = time().'_'. $image;
 
-            $path = public_path('/')  . $image_name;
-            // $path =$image;
+            // $path = public_path('/')  . $image_name;
+            // // $path =$image;
     
-            $file = Image::make($image->getRealPath())->resize(150, 150)->save($path);
+            // $file = Image::make($image->getRealPath())->resize(150, 150)->save($path);
             
-            $file=$file->filename;
+            // $file=$file->filename;
+
+            $file = $request->file('file')->resize(150, 150)->store('/');;
+
            
         } else {
             $file = 'null';
