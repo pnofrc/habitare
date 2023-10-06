@@ -30,7 +30,7 @@ class PostsController extends Controller
             $image_name = time().'_'. $image;
 
             // $path = resource_path('/')  . $image_name;
-            $path =$image_name;
+            $path =$image;
     
             $file = Image::make($image->getRealPath())->resize(150, 150)->save($path);
             
