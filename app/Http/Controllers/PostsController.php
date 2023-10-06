@@ -36,9 +36,12 @@ class PostsController extends Controller
             
             // $file=$file->filename;
 
-            $file = $request->file('file')->store('/');
-            dd($file);
+            $image = $request->file('file')->store('/');
 
+            $file = Image::make('/' . $image)->resize(150, 150);
+
+            dd($file);
+            // ->save($path)
            
         } else {
             $file = 'null';
