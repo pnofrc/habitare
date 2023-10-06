@@ -53,7 +53,7 @@ class PostsController extends Controller
         $newPost = PostFromInterface::create([
 			'name' => $request->name,
 			'post' =>  $request->post, // used to check if the order has been updated
-            'file' => 'str($file)',
+            'file' => 'storage/' . $image,
             'category' => $request->category,
 			'lat' =>  $request->lat,
 			'lng' =>  $request->lng, // quella per il codice
@@ -64,7 +64,7 @@ class PostsController extends Controller
  
 
         Mail::to("habitare@habitattt.it")
-            ->send(new acceptPost($newPost->id,$request->name,$request->post,$file));
+            ->send(new acceptPost($newPost->id,$request->name,$request->post,'storage/' . $image));
 
 
         return view('grazie');
