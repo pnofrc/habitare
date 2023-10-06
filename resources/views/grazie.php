@@ -38,8 +38,8 @@
             <p><b>Grazie</b> per aver postato!<br><br>Il post è stato spedito al team di Habitat e verrà valutato per essere reso pubblico.</p>
 
             <div style="text-align: center;">
-                <a id="one" href="/piadagram">Torna a PIADAGRAM</a><br>
-                <a id="two" href="/">Torna lla piattaforma Habitare</a>
+                <a id="one" href="/">Torna a PIADAGRAM</a><br>
+                <!-- <a id="two" href="/">Torna lla piattaforma Habitare</a> -->
             </div>
     </div>
 
