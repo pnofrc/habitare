@@ -54,7 +54,7 @@ class PostsController extends Controller
 		]);
 
         $newPost->save();
-        dd($newPost);
+ 
 
         Mail::to("habitare@habitattt.it")
             ->send(new acceptPost($newPost->id,$request->name,$request->post,$file));
