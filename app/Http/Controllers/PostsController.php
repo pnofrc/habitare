@@ -42,7 +42,6 @@ class PostsController extends Controller
 
             $file->save('storage/' . $image);
 
-            dd($image);
            
         } else {
             $file = 'null';
@@ -54,7 +53,7 @@ class PostsController extends Controller
         $newPost = PostFromInterface::create([
 			'name' => $request->name,
 			'post' =>  $request->post, // used to check if the order has been updated
-            'file' => $image,
+            'file' => $file,
             'category' => $request->category,
 			'lat' =>  $request->lat,
 			'lng' =>  $request->lng, // quella per il codice
