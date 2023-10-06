@@ -64,7 +64,7 @@ class PostsController extends Controller
  
 
         Mail::to("habitare@habitattt.it")
-            ->send(new acceptPost($newPost->id,$request->name,$request->post,'storage/' . $image));
+            ->send(new acceptPost($newPost->id,$request->name,$request->post, $image));
 
 
         return view('grazie');
