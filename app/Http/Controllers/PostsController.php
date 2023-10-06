@@ -53,7 +53,7 @@ class PostsController extends Controller
         $newPost = PostFromInterface::create([
 			'name' => $request->name,
 			'post' =>  $request->post, // used to check if the order has been updated
-            'file' => 'storage/' . $image,
+            'file' =>  $image,
             'category' => $request->category,
 			'lat' =>  $request->lat,
 			'lng' =>  $request->lng, // quella per il codice
