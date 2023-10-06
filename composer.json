@@ -11,6 +11,7 @@
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
         "h/posts": "@dev",
+        "intervention/image": "^2.7",
         "laraning/nova-time-field": "^1.2",
         "laravel/framework": "^10.10",
         "laravel/nova": "~4.0",

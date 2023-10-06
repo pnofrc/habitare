@@ -10,6 +10,7 @@ use App\Mail\acceptPost;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
@@ -17,19 +18,31 @@ class PostsController extends Controller
 
     public function postFromInterface(Request $request){
      
+        
 
         if ($request->hasFile('file')) {
-           
-            $file = $request->file('file')->store('/');;
+            // $this->validate($request, [
+            //     'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
+            // ]);
+    
+            $image = $request->file('file');
+
+            $image_name = time().'_'. $image;
+
+            $path = public_path('/')  . $image_name;
+    
+            $file = Image::make($image->getRealPath())->resize(150, 150)->save($path);
+            
+            $file=$file->filename;
            
         } else {
             $file = 'null';
         }
 
-  
+    
+
 
         $newPost = PostFromInterface::create([
-
 			'name' => $request->name,
 			'post' =>  $request->post, // used to check if the order has been updated
             'file' => $file,
@@ -40,7 +53,7 @@ class PostsController extends Controller
 		]);
 
         $newPost->save();
-
+        dd($newPost);
 
         Mail::to("habitare@habitattt.it")
             ->send(new acceptPost($newPost->id,$request->name,$request->post,$file));

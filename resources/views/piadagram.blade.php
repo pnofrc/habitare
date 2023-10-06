@@ -13,10 +13,10 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:title" content="Habitare PiadaGram" />
-        <meta property="og:url" content="https://habitare.habitattt.it/piadagram" />
+        <meta property="og:url" content="https://habitare.habitattt.it/" />
         <meta property="og:image" content="https://habitare.habitattt.it/assets/habitare/H.png" />
         <meta name="robots" content="index,follow">
-        <link rel="canonical" href="https://habitare.habitattt.it/piadagram">
+        <link rel="canonical" href="https://habitare.habitattt.it/">
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -101,127 +101,127 @@
                 bottom: 0;
                 position: absolute;
                 height: 84%;
-    justify-content: space-between;
-            }
+            justify-content: space-between;
+                    }
 
-            .flex-column{
-                display: flex;
-                flex-direction: column;
-            }
-
-
+                    .flex-column{
+                        display: flex;
+                        flex-direction: column;
+                    }
 
 
-            .closeSidebar{      z-index: 19;}
-            .closeSidebar button{
-                background-color: var(--green);
-          
-            }
 
 
-            .filter {
-                filter: grayscale(1);
-            }
-
-            #istruzioni{
-                display: none;
-                flex-direction: column;
-                z-index: 100;
-                position: relative;
-                background: white;
-                border-radius: 30px;
-                width: 70%;
-                margin-top: 5%;
-                padding: 20px;
-                margin-left: 15%;
-
-            }
-
-            li{
-                padding: 10px 0;
-               line-height: 1.5rem;
-               font-size: 1.2rem
-            }
-
-            .filterCategory{
-                position: absolute;
-                z-index: 4;
-                display: flex;
-                flex-direction: column;
-                top: 25%;
-                margin-left: 11px;
+                    .closeSidebar{      z-index: 19;}
+                    .closeSidebar button{
+                        background-color: var(--green);
                 
-            }
-
-            .leaflet-popup-close-button span{
-                color: black
-            }
+                    }
 
 
-            .leaflet-popup-close-button{
-                scale: 2;
-            }
-           
+                    .filter {
+                        filter: grayscale(1);
+                    }
+
+                    #istruzioni{
+                        display: none;
+                        flex-direction: column;
+                        z-index: 100;
+                        position: relative;
+                        background: white;
+                        border-radius: 30px;
+                        width: 70%;
+                        margin-top: 5%;
+                        padding: 20px;
+                        margin-left: 15%;
+
+                    }
+
+                    li{
+                        padding: 10px 0;
+                    line-height: 1.5rem;
+                    font-size: 1.2rem
+                    }
+
+                    .filterCategory{
+                        position: absolute;
+                        z-index: 4;
+                        display: flex;
+                        flex-direction: column;
+                        top: 25%;
+                        margin-left: 11px;
+                        
+                    }
+
+                    .leaflet-popup-close-button span{
+                        color: black
+                    }
 
 
-            .leaflet-popup-content-wrapper{
-                padding: 10px;
-            }
+                    .leaflet-popup-close-button{
+                        scale: 2;
+                    }
+                
 
-            #alert, #istruzionePost{
-                display: none;
-                position: absolute;
-                width: 100vw;
-                height: 100vh;
-                flex-direction: column;
-                z-index: 1000;
-                padding: 10%;
-                background: #d6dcd9e7;
-                justify-content: center;
-                text-align: center;
-            }
 
-            #alert p, #istruzionePost p{
-                font-size: 2rem;
-            }
+                    .leaflet-popup-content-wrapper{
+                        padding: 10px;
+                    }
 
-            #istruzionePost{
-                display: none
-            }
+                    #alert, #istruzionePost{
+                        display: none;
+                        position: absolute;
+                        width: 100vw;
+                        height: 100vh;
+                        flex-direction: column;
+                        z-index: 1000;
+                        padding: 10%;
+                        background: #d6dcd9e7;
+                        justify-content: center;
+                        text-align: center;
+                    }
 
-            @media (max-width: 450px) {
-                #istruzioni{
-                background: white;
-                width: 100%;
-                height: 100%;
-                overflow-y: scroll;
-                padding: 40px 20px;
-                margin: unset;
-                border-radius: 0;
-                align-items: center;
-                flex-direction: column;
-               padding-bottom: 5rem
-            }
+                    #alert p, #istruzionePost p{
+                        font-size: 2rem;
+                    }
 
-            #closeIstructions{bottom: 1rem;
-            position: fixed;}
+                    #istruzionePost{
+                        display: none
+                    }
 
-            .bartolaccio{
-                font-size: 8vw
-            }
+                    @media (max-width: 450px) {
+                        #istruzioni{
+                        background: white;
+                        width: 100%;
+                        height: 100%;
+                        overflow-y: scroll;
+                        padding: 40px 20px;
+                        margin: unset;
+                        border-radius: 0;
+                        align-items: center;
+                        flex-direction: column;
+                    padding-bottom: 5rem
+                    }
 
-            .buttons{
-                margin-left: unset
-            }
+                    #closeIstructions{bottom: 1rem;
+                    position: fixed;}
 
-            .buttons {
-                z-index: 2;
-                left: 12px;
-                top: unset;
-    height: fit-content;
-                justify-content: end;
-            }
-        }
+                    .bartolaccio{
+                        font-size: 8vw
+                    }
+
+                    .buttons{
+                        margin-left: unset
+                    }
+
+                    .buttons {
+                        z-index: 2;
+                        left: 12px;
+                        top: unset;
+            height: fit-content;
+                        justify-content: end;
+                    }
+                }
 
             #loghi{
                 width: 100% !important;
@@ -254,7 +254,7 @@
             <button id="toggleInstructions">ISTRUZIONI</button>
             <button id="postMode">MODALITA' POST</button>
         </div>
-        <button id="backTo"><a style="text-decoration: none" href="/">HABITARE HOMEPAGE</a></button>
+        {{-- <button id="backTo"><a style="text-decoration: none" href="/festival">HABITARE HOMEPAGE</a></button> --}}
 
     </div>
 
@@ -282,9 +282,9 @@
 
         <div class="bottom flex">
             <span>
-                Habitare è un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).<br><br>
+                Habitare è stato un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).<br><br>
                 Ogni sabato e domenica, dalle 10 alle 00, il Festival popolerà un differente borgo, delineando un percorso collettivo fatto di laboratori, presentazioni, tavole rotonde, musica, mostre, installazioni ed escursioni.<br><br>
-                Il filo conduttore é la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.
+                Il filo conduttore é stato la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.
            </span>
             <span>
               Progetto co-finanziato dal Ministero per la Transizione Ecologica nell'ambito del processo di attuazione della Strategia Nazionale per lo Sviluppo Sostenibile

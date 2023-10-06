@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'App\Http\Controllers\PostsController@index');
+Route::get('/', 'App\Http\Controllers\PostsController@posts');
 
-Route::get('/piadagram', 'App\Http\Controllers\PostsController@posts');
+Route::get('/festival', 'App\Http\Controllers\PostsController@index');
+
+// Route::get('/piadagram', 'App\Http\Controllers\PostsController@posts');
+
 Route::post('/piadina', 'App\Http\Controllers\PostsController@postFromInterface');
 Route::get('/crescione/{id}', 'App\Http\Controllers\PostsController@acceptPost');
 
