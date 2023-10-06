@@ -41,6 +41,8 @@ class PostsController extends Controller
             $file = Image::make('storage/' . $image)->resize(150, 150);
 
             $file->save('storage/' . $image);
+
+            dd($image);
            
         } else {
             $file = 'null';
