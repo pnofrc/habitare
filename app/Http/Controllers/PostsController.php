@@ -36,7 +36,8 @@ class PostsController extends Controller
             
             // $file=$file->filename;
 
-            $file = $request->file('file')->resize(150, 150)->store('/');;
+            $file = $request->file('file')->store('/');
+            dd($file);
 
            
         } else {
