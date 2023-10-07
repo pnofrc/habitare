@@ -501,7 +501,7 @@
                 @if ($post['published'] == 1 )
 
                     @if ($post['file'] != 'null'){
-                            img = `<img src="storage/{!!$post['file']!!}">`
+                            img = `<a href="storage/{!!$post['file']!!}"><img src="storage/low-{!!$post['file']!!}"></a>`
                         } @else {
                             img = ''
                         }
