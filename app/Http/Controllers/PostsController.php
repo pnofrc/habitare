@@ -21,28 +21,19 @@ class PostsController extends Controller
         
 
         if ($request->hasFile('file')) {
-            // $this->validate($request, [
-            //     'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
-            // ]);
-    
-            // $image = $request->file('file');
-
-            // $image_name = time().'_'. $image;
-
-            // $path = public_path('/')  . $image_name;
-            // // $path =$image;
-    
-            // $file = Image::make($image->getRealPath())->resize(150, 150)->save($path);
             
-            // $file=$file->filename;
 
             $image = $request->file('file')->store('/');
 
-            $file = Image::make('storage/' . $image)->resize(500, null, function ($constraint) {
+// TODO: salvare anche standard e aprili al click
+            
+            // $image = $request->file('file')->store('/');
+
+            $file = Image::make('storage/' . $image )->resize(500, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
 
-            $file->save('storage/' . $image);
+            $file->save('storage/low-' . $image);
 
            
         } else {
