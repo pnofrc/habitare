@@ -23,18 +23,18 @@ Route::get('/festival', 'App\Http\Controllers\PostsController@index');
 Route::post('/piadina', 'App\Http\Controllers\PostsController@postFromInterface');
 Route::get('/crescione/{id}', 'App\Http\Controllers\PostsController@acceptPost');
 
-Route::get('/info', 'App\Http\Controllers\PostsController@info');
+// Route::get('/info', 'App\Http\Controllers\PostsController@info');
 
-Route::get('/programma', 'App\Http\Controllers\PostsController@program');
+// Route::get('/programma', 'App\Http\Controllers\PostsController@program');
 
 Route::get('/map', function () {return view('map');});
 
-Route::get('/call', function () {return view('call');});
+// Route::get('/call', function () {return view('call');});
 
-Route::get('/promo', function () {return view('promo');});
+// Route::get('/promo', function () {return view('promo');});
 
 Route::get('/radio', function () {return view('radio');});
 
-Route::get('/laura', function () {return view('laura');});
+// Route::get('/laura', function () {return view('laura');});
 
-Route::get('/passeggiata', function () {return view('passeggiata');});
+// Route::get('/passeggiata', function () {return view('passeggiata');});

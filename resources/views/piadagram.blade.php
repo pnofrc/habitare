@@ -5,14 +5,15 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Habitare</title>
-        <meta name="description" content="Habitare PiadaGram è una mappa dove puoi pubblicare racconti, poesie, fotografie, disegni, consigli su dove mangiare, ricordi passati o speranze future, qualsiasi cosa! 
+        <link rel="icon" type="image/x-icon" href="http://habitattt.it/images/h.logo.png">
+        <meta name="description" content="Habitare è una mappa dove puoi pubblicare racconti, poesie, fotografie, disegni, consigli su dove mangiare, ricordi passati o speranze future, qualsiasi cosa! 
         Creiamo una nostra mappa della Romagna Toscana, fatta da noi per noi e per futuri viandanti.">
 
-        <meta name="og:description" content="Habitare PiadaGram è una mappa dove puoi pubblicare racconti, poesie, fotografie, disegni, consigli su dove mangiare, ricordi passati o speranze future, qualsiasi cosa! 
+        <meta name="og:description" content="Habitare è una mappa dove puoi pubblicare racconti, poesie, fotografie, disegni, consigli su dove mangiare, ricordi passati o speranze future, qualsiasi cosa! 
         Creiamo una nostra mappa della Romagna Toscana, fatta da noi per noi e per futuri viandanti.">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta property="og:title" content="Habitare PiadaGram" />
+        <meta property="og:title" content="Habitare" />
         <meta property="og:url" content="https://habitare.habitattt.it/" />
         <meta property="og:image" content="https://habitare.habitattt.it/assets/habitare/H.png" />
         <meta name="robots" content="index,follow">
@@ -262,8 +263,8 @@
     <div class="flex sidebar">
 
         <div style="margin-top: 2rem; display: flex; flex-direction: column; align-items: center">
-            <b class="bartolaccio">PiadaGram</b>
-            <b>Creato da</b>
+            {{-- <b class="bartolaccio">HABITARE</b>
+            <b>Creato da</b> --}}
             <img id="title" src="/assets/title.png">
         </div>
 
@@ -271,7 +272,7 @@
           <h2>La bacheca pubblica della Romagna Toscana</h2>
 
           <p>
-            <b>PiadaGram</b> è parte della piattaforma web <a href="../">Habitare</a> creata nel contesto del festival omonimo.<br><br>
+            <b>Habitare</b> è la mappa che abbiamo sempre sognato per il nostro territorio. Una mappa in cui tutte le preziosità, le più evidenti come le più nascoste, vengono diffuse come in un grande passa-parola.<br><br>
             Chiunque può pubblicare su questa pagina racconti, poesie, fotografie, disegni, consigli su dove mangiare, ricordi passati o speranze future.<br>
             Per creare il post bisogna cliccare su un punto della mappa, geolocalizzandolo, di modo che possa essere raggiunto ed esplorato da futuri viandanti.<br>
 
@@ -282,9 +283,9 @@
 
         <div class="bottom flex">
             <span>
-                Habitare è stato un Festival nomade che si svolgerà a Luglio 2023 tra Rocca S. Casciano, Tredozio, Portico e S. Benedetto (FC).<br><br>
-                Ogni sabato e domenica, dalle 10 alle 00, il Festival popolerà un differente borgo, delineando un percorso collettivo fatto di laboratori, presentazioni, tavole rotonde, musica, mostre, installazioni ed escursioni.<br><br>
-                Il filo conduttore é stato la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.
+                Habitare è un Festival itinerante svolto a Luglio 2023 tra Rocca S. Casciano, Tredozio e Portico (FC).<br><br>
+                Il Festival ha popolato i differenti borghi, delineando un percorso collettivo fatto di laboratori, presentazioni, tavole rotonde, musica, mostre, installazioni ed escursioni.<br><br>
+                Il filo conduttore é la rilettura critica ed immaginativa della vita nelle aree interne d'Italia, attraverso pratiche cult(r)urali che possano definire il rapporto tra l'immaginabile, il possibile e l'esistente.
            </span>
             <span>
               Progetto co-finanziato dal Ministero per la Transizione Ecologica nell'ambito del processo di attuazione della Strategia Nazionale per lo Sviluppo Sostenibile
